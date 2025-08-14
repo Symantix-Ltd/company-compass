@@ -39,7 +39,7 @@ export default function SearchBar() {
           autoComplete="off"
           id="q"
           name="q"
-          placeholder="Search a Company or Director"
+          placeholder="Search for a Company or Director"
           className="flex-grow px-4 py-2 outline-none"
           value={query}
           onInput={(e) => searchInput(e.target.value)}

@@ -44,11 +44,7 @@ export default function Header() {
       </button>
     </div>
 
-    <div className="max-w-7xl mx-auto mt-4   pb-4">
-      <br/>
-    <SearchBar />
-    
-  </div>
+ 
   
     {/* Mobile Menu Dropdown */}
     {isOpen && (

@@ -1,16 +1,16 @@
+import SearchForm from './components/SearchForm'; // adjust path as needed
 
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
-    {/* Header */}
- 
-
+    
+  
     {/* Main content */}
     <main className="max-w-5xl mx-auto p-6">
-    
-
-
+      {/* Include the search form */}
+  <SearchForm />
+  <br/><br/>
       {/* Intro Section */}
       <section className="mb-16">
         <h2 className="f-heading-1 ">
@@ -18,7 +18,7 @@ export default function Home() {
         </h2>
 
         
-       
+        
         
    
 
