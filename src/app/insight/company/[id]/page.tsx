@@ -8,7 +8,7 @@ import { getRecordFromDynamoDB } from '@/lib/dynamo';
 import LatestActivityTable from '../../../components/latestActivityTable';
 import CompanyAddress from '../../../components/companyAddress';
 
-import FilingHistoryList from "../../../components/FilingHistoryList";
+import FilingHistoryList from "../../../components/filingHistoryList";
 
 import Financials from '../../../components/Financials';
 import OfficerItem from '../../../components/OfficerItem';
@@ -25,7 +25,7 @@ export async function generateStaticParams(): Promise<Params[]> {
     return [];
   }
   
-  
+
 async function getCompanyData(id: string) {
     const data = await getRecordFromDynamoDB(id);
     return data;
