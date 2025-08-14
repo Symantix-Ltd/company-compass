@@ -1,10 +1,10 @@
 
-//export const revalidate = 86400;
+export const revalidate = 86400;
 
 
 import { getRecordFromDynamoDB } from '@/lib/dynamo';
 
-import type { Metadata } from "next";
+
 import LatestActivityTable from '../../../components/latestActivityTable';
 import CompanyAddress from '../../../components/companyAddress';
 
@@ -20,7 +20,12 @@ interface Params {
         id: string;
       };
 
-
+// No pre-rendered pages
+export async function generateStaticParams(): Promise<Params[]> {
+    return [];
+  }
+  
+  
 async function getCompanyData(id: string) {
     const data = await getRecordFromDynamoDB(id);
     return data;
