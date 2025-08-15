@@ -42,9 +42,10 @@ export default async function SearchPage({ searchParams }: Props) {
     const query = params.q || '';
   let results: CompanyResult[] = [];
 */
+
   if (query) {
     try {
-      const res = await fetch( process.env.BASE_URL + `/api/search?q=${encodeURIComponent(query)}`);
+      const res = await fetch( process.env.BASE_URL + `/api/search?q=${encodeURIComponent(query)}`,  { cache: 'no-store' });
       if (res.ok) {
         results = await res.json();
       }
@@ -58,7 +59,7 @@ export default async function SearchPage({ searchParams }: Props) {
       <br />
       <SearchForm />
       <br />
-      <h1 className="text-2xl font-bold mb-4">Search Results for "{query}"</h1>
+      <h1 className="text-2xl font-bold mb-4">Search Results:  <span className='font-bold'>{query}</span></h1>
 <br/>
       {results.length === 0 && query && <p>No results found.</p>}
 
