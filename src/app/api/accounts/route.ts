@@ -68,7 +68,7 @@ export async function GET(req: NextRequest) {
       text = text.slice(1, -1);
     }
     text = text.replace(/,/g, '');
-    let val = parseFloat(text);
+    const val = parseFloat(text);
     return negative ? -val : val;
   }
 

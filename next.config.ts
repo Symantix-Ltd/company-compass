@@ -4,12 +4,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // add other config options here
-  
+  output: undefined, // add other config options here
 };
 
 export default nextConfig;
-
-module.exports = {
-  output: undefined, // ❌ no 'export'
-};
