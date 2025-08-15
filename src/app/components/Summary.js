@@ -76,7 +76,9 @@ const YearsSince = (date) => {
   
 
 const parseDate = (dateStr) => {
-    if (dateStr.includes("/")) {
+
+    
+    if (dateStr && dateStr.includes("/")) {
       // Parse as DD/MM/YYYY
       return parseDMY(dateStr);
     }
@@ -167,7 +169,10 @@ export default function Summary({ data }) {
     <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Accounts</h2>
 
     <ul className="list-disc list-inside text-gray-600">
+    {data.Accounts_LastMadeUpDate && ( 
         <li>Last accounts made up to <LongDate date={parseDate(data.Accounts_LastMadeUpDate)} /></li>
+)}
+
         <li>Accounts type is <span className="text-blue-500 font-bold">{data.Accounts_AccountCategory}</span></li>
 
         <li className="font-bold">Next accounts due date <LongDate date={parseDate(data.Accounts_NextDueDate)} /></li>

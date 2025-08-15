@@ -26,10 +26,10 @@ export default function CompanyAddress({ data }) {
    
   } = data;
 
-  const postcodeLink = `/explorer/postcode/${RegAddress_PostCode.replace(
+  const postcodeLink =  RegAddress_PostCode ? `/explorer/postcode/${RegAddress_PostCode.replace(
     /\s+/g,
     "-"
-  ).toLowerCase()}`;
+  ).toLowerCase()}` : "";
 
 
   
