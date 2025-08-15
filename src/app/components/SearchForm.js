@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
-
+import { useRouter } from 'next/navigation';
 
 export default function SearchForm() {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const router = useRouter();
 
   function handleInput(value) {
     setQuery(value);
@@ -14,39 +15,47 @@ export default function SearchForm() {
     // setSuggestions([...]);
   }
 
+
+
   function handleSubmit(e) {
     e.preventDefault();
     if (!query.trim()) return;
-    window.location.href = `/search?q=${encodeURIComponent(query.trim())}`;
+
+    // Redirect to search page
+    router.push(`/search?q=${encodeURIComponent(query.trim())}`);
   }
 
+
   return (
+
+    
+                   
+    
     <form onSubmit={handleSubmit} className="flex-grow max-w-4xl relative">
-      <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
+      <div className="flex items-center  bg-blue-100 p-4 rounded-md overflow-hidden">
         <input
           type="text"
           autoComplete="off"
           name="q"
           placeholder="Search for a Company"
-          className="flex-grow px-4 py-2 outline-none"
+          className="flex-grow px-4 py-4   "
           value={query}
           onChange={(e) => handleInput(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") handleSubmit(e);
           }}
         />
-        <MagnifyingGlassIcon className="size-5 text-blue-500"/>
+        <MagnifyingGlassIcon className="w-5 h-5  text-blue-500"/>
         <button
           type="submit"
-          className="px-4 bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center"
+          className="px-4 bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center ml-2"
           aria-label="Search"
         >
-          
         </button>
       </div>
 
       {suggestions.length > 0 && (
-        <div className="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-md mt-1 max-h-60 overflow-auto z-10">
+        <div className="absolute top-full left-0 right-0 bg-white border border-gray-300   rounded-md mt-1 max-h-60 overflow-auto z-10">
           {suggestions.map((sug, idx) => (
             <div
               key={idx}
@@ -63,5 +72,6 @@ export default function SearchForm() {
         </div>
       )}
     </form>
+    
   );
 }

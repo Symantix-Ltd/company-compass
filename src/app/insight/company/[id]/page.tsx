@@ -14,6 +14,7 @@ import Financials from '../../../components/Financials';
 import OfficerItem from '../../../components/OfficerItem';
 import Summary from '../../../components/Summary';
 
+import SearchForm from '../../../components/SearchForm'; // adjust path as needed
 
 
 interface Params {
@@ -84,7 +85,16 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
 
     return (
-        <main className="max-w-8xl mx-auto p-4 bg-white rounded-lg  text-gray-900">
+
+       
+  
+
+        <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg  text-gray-900">
+            <div >
+                <br/>
+            <SearchForm/>
+            <br/>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch ">
                 {/* Summary company information */}
                 <div className='border border-silver-200 p-10 rounded-lg flex flex-col h-full'>         

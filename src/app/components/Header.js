@@ -28,10 +28,10 @@ export default function Header() {
       {/* Desktop Menu */}
       <nav className="hidden md:flex space-x-6 text-sm">
         <a href="/" className="hover:text-blue-500">Home</a>
-        <a href="/#about" className="hover:text-blue-500">About</a>
+       <a href="/#about" className="hover:text-blue-500">About</a> 
         <a href="/#contact" className="hover:text-blue-500">Contact</a>
-        <a href="/help/" className="text-blue-500"><QuestionMarkCircleIcon className="size-8" /></a>
-        <a href="/sign-in/" className="text-blue-500"><UserCircleIcon className="size-8" /></a>
+    {/*    <a href="/help/" className="text-blue-500"><QuestionMarkCircleIcon className="size-8" /></a>
+        <a href="/sign-in/" className="text-blue-500"><UserCircleIcon className="size-8" /></a> */}
       </nav>
   
       {/* Mobile Menu Button */}
@@ -51,10 +51,10 @@ export default function Header() {
       <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
         <nav className="flex flex-col p-4 space-y-4">
           <a href="/" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Home</a>
-          <a href="/#about" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>About</a>
+     <a href="/#about" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>About</a>
           <a href="/#contact" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Contact</a>
-          <a href="/help/" onClick={() => setIsOpen(false)}>Help</a>
-          <a href="/sign-in/" onClick={() => setIsOpen(false)}>Sign in</a>
+          { /*   <a href="/help/" onClick={() => setIsOpen(false)}>Help</a>
+          <a href="/sign-in/" onClick={() => setIsOpen(false)}>Sign in</a> */} 
         </nav>
       </div>
     )}

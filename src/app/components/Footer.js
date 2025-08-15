@@ -12,16 +12,23 @@ export default function Footer() {
     };
   
     return (
-      <footer className="bg-gray-900 text-gray-300 px-6 py-10">
+      <footer className="bg-gray-500 text-gray-200 px-6 py-10 ">
+
+
    
-  
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-y-8 gap-x-16">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-y-8 gap-x-16  max-w-6xl mx-auto p-6">
           {/* Logo */}
-          <div className="f-heading-9  text-gray-200">
-            Company Compass UK
-          </div>
+          <div className="flex items-center space-x-3">
+        
+        <div className="flex flex-col leading-tight ">
+          <h1 className="f-heading-1  font-bold tracking-tight ">
+            <a href="/" >Company Compass</a>
+          </h1>
+           </div>
+      </div>
+        
   
-          {/* Company */}
+          {/* Company 
           <div>
             <h3 className="mb-3 font-semibold text-white">&nbsp;</h3>
             <a href="/about" className="block mb-1 hover:underline">
@@ -31,8 +38,8 @@ export default function Footer() {
               Careers
             </a>
           </div>
-  
-          {/* Products & Services */}
+  */}
+          {/* Products & Services
           <div>
             <h3 className="mb-3 font-semibold text-white">Products & Services</h3>
             <a href="/app" className="block mb-1 hover:underline">
@@ -42,19 +49,17 @@ export default function Footer() {
               Reports
             </a>
           </div>
-  
+   */}
           {/* Search */}
           <div>
-            <h3 className="mb-3 font-semibold text-white">Search</h3>
-            <a href="/products/company-search" className="block mb-1 hover:underline">
+            <h3 className="mb-3 font-semibold text-black">Search</h3>
+            <a href="/search" className="block mb-1 hover:underline">
               Company
             </a>
-            <a href="/products/director-search" className="block mb-1 hover:underline">
-              Director
-            </a>
+           
           </div>
   
-          {/* Help */}
+          {/* Help 
           <div>
             <h3 className="mb-3 font-semibold text-white">Help</h3>
             <a href="/help" className="block mb-1 hover:underline">
@@ -67,14 +72,15 @@ export default function Footer() {
               Privacy Policy
             </a>
           </div>
-  
+  */}
           {/* Copyright */}
-          <div className="md:col-span-6 text-right mt-10 border-t border-gray-700 pt-6 text-sm text-gray-500 leading-relaxed">
-            Company Compass UK © 2025 is brought to you by Symantix Ltd (Company No. 05672247) a company registered in England and Wales.
+          <div className="md:col-span-6 text-center mt-10 border-t border-gray-700 pt-6 text-sm text-gray-200 leading-relaxed">
+            Company Compass © 2025 is published by Symantix Ltd (Company No. 05672247) a company registered in England and Wales&nbsp;
             
             
           </div>
         </div>
+       
       </footer>
     );
   }

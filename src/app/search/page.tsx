@@ -1,11 +1,6 @@
-'use client';
+// app/search/page.tsx
 import SearchForm from '../components/SearchForm'; // adjust path as needed
-
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
-
-
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
 
 interface CompanyResult {
   company_number: string;
@@ -24,45 +19,46 @@ function slugify(title: string) {
     .replace(/^-+|-+$/g, '');
 }
 
-export default function SearchPage() {
-  const searchParams = useSearchParams();
-  const queryParam = searchParams.get('q') || '';
+// Server component version
+interface Props {
+    params: Promise<{ [key: string]: string | string[] | undefined }>;
+    searchParams: Promise<{ q?: string }>;
+}
 
-  const [query, setQuery] = useState(queryParam);
-  const [results, setResults] = useState<CompanyResult[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
 
-  useEffect(() => {
-    if (!queryParam) return;
+export default async function SearchPage({ params, searchParams }: Props) {
+    const resolvedParams = await params;
+    const resolvedSearchParams = await searchParams;
+  
+    const query = resolvedSearchParams.q || '';
+    let results: CompanyResult[] = [];
 
-    const fetchResults = async () => {
-      setLoading(true);
-      setError('');
-      try {
-        const res = await fetch(`/api/search?q=${encodeURIComponent(queryParam)}`);
-        if (!res.ok) throw new Error('Failed to fetch');
-        const data = await res.json();
-        setResults(data || []);
-      } catch (err: any) {
-        setError(err.message || 'Something went wrong');
-      } finally {
-        setLoading(false);
+/*
+export default async function SearchPage({ searchParams }: Props) {
+    const params = searchParams;
+
+    const query = params.q || '';
+  let results: CompanyResult[] = [];
+*/
+  if (query) {
+    try {
+      const res = await fetch( process.env.BASE_URL + `/api/search?q=${encodeURIComponent(query)}`);
+      if (res.ok) {
+        results = await res.json();
       }
-    };
-
-    fetchResults();
-  }, [queryParam]);
+    } catch (err) {
+     console.log(err)
+    }
+  }
 
   return (
-    <main className="max-w-8xl mx-auto p-4 bg-white rounded-lg text-gray-900">
-
-        <SearchForm/>
-        <br/><br/>
-      <h1 className="text-2xl font-bold mb-4">Search Results for "{queryParam}"</h1>
-
-      {loading && <p>Loading...</p>}
-      {error && <p className="text-red-500">{error}</p>}
+    <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
+      <br />
+      <SearchForm />
+      <br />
+      <h1 className="text-2xl font-bold mb-4">Search Results for "{query}"</h1>
+<br/>
+      {results.length === 0 && query && <p>No results found.</p>}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
         {results.map((company) => {
@@ -72,14 +68,10 @@ export default function SearchPage() {
           return (
             <div key={company.company_number} className="border p-4 rounded shadow-md flex gap-4">
               <div className="w-16 h-16 flex-shrink-0">
-              <BuildingOfficeIcon className="size-8 text-blue-500" />
-               
+                <BuildingOfficeIcon className="size-8 text-blue-500" />
               </div>
               <div className="flex-1">
-                <a
-                  href={companyUrl}
-                  className="text-blue-600 font-bold text-lg underline"
-                >
+                <a href={companyUrl} className="text-blue-600 font-bold text-lg underline">
                   {company.title}
                 </a>
                 {company.address_snippet && <p className="mb-2">{company.address_snippet}</p>}

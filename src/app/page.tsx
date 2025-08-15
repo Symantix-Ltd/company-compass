@@ -7,31 +7,36 @@ export default function Home() {
     
   
     {/* Main content */}
-    <main className="max-w-5xl mx-auto p-6">
+    <main className="max-w-6xl mx-auto p-6">
       {/* Include the search form */}
-  <SearchForm />
-  <br/><br/>
-      {/* Intro Section */}
-      <section className="mb-16">
-        <h2 className="f-heading-1 ">
-          Discover UK Companies Data
-        </h2>
 
-        
-        
-        
-   
+      <div className="xl:grid-layout gap-y-0 mt-16 md:mt-24">
+        <div className="xl:col-span-9">
+            <div className="f-heading-7" >
+            Company checks made simple
+            </div>
+                           
+
+                  
 
         <p className="text-lg text-gray-700 leading-relaxed max-w-prose">
           Our platform provides comprehensive data on UK companies, sourced directly from{" "}
           <strong className="text-gray-900">Companies House</strong> and{" "}
           <strong className="text-gray-900">The Gazette</strong>. Access official company filings, insolvency notices, and public records all in one place, making business research and compliance easier than ever.
         </p>
+        <br/>
+  <SearchForm />
+  </div>
+  </div>
+  <br/><br/>
+      {/* Intro Section */}
+      <section className="mb-16">
+ 
       </section>
 
       {/* Services Section */}
       <section className="mb-16">
-        <h2 className="f-heading-1">What We Offer</h2>
+        <h2 id="about" className="f-heading-1">What We Offer</h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700 text-lg max-w-prose">
           <li className="flex items-start space-x-3">
             <span className="inline-block mt-1 text-blue-600">
@@ -78,7 +83,8 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="mb-16 max-w-prose">
+      <section id="contact" className="mb-16 max-w-prose">
+        
         <h2 className="f-heading-1">Contact & Support</h2>
         <p className="text-lg text-gray-700 leading-relaxed">
           Questions or feedback? Reach out to us at{" "}
