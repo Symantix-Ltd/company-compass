@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/search/page.tsx
 import SearchForm from '../components/SearchForm'; // adjust path as needed
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
