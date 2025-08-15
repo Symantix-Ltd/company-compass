@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   // add other config options here
+  
 };
 
 export default nextConfig;
+
+module.exports = {
+  output: undefined, // ❌ no 'export'
+};

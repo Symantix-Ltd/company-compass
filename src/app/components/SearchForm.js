@@ -1,5 +1,8 @@
 "use client";
 
+export const dynamic = "force-dynamic"; // disables static caching
+
+
 import { useState } from "react";
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import { useRouter } from 'next/navigation';
