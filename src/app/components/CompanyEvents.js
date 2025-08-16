@@ -92,9 +92,9 @@ export default function CompanyEvents({ companyNumber = '' }) {
               href={notice.gazetteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ fontSize: '0.85rem', color: '#0070f3', textDecoration: 'underline' }}
+              style={{ fontSize: '0.85rem', color: 'silver' }}
             >
-              {notice.gazetteUrl}
+              source: The Gazette
             </a>
           )}
         </li>
