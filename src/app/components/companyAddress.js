@@ -41,19 +41,29 @@ export default function CompanyAddress({ data }) {
 
   useEffect(() => {
     if (!postcode) return;
-
+  
     fetch(`https://api.postcodes.io/postcodes/${encodeURIComponent(postcode)}`, { next: { revalidate: 86400 }})
       .then(res => res.json())
       .then(resData => {
-        const { latitude, longitude } = resData.result;
-        const { x, y } = latLonToPixel(latitude, longitude, mapWidth, mapHeight);
+        if (resData.status === 200 && resData.result) {
+          const { latitude, longitude } = resData.result;
 
-        setPinStyle({
-          left: `${x-5}px`,
-          top: `${y +15}px`
-        });
+          
+          const { x, y } = latLonToPixel(latitude, longitude, mapWidth, mapHeight);
+  
+          setPinStyle({
+            left: `${x - 5}px`,
+            top: `${y + 15}px`
+          });
+        } else {
+          console.warn("Postcode API returned no result for:", postcode, resData);
+        }
+      })
+      .catch(err => {
+        console.error("Error fetching postcode data:", err);
       });
   }, [postcode]);
+  
 
   function latLonToPixel(lat, lon, mapWidth, mapHeight) {
     const minLat = 49.9, maxLat = 59.4;

@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50 p-4 v-[2px]   border-b ">
-    <div className="max-w-7xl mx-auto flex justify-between items-center">
+    <div className="max-w-7xl mx-auto flex justify-between items-left">
       {/* Logo + Company name + Byline */}
       <div className="flex items-center space-x-3">
         <img style={{ width: 50 }} src="/compass.png" alt="Company Compass logo" />

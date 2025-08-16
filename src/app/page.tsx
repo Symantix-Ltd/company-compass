@@ -4,11 +4,15 @@ import RssFeed from './components/RssFeed';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex  bg-gray-50 text-gray-900">
+
+   
+
+
+    <div className="min-h-screen flex w-full bg-gray-50 text-gray-900">
     
-  <div className='flex  space-x-3'>
+  <div className='flex  space-x-3 max-w-7xl mx-auto p-6 '>
     {/* Main content */}
-    <main className="max-w-7xl mx-auto p-6 ">
+    <main className="    ">
       {/* Include the search form */}
       <div className="xl:grid-layout gap-y-0 mt-16 md:mt-24">
         <div className="xl:col-span-9">
@@ -99,7 +103,7 @@ export default function Home() {
       
     </main>
     </div>
-    <div className='flex justify-right'>
+    <div className='flex justify-right flex  space-x-3 max-w-7xl mx-auto p-6'>
 
     <aside className="w-full max-w-2xl p-4">
     <h2 className='f-heading-2'>Company Events</h2> 
