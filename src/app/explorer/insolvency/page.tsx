@@ -127,8 +127,8 @@ export default function RssFeed() {
   return (
     <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
       <br />
-      <h1 className="text-2xl font-bold mb-4">Corporate Insolvency Events</h1>
-
+      <h1 className="f-heading-8 mb-4">Corporate Insolvency Events</h1>
+<br/>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
         {companyBlocks.map((company) => {
         // Skip companies without a company number
