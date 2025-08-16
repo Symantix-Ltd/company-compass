@@ -30,14 +30,15 @@ function slugify(title: string) {
     .replace(/^-+|-+$/g, '');
 }
 
-interface Props {
-  params: { postcode: string };
-}
+interface Params {
+  postcode: string;
+};
 
-export default async function PostcodePage({ params }: Props) {
+export default async function PostcodePage({ params }: { params: Promise<Params> }) {
 
   const p = await params;
   const postcode = p.postcode.replace(/-/g, ' ');
+  
 
   let results: CompanyResult[] = [];
 
