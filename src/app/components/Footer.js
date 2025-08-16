@@ -56,6 +56,9 @@ export default function Footer() {
             <a href="/search" className="block mb-1 hover:underline">
               Company
             </a>
+            <a href="/explorer/postcode" className="block mb-1 hover:underline">
+              Postcode
+            </a>
            
           </div>
   

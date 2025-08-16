@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
 
 // app/search/page.tsx
-import SearchForm from '../components/SearchForm'; // adjust path as needed
+import SearchFormPostcode from '../../components/SearchFormPostcode'; // adjust path as needed
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 
 interface CompanyResult {
@@ -58,7 +58,7 @@ export default async function SearchPage({ searchParams }: Props) {
   return (
     <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
       <br />
-      <SearchForm />
+      <SearchFormPostcode/>
       <br />
       <h1 className="text-2xl font-bold mb-4"><span className='font-bold'>{query}</span></h1>
 <br/>
