@@ -61,18 +61,32 @@ const MonthsUntil = ({ date }) => {
   
   
 
-const YearsSince = (date) => {
-    const startDate = new Date(date);
+// utils/yearsSince.js
+export function YearsSince(dateInput) {
+    if (!dateInput) return null; // handle null/undefined
+  
+    const dateStr = typeof dateInput === 'string' ? dateInput : dateInput.date;
+    if (!dateStr) return null;
+  
+    const parts = dateStr.split('-').map(Number);
+    if (parts.length !== 3) return null; // invalid format
+  
+    const startDate = new Date(parts[0], parts[1] - 1, parts[2]);
+    if (isNaN(startDate)) return null;
+  
     const today = new Date();
+    let years = today.getFullYear() - startDate.getFullYear();
   
-    return (
-      today.getFullYear() -
-      startDate.getFullYear() -
-      (today < new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate()) ? 1 : 0)
-    );
-  };
+    if (
+      today.getMonth() < startDate.getMonth() ||
+      (today.getMonth() === startDate.getMonth() && today.getDate() < startDate.getDate())
+    ) {
+      years--;
+    }
   
-  export { YearsSince };
+    return years;
+  }
+  
   
 
 const parseDate = (dateStr) => {

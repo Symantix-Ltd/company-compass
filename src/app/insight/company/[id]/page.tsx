@@ -8,6 +8,8 @@ import { getRecordFromDynamoDB } from '@/lib/dynamo';
 import LatestActivityTable from '../../../components/latestActivityTable';
 import CompanyAddress from '../../../components/companyAddress';
 
+import CompanyEvents from '../../../components/CompanyEvents';
+
 import FilingHistoryList from "../../../components/filingHistoryList";
 
 import Financials from '../../../components/Financials';
@@ -86,9 +88,6 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
     return (
 
-       
-  
-
         <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg  text-gray-900">
             <div >
                 <br/>
@@ -101,10 +100,12 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                  <Summary data={data}/>
                     </div>
 
-                {/* Financials */}
+                {/* Company Events */}
                 <div className='border border-silver-200 p-10 rounded-lg' >
-                    <h1 className='f-heading-1'>Financials</h1>
-                    <Financials companyNumber={data.CompanyNumber} /> 
+                <h1 className='f-heading-1'>Company Events</h1>
+                
+                
+                    <CompanyEvents companyNumber={data.CompanyNumber} /> 
                 </div>
 
                 {/* Contact */}
@@ -135,6 +136,13 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                     <br />
                     <FilingHistoryList filings={filing_data} companyNumber={data.CompanyNumber} />
                 </div>
+
+                 {/* Financials */}
+                 <div className='border border-silver-200 p-10 rounded-lg' >
+                    <h1 className='f-heading-1'>Financials</h1>
+                    <Financials companyNumber={data.CompanyNumber} /> 
+                </div>
+
             </div>
             <br />
             <p>Page last updated: {formattedDate}</p>

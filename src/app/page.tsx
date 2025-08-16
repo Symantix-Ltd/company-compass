@@ -1,18 +1,18 @@
-import SearchForm from './components/SearchForm'; // adjust path as needed
+import SearchForm from './components/SearchForm'; 
 
+import RssFeed from './components/RssFeed';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900">
+    <div className="min-h-screen flex  bg-gray-50 text-gray-900">
     
-  
+  <div className='flex  space-x-3'>
     {/* Main content */}
-    <main className="max-w-6xl mx-auto p-6">
+    <main className="max-w-7xl mx-auto p-6 ">
       {/* Include the search form */}
-
       <div className="xl:grid-layout gap-y-0 mt-16 md:mt-24">
         <div className="xl:col-span-9">
-            <div className="f-heading-7" >
+            <div className="f-heading-8" >
             Company checks made simple
             </div>
                            
@@ -98,6 +98,16 @@ export default function Home() {
      
       
     </main>
+    </div>
+    <div className='flex justify-right'>
+
+    <aside className="w-full max-w-2xl p-4">
+    <h2 className='f-heading-2'>Company Events</h2> 
+    <br/>     
+
+<RssFeed/>
+</aside>
+    </div>
   </div>
   );
 }
