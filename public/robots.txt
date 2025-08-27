@@ -1,4 +1,3 @@
 User-agent: *
-Disallow:
 
-Sitemap: https://www.companycompass.co.uk/api/gazette/corporate_insolvency/publish_date_rss 
+Sitemap: https://www.companycompass.co.uk/sitemap.xml 

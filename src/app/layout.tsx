@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+import { GoogleTagManager } from '@next/third-parties/google'
+
 import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
@@ -28,6 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="GTM-T2HVKFJV" />
       <head>
       <script async src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7212919066729459"
