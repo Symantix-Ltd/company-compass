@@ -124,9 +124,12 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                 <div className="border border-silver-200 p-10 rounded-lg flex flex-col h-full">
                     <h1 className='f-heading-1'>People</h1>
                     <div>
-                        {officer_data.items?.map((officer:any) => (
-                            <OfficerItem key={officer.person_number} officer={officer} />
-                        )) || <li>No officers found</li>}
+                    {officer_data.items?.map((officer:any, index:number) => (
+  <OfficerItem 
+    key={`${officer.person_number ?? officer.name}-${index}`} 
+    officer={officer} 
+  />
+)) || <li>No officers found</li>}
                     </div>
                 </div>
 
