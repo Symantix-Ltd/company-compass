@@ -14,6 +14,38 @@ function extractCompanyNumber(content: string): string | null {
   return match ? match[1] : null;
 }
 
+// Type definitions for Gazette API
+interface GazetteLink {
+  "@href": string;
+  "@rel"?: string;
+  "@title"?: string;
+  "@type"?: string;
+}
+
+interface GazetteEntry {
+  id: string;
+  "f:status": string;
+  "f:notice-code": string;
+  title: string;
+  link: GazetteLink[];
+  updated: string;
+  content: string;
+  [key: string]: any; // catch-all for unknown fields
+}
+
+interface GazetteApiResponse {
+  entry: GazetteEntry[];
+  "f:total": string;
+}
+
+// Type for cleaned entry used in RSS feed
+interface CleanedEntry {
+  title: string;
+  publishedDate: string;
+  companyNumber: string | null;
+  [key: string]: any;
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
 
@@ -30,7 +62,7 @@ export async function GET(request: Request) {
     date = `${yyyy}-${mm}-${dd}`;
   }
 
-  let allEntries: any[] = [];
+  let allEntries: CleanedEntry[] = [];
   let page = 1;
   let totalPages = 1;
 
@@ -41,16 +73,19 @@ export async function GET(request: Request) {
 
       if (!response.ok) throw new Error(`Failed to fetch page ${page}`);
 
-      const data = await response.json();
-      if (!data || !data.entry) break;
+      const data: GazetteApiResponse = await response.json();
+
+      if (!data?.entry?.length) break;
 
       // Map entries: remove 'link', extract company number, keep title & publishedDate
-      const cleanedEntries = data.entry.map(({ link, updated, title, content, ...rest }) => ({
-        ...rest,
-        title,
-        publishedDate: updated,
-        companyNumber: extractCompanyNumber(content || ''),
-      }));
+      const cleanedEntries: CleanedEntry[] = data.entry.map(
+        ({ link, updated, title, content, ...rest }: GazetteEntry) => ({
+          ...rest,
+          title,
+          publishedDate: updated,
+          companyNumber: extractCompanyNumber(content || ''),
+        })
+      );
 
       allEntries = allEntries.concat(cleanedEntries);
 
@@ -61,24 +96,26 @@ export async function GET(request: Request) {
     } while (page <= totalPages);
 
     // Filter out entries without a company number
-    const validEntries = allEntries.filter(entry => entry.companyNumber);
+    const validEntries = allEntries.filter((entry) => entry.companyNumber);
 
     // Generate RSS feed branded for Company Compass
-    const rssItems = validEntries.map((entry) => {
-      const companyNumber = entry.companyNumber;
-      const companyName = entry.title || 'Unknown Company';
-      const url = `https://www.companycompass.co.uk/insight/company/${companyNumber}-${slugify(companyName)}`;
+    const rssItems = validEntries
+      .map((entry) => {
+        const companyNumber = entry.companyNumber!;
+        const companyName = entry.title || 'Unknown Company';
+        const url = `https://www.companycompass.co.uk/insight/company/${companyNumber}-${slugify(companyName)}`;
 
-      return `
-        <item>
-          <title><![CDATA[${companyName}]]></title>
-          <link>${url}</link>
-          <guid isPermaLink="true">${url}</guid>
-          <pubDate>${new Date(entry.publishedDate).toUTCString()}</pubDate>
-          <description><![CDATA[View company details on Company Compass]]></description>
-        </item>
-      `;
-    }).join('');
+        return `
+          <item>
+            <title><![CDATA[${companyName}]]></title>
+            <link>${url}</link>
+            <guid isPermaLink="true">${url}</guid>
+            <pubDate>${new Date(entry.publishedDate).toUTCString()}</pubDate>
+            <description><![CDATA[View company details on Company Compass]]></description>
+          </item>
+        `;
+      })
+      .join('');
 
     const rssFeed = `
       <?xml version="1.0" encoding="UTF-8" ?>
