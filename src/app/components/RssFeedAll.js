@@ -1,106 +1,35 @@
-'use client'; 
-
-export const dynamic = "force-dynamic";
-
-import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { parseStringPromise } from 'xml2js';
+import { InferGetStaticPropsType } from 'next';
 
-export default function RssFeed() {
-  const [notices, setNotices] = useState([]);
-  const [error, setError] = useState(null);
+interface Notice {
+  id: string;
+  companyNumber: string;
+  companyName: string;
+  noticeType: string;
+  insightUrl: string;
+  published: string;
+  dateString: string;
+}
 
-  useEffect(() => {
-    async function fetchFeed() {
-      try {
-        const feedUrl = '/api/gazette_rss'; 
-        const res = await axios.get(feedUrl);
+interface GroupedNotices {
+  [date: string]: Notice[];
+}
 
-        const parsed = await parseStringPromise(res.data, {
-          explicitArray: false,
-          mergeAttrs: true,
-        });
+function slugify(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/\./g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
 
-        const entries = parsed?.feed?.entry;
-        const items = Array.isArray(entries) ? entries : [entries];
-
-        const noticesParsed = items.map((entry) => {
-
-      
-          const contentText =
-            entry.content?.div?.p || entry.content?._ || '';
-
-          // Extract company number
-        const companyNumberMatch = contentText.match(/Company Number[:]*\s*(\w+)/i);
-        const companyNumber = companyNumberMatch ? companyNumberMatch[1] : '';
-
-       
-
-          // Company name from title
-        const companyName = entry.title || '';
-
-        
-
-          // Notice type from category
-          const noticeType = entry.category?.term || 'Notice';
-
-          // Slugify company name
-          const slugify = (name) =>
-            name
-              .toLowerCase()
-              .replace(/\./g, '') 
-              .replace(/[^a-z0-9]+/g, '-')
-              .replace(/^-+|-+$/g, '');
-
-       
-
-          // Generate URL
-          const insightUrl = companyNumber ? `/insight/company/${companyNumber}-${slugify(companyName)}`
-            : '#';
-
-       
-
-          // Format date
-          const publishedDate = new Date(entry.published);
-          const dateString = publishedDate.toLocaleDateString('en-GB', {
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric',
-          });
-
-          return {
-            id: entry.id,
-            companyNumber,
-            companyName,
-            noticeType,
-            insightUrl,
-            published: entry.published,
-            dateString,
-          };
-        });
-
-        setNotices(noticesParsed);
-      } catch (err) {
-        setError('Failed to load RSS feed');
-        console.error(err);
-      }
-    }
-
-    fetchFeed();
-  }, []);
-
-  if (error) return <p>{error}</p>;
-
-  // Group notices by date
-  const groupedByDate = notices.reduce((acc, notice) => {
-    if (!acc[notice.dateString]) acc[notice.dateString] = [];
-    acc[notice.dateString].push(notice);
-    return acc;
-  }, {});
-
+export default function RssFeed({
+  groupedByDate,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
-      <p className='f-heading-8'>Corporate Insolvency</p>
+      <p className="f-heading-8">Corporate Insolvency</p>
       <p>
         Recent appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices.
       </p>
@@ -121,9 +50,8 @@ export default function RssFeed() {
                   marginBottom: '2px',
                 }}
               >
-                 {notice.companyName} - {notice.noticeType}
+                {notice.companyName} - {notice.noticeType}
               </a>
-            
             </div>
           ))}
         </div>
@@ -132,16 +60,71 @@ export default function RssFeed() {
   );
 }
 
+export async function getStaticProps() {
+  try {
+    const feedUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/gazette_rss`;
+    const res = await axios.get(feedUrl);
 
-/*
-  <span
-                style={{
-                  fontSize: '0.8rem',
-                  color: '#888',
-                  display: 'block',
-                }}
-              >
-                {notice.noticeType} - {notice.companyName}
-              </span>
+    const parsed = await parseStringPromise(res.data, {
+      explicitArray: false,
+      mergeAttrs: true,
+    });
 
-              */
+    const entries = parsed?.feed?.entry;
+    const items = Array.isArray(entries) ? entries : entries ? [entries] : [];
+
+    const noticesParsed: Notice[] = items.map((entry: any) => {
+      const contentText = entry.content?.div?.p || entry.content?._ || '';
+
+      const companyNumberMatch = contentText.match(/Company Number[:]*\s*(\w+)/i);
+      const companyNumber = companyNumberMatch ? companyNumberMatch[1] : '';
+
+      const companyName = entry.title || '';
+      const noticeType = entry.category?.term || 'Notice';
+
+      const insightUrl = companyNumber
+        ? `/insight/company/${companyNumber}-${slugify(companyName)}`
+        : '#';
+
+      const publishedDate = new Date(entry.published);
+      const dateString = publishedDate.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric',
+      });
+
+      return {
+        id: entry.id,
+        companyNumber,
+        companyName,
+        noticeType,
+        insightUrl,
+        published: entry.published,
+        dateString,
+      };
+    });
+
+    // Group by date
+    const groupedByDate: GroupedNotices = {};
+    noticesParsed.forEach((notice) => {
+      if (!groupedByDate[notice.dateString]) groupedByDate[notice.dateString] = [];
+      groupedByDate[notice.dateString].push(notice);
+    });
+
+    return {
+      props: {
+        groupedByDate,
+      },
+      // Rebuild the page every hour
+      revalidate: 3600,
+    };
+  } catch (err) {
+    console.error('Failed to fetch RSS feed', err);
+    return {
+      props: {
+        groupedByDate: {},
+      },
+      revalidate: 3600,
+    };
+  }
+}
