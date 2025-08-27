@@ -13,6 +13,13 @@ interface Notice {
   summary: string;
 }
 
+interface CompanyBlock {
+  companyName: string;
+  companyNumber: string;
+  insightUrl: string;
+  notices: Notice[];
+}
+
 function slugify(name: string) {
   return name
     .toLowerCase()
@@ -21,8 +28,8 @@ function slugify(name: string) {
     .replace(/^-+|-+$/g, '');
 }
 
-export const dynamic = 'force-static'; // make sure it's statically generated
-export const revalidate = 3600; // rebuild every hour
+export const dynamic = 'force-static';
+export const revalidate = 3600;
 
 export default async function InsolvencyPage() {
   const res = await fetch(`${process.env.BASE_URL}/api/gazette/corporate_insolvency/publish_date_all`, {
@@ -44,7 +51,6 @@ export default async function InsolvencyPage() {
     const published = entry.published;
     const category = entry.category?.['@term'] || 'Notice';
 
-    // Try to extract company number from content (e.g., "Company Number: 12345678")
     const companyNumberMatch = content.match(/Company Number[:]*\s*(\w+)/i);
     const companyNumber = companyNumberMatch ? companyNumberMatch[1] : '';
 
@@ -72,45 +78,64 @@ export default async function InsolvencyPage() {
     };
   });
 
-  // Group notices by publish date
-  const groupedByDate: Record<string, Notice[]> = {};
-  for (const notice of notices) {
-    if (!groupedByDate[notice.dateString]) {
-      groupedByDate[notice.dateString] = [];
-    }
-    groupedByDate[notice.dateString].push(notice);
+
+// Group notices by companyNumber or companyName
+const grouped: Record<string, CompanyBlock> = {};
+
+for (const notice of notices) {
+  const key = notice.companyNumber;
+  if (!grouped[key]) {
+    grouped[key] = {
+      companyName: notice.companyName,
+      companyNumber: notice.companyNumber,
+      insightUrl: notice.insightUrl,
+      notices: [],
+    };
   }
+  grouped[key].notices.push(notice);
+}
+
+  
+
+  // Convert grouped object to array and sort by company name
+  const companyBlocks = Object.values(grouped).sort((a, b) =>
+    a.companyName.localeCompare(b.companyName)
+  );
 
   return (
     <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
       <h1 className="f-heading-8 mb-4">Corporate Insolvency Notices</h1>
       
-      {Object.entries(groupedByDate).map(([date, notices]) => (
-        <section key={date} className="mb-10">
-          <h2 className="text-xl font-semibold mb-3">{date}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {notices.map((notice) => (
-              <div key={notice.id} className="border p-4 rounded shadow-sm flex gap-4">
-                <div className="w-10 h-10 flex-shrink-0">
-                  <BuildingOfficeIcon className="size-6 text-blue-500" />
-                </div>
-                <div className="flex-1">
-                  <a href={notice.insightUrl} className="text-blue-600 font-bold text-base">
-                    {notice.companyName}
-                  </a>
-                  <p className="text-sm text-gray-500">
-                    {notice.noticeType}
-                    {notice.companyNumber && (
-                      <> &middot; Company Number: {notice.companyNumber}</>
-                    )}
-                  </p>
-                  <p className="text-sm mt-1 text-gray-700">{notice.summary}</p>
-                </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {companyBlocks.map((company) => (
+          <div key={company.companyNumber || company.companyName} className="border p-4 rounded shadow-sm flex gap-4">
+            <div className="w-10 h-10 flex-shrink-0">
+              <BuildingOfficeIcon className="size-6 text-blue-500" />
+            </div>
+            <div className="flex-1">
+              <a href={company.insightUrl} className="text-blue-600 font-bold text-base">
+                {company.companyName}
+              </a>
+              {company.companyNumber && (
+                <p className="text-sm text-gray-500 mb-2">
+                  Company Number: {company.companyNumber}
+                </p>
+              )}
+
+              <div className="space-y-2">
+                {company.notices.map((notice) => (
+                  <div key={notice.id} className="border-t pt-2">
+                    <span className="block text-sm font-medium">{notice.noticeType}</span>
+                    <span className="block text-xs text-gray-500 mb-1">Published: {notice.dateString}</span>
+                    <p className="text-sm text-gray-700">{notice.summary}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
-        </section>
-      ))}
+        ))}
+      </div>
     </main>
   );
 }
