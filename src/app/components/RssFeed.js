@@ -39,6 +39,12 @@ export default function RssFeed() {
 
           const companyNumberMatch = contentText.match(/Company Number[:]*\s*(\w+)/i);
           const companyNumber = companyNumberMatch ? companyNumberMatch[1] : '';
+
+          if (companyNumber == '') {
+            // Skip this entry and go to the next
+            return;
+          }
+
           const rawCompanyName = entry.title || '';
           const companyName = toTitleCaseWithLowercaseS(rawCompanyName.trim());
 
@@ -60,7 +66,7 @@ export default function RssFeed() {
             year: 'numeric',
           });
 
-          const uniqueKey = companyNumber || rawCompanyName;
+          const uniqueKey = companyNumber;
 
           if (!grouped[dateString]) {
             grouped[dateString] = new Map();
