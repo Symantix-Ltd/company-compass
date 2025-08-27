@@ -13,7 +13,7 @@ export default function RssFeed() {
   useEffect(() => {
     async function fetchFeed() {
       try {
-        const feedUrl = '/api/gazette_rss';
+        const feedUrl = '/api/gazette/corporate_insolvency/publish_date_rss';
         const res = await axios.get(feedUrl);
 
         const parsed = await parseStringPromise(res.data, {
@@ -21,7 +21,7 @@ export default function RssFeed() {
           mergeAttrs: true,
         });
 
-        const entries = parsed?.feed?.entry;
+        const entries = parsed?.rss?.channel?.item;
         const items = Array.isArray(entries) ? entries : [entries];
 
         const grouped = {};
@@ -33,33 +33,30 @@ export default function RssFeed() {
             .replace(/\b\w/g, (char) => char.toUpperCase())
             .replace(/`S\b/g, "'s");
 
-        items.forEach((entry) => {
-          const contentText =
-            entry.content?.div?.p || entry.content?._ || '';
-
-          const companyNumberMatch = contentText.match(/Company Number[:]*\s*(\w+)/i);
+        items.forEach((item) => {
+          
+          
+          const insightUrl = item.link ;
+          const guid = item.guid || `guid-${idx}`;
+          const pubDate = item.pubDate || new Date().toISOString();
+          const summary = item.description || '';
+          
+          const companyNumberMatch = insightUrl.match(/\/company\/(\d+)-/);
           const companyNumber = companyNumberMatch ? companyNumberMatch[1] : '';
+
+        
 
           if (companyNumber == '') {
             // Skip this entry and go to the next
             return;
           }
 
-          const rawCompanyName = entry.title || '';
+          const rawCompanyName = item.title || '';
           const companyName = toTitleCaseWithLowercaseS(rawCompanyName.trim());
 
-          const slugify = (name) =>
-            name
-              .toLowerCase()
-              .replace(/\./g, '')
-              .replace(/[^a-z0-9]+/g, '-')
-              .replace(/^-+|-+$/g, '');
-
-          const insightUrl = companyNumber
-            ? `/insight/company/${companyNumber}-${slugify(companyName)}`
-            : '#';
-
-          const publishedDate = new Date(entry.published);
+          
+        
+          const publishedDate = new Date(item.published);
           const dateString = publishedDate.toLocaleDateString('en-GB', {
             day: '2-digit',
             month: 'long',
@@ -109,7 +106,7 @@ export default function RssFeed() {
       </p>
       {Object.entries(groupedCompanies).map(([date, companies]) => (
         <div key={date} style={{ marginBottom: '1.5rem' }}>
-          <p style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{date}</p>
+          <br/>
           <ul>
             {companies.map((company, index) => (
               <li key={index}>

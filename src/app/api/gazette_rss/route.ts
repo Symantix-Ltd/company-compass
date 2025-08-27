@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const feedUrl = 'https://www.thegazette.co.uk/all-notices/notice/data.feed?text=&categorycode=G205010000&results-page-size=200&results-page=1';
+  const feedUrl = 'https://www.thegazette.co.uk/all-notices/notice/data.feed?text=&categorycode=G205010000&results-page-size=100&results-page=1';
 
   try {
     const response = await fetch(feedUrl);
