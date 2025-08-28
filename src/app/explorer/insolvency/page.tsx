@@ -44,15 +44,17 @@ export default async function InsolvencyPage() {
   const json = await res.json();
   const entries = Array.isArray(json) ? json : json?.entry || [];
 
-  const notices: Notice[] = entries.map((entry: any) => {
+  const notices: Notice[] = entries.flatMap((entry: any) => {
     const id = entry.id;
-    const companyName = entry.title;
+    const companyName = entry.title.replace(/\n/g, '').replace(/\/n/g, '').trim();
     const content = entry.content || '';
     const published = entry.published;
     const category = entry.category?.['@term'] || 'Notice';
 
     const companyNumberMatch = content.match(/Company Number[:]*\s*(\w+)/i);
     const companyNumber = companyNumberMatch ? companyNumberMatch[1] : '';
+
+    if (!companyNumber) return [];
 
     const date = new Date(published);
     const dateString = date.toLocaleDateString('en-GB', {
@@ -63,7 +65,7 @@ export default async function InsolvencyPage() {
 
     const summary = content.replace(/<[^>]*>/g, '').slice(0, 200) + '...';
 
-    const slug = `${companyNumber || 'no-number'}-${slugify(companyName)}`;
+    const slug = `${companyNumber}-${slugify(companyName)}`;
     const insightUrl = `/insight/company/${slug}`;
 
     return {

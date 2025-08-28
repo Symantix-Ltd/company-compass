@@ -1,5 +1,8 @@
 import SearchForm from './components/SearchForm';
 import RssFeed from './components/RssFeed';
+import Insights from './components/Insights';
+
+
 
 export default function Home() {
   return (
@@ -21,10 +24,25 @@ export default function Home() {
               </p>
 
               <div className="mt-6">
+                
                 <SearchForm />
+                
+              </div>
+
+              <div className="mt-6">
+                <br/>
+              <div className="f-heading-3">
+                Company Insights
+              </div>
+             <p>Stay informed with the latest updates on corporate insolvencies, administrative proceedings, and official Gazette notices affecting companies across the UK.</p>
+                <br/>
+                <Insights/>
+                
               </div>
             </div>
+            
           </div>
+          
 
           {/* Services Section */}
           <section className="mb-16 mt-16">
