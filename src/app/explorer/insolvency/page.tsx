@@ -46,7 +46,7 @@ export default async function InsolvencyPage() {
 
   const notices: Notice[] = entries.flatMap((entry: any) => {
     const id = entry.id;
-    const companyName = entry.title.replace(/\n/g, '').replace(/\/n/g, '').trim();
+    const companyName = entry.title.replace(/\n/g, '').replace(/\/n|\/N/g, '').trim();
     const content = entry.content || '';
     const published = entry.published;
     const category = entry.category?.['@term'] || 'Notice';
