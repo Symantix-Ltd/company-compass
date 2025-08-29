@@ -47,16 +47,19 @@ interface CleanedEntry {
   [key: string]: any;
 }
 
+interface RouteContext {
+  params: {
+    publish_date: string;
+  };
+}
 
-export async function GET(
-  _req: NextRequest,
-  context: { params: { publish_date: string } }
-) {
-  const { publish_date: date } = await context.params;
+export async function GET( _req: NextRequest,context:any ) {
+
+
+  const dateParam = (await context.params as { publish_date: string }).publish_date;
+  let date = dateParam;
 
   
-
-
   // Use today's date if not provided or invalid
   if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
     const today = new Date();
