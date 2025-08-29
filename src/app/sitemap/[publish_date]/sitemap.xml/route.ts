@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// Tell Next.js: statically generate on first request
+export const dynamic = 'force-static';
+// Regenerate once per day (or whatever you prefer)
+export const revalidate = 86400;
 
 // Helper to slugify company name for URL
 function slugify(str: string) {
@@ -9,13 +13,11 @@ function slugify(str: string) {
     .replace(/^-+|-+$/g, '');
 }
 
-// Extract company number from content text
 function extractCompanyNumber(content: string): string | null {
   const match = content.match(/Company Number:?\s*(\d+)/i);
   return match ? match[1] : null;
 }
 
-// Normalize the title field
 function normalizeTitle(title: any): string {
   if (typeof title === 'string') return title.trim();
   if (typeof title === 'object') {
@@ -47,20 +49,10 @@ interface CleanedEntry {
   [key: string]: any;
 }
 
-interface RouteContext {
-  params: {
-    publish_date: string;
-  };
-}
-
-export async function GET( _req: NextRequest,context:any ) {
-
-
-  const dateParam = (await context.params as { publish_date: string }).publish_date;
+export async function GET(_req: NextRequest, context: any) {
+  const dateParam = context.params.publish_date;
   let date = dateParam;
 
-  
-  // Use today's date if not provided or invalid
   if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -77,12 +69,11 @@ export async function GET( _req: NextRequest,context:any ) {
   try {
     do {
       const feedUrl = `https://www.thegazette.co.uk/all-notices/publish-date/${date}/notice/data.json?categorycode=G205010000&results-page-size=${pageSize}&results-page=${page}`;
-
       const response = await fetch(feedUrl);
+
       if (!response.ok) throw new Error(`Failed to fetch page ${page}`);
 
       const data: GazetteApiResponse = await response.json();
-
       if (!data?.entry?.length) break;
 
       const cleanedEntries: CleanedEntry[] = data.entry.map(
@@ -131,7 +122,7 @@ export async function GET( _req: NextRequest,context:any ) {
     return new NextResponse(sitemap.trim(), {
       headers: {
         'Content-Type': 'application/xml',
-        'Cache-Control': 'public, max-age=0, s-maxage=3600',
+        'Cache-Control': 'public, max-age=0, s-maxage=86400',
       },
     });
   } catch (error) {
