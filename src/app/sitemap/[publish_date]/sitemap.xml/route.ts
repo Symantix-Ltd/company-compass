@@ -1,7 +1,5 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-// Enable SSG with hourly regeneration
-//export const revalidate = 3600;
 
 // Helper to slugify company name for URL
 function slugify(str: string) {
@@ -17,14 +15,14 @@ function extractCompanyNumber(content: string): string | null {
   return match ? match[1] : null;
 }
 
+// Normalize the title field
 function normalizeTitle(title: any): string {
-    if (typeof title === 'string') return title;
-    if (typeof title === 'object') {
-      // Prefer '#text' or '@term'
-      return title['#text'] || title['@term'] || 'Unknown Company';
-    }
-    return 'Unknown Company';
+  if (typeof title === 'string') return title.trim();
+  if (typeof title === 'object') {
+    return (title['#text'] || title['@term'] || 'Unknown Company').trim();
   }
+  return 'Unknown Company';
+}
 
 interface GazetteEntry {
   id: string;
@@ -49,13 +47,15 @@ interface CleanedEntry {
   [key: string]: any;
 }
 
-export async function GET(
-  req: Request,
-  context: { params: { publish_date?: string } }
-) {
-  let { date } = context.params;
 
- 
+export async function GET(
+  _req: NextRequest,
+  context: { params: { publish_date: string } }
+) {
+  const { publish_date: date } = await context.params;
+
+  
+
 
   // Use today's date if not provided or invalid
   if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
@@ -74,12 +74,8 @@ export async function GET(
   try {
     do {
       const feedUrl = `https://www.thegazette.co.uk/all-notices/publish-date/${date}/notice/data.json?categorycode=G205010000&results-page-size=${pageSize}&results-page=${page}`;
-    
-    
-      console.log(feedUrl);
-    
-      const response = await fetch(feedUrl);
 
+      const response = await fetch(feedUrl);
       if (!response.ok) throw new Error(`Failed to fetch page ${page}`);
 
       const data: GazetteApiResponse = await response.json();
@@ -89,7 +85,7 @@ export async function GET(
       const cleanedEntries: CleanedEntry[] = data.entry.map(
         ({ title, updated, content, ...rest }) => ({
           ...rest,
-          title : normalizeTitle(title),
+          title: normalizeTitle(title),
           publishedDate: updated,
           companyNumber: extractCompanyNumber(content || ''),
         })
@@ -97,22 +93,17 @@ export async function GET(
 
       allEntries = allEntries.concat(cleanedEntries);
 
-
-
       const totalResults = Number(data['f:total'] || 0);
       totalPages = Math.ceil(totalResults / pageSize);
-
       page++;
     } while (page <= totalPages);
-
-    console.log(allEntries);
 
     const validEntries = allEntries.filter((entry) => entry.companyNumber);
 
     const sitemapItems = validEntries
       .map((entry) => {
         const companyNumber = entry.companyNumber!;
-        const companyName = entry.title ;
+        const companyName = entry.title;
         const url = `https://www.companycompass.co.uk/insight/company/${companyNumber}-${slugify(companyName)}`;
         const lastMod = new Date().toISOString();
 
