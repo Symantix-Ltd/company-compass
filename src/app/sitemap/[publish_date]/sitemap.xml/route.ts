@@ -49,14 +49,13 @@ interface CleanedEntry {
   [key: string]: any;
 }
 
-// Main handler
 export async function GET(
-  _request: Request,
-  { params }: { params: { publish_date?: string } }
+  req: Request,
+  context: { params: { publish_date?: string } }
 ) {
+  let { date } = context.params;
 
-  let p = await params;
-  let date = p.publish_date;
+ 
 
   // Use today's date if not provided or invalid
   if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
