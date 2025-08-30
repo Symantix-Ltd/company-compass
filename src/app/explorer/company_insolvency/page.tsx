@@ -2,6 +2,11 @@
 
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 
+
+export const dynamic = 'force-static';
+export const revalidate = 3600;
+
+
 interface Notice {
   id: string;
   companyName: string;
@@ -29,27 +34,22 @@ function slugify(name: string) {
 }
 
 
-export async function generateMetadata(
-  { params }: { params: Promise<Params> }) {
+  let title = `Company Insolvency UK - Company Compass`;
+
+  let description = `Company Insolvency UK - Recent appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices published in The Gazette.`;
   
-  const title = `Company Insolvency UK - Company Compass`;
 
-  const description = `Company Insolvency UK - Recent appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices published in The Gazette.`;
-  return {
-      title: title,
-      description: description
-          ,
-          openGraph: {
-              title: title,
-              description: description,
-              url: `https://www.companycompass.co.uk/explorer/company_insolvency`
-            },
+  export const metadata = {
+    title: title,
+    description: description
+        ,
+        openGraph: {
+            title: title,
+            description: description,
+            url: `https://www.companycompass.co.uk/explorer/company_insolvency`
+          }
   };
-}
 
-
-export const dynamic = 'force-static';
-export const revalidate = 3600;
 
 export default async function InsolvencyPage() {
   const res = await fetch(`${process.env.BASE_URL}/api/gazette/corporate_insolvency/publish_date_all`, {

@@ -33,6 +33,9 @@ async function getCompanyData(id: string) {
     const data = await getRecordFromDynamoDB(id);
     return data;
 }
+interface Params {
+    id: string;
+  };
 
 export async function generateMetadata(
     { params }: { params: Promise<Params> }) {
@@ -43,7 +46,7 @@ export async function generateMetadata(
 
     const title = `${data?.CompanyName} - Company Profile - Company Compass`;
 
-    const description = `${data?.CompanyName} ${companyId} is a company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Get insights into the company including financials, industry, Gazette notices and contact information.`;
+    const description = `${data?.CompanyName} ${companyId} is a company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Get insights into the company including financials, industry, Gazette and contact information.`;
     return {
         title: title,
         description: description
@@ -51,7 +54,7 @@ export async function generateMetadata(
             openGraph: {
                 title: title,
                 description: description,
-                url: `https://www.companycompass.co.uk/insight/company/${params.id}`
+                url: `https://www.companycompass.co.uk/insight/company/${id}`
                
               },
     };
