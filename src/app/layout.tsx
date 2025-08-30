@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UK Company Profiles & Business Intelligence for KYC, Risk Management, Marketing &amp; Sales - Company Compass",
-  description: "Company Compass UK provides enriched UK Business Information and Insights for Risk Management, Sales &amp; Marketing, and Company Information Research. Find the right business info today.",
+  title: "UK Company Profiles & Company Insolvency News - Company Compass",
+  description: "UK Company Information and Insights - Company Insolvency News and Analysis - Company Compass",
 };
 
 export default function RootLayout({

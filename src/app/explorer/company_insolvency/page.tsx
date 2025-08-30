@@ -28,6 +28,26 @@ function slugify(name: string) {
     .replace(/^-+|-+$/g, '');
 }
 
+
+export async function generateMetadata(
+  { params }: { params: Promise<Params> }) {
+  
+  const title = `Company Insolvency UK - Company Compass`;
+
+  const description = `Company Insolvency UK - Recent appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices published in The Gazette.`;
+  return {
+      title: title,
+      description: description
+          ,
+          openGraph: {
+              title: title,
+              description: description,
+              url: `https://www.companycompass.co.uk/explorer/company_insolvency`
+            },
+  };
+}
+
+
 export const dynamic = 'force-static';
 export const revalidate = 3600;
 

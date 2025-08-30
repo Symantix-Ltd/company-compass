@@ -26,10 +26,11 @@ export default function Header() {
 
       {/* Desktop Menu */}
       <nav className="hidden md:flex space-x-6 text-sm">
-      <a href="/insights" className="hover:text-blue-500">Company Insights</a>
-      <a href="/explorer/insolvency" className="hover:text-blue-500">Corporate Insolvency</a>
+      
+      <a href="/explorer/company_insolvency" className="hover:text-blue-500">Company Insolvency UK</a>
       <a href="/search" className="hover:text-blue-500">Company search</a>
       <a href="/explorer/postcode" className="hover:text-blue-500">Postcode search</a>
+      <a href="/insights" className="hover:text-blue-500">Company Insights</a>
         <a href="/" className="hover:text-blue-500">Home</a>
        <a href="/#about" className="hover:text-blue-500">About</a> 
         <a href="/#contact" className="hover:text-blue-500">Contact</a>
@@ -54,13 +55,13 @@ export default function Header() {
     {isOpen && (
       <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
         <nav className="flex flex-col p-4 space-y-4">
+       
+        <a href="/explorer/company_insolvency" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Company Insolvency UK</a>
+         
+        <a href="/search" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Company Search</a>
+         
+        <a href="/explorer/postcode" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Postcode Search</a>
         <a href="/insights" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Insights</a>
-        <a href="/explorer/insolvency" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Corporate Insolvency</a>
-         
-        <a href="/search" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Company search</a>
-         
-        <a href="/explorer/postcode" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Postcode search</a>
-         
           <a href="/" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Home</a>
      <a href="/#about" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>About</a>
           <a href="/#contact" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Contact</a>

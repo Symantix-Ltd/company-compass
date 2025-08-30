@@ -38,14 +38,29 @@ export async function generateMetadata(
     { params }: { params: Promise<Params> }) {
     const { id } = await params;
     const companyId = id.split("-")[0];
+
     const data = await getCompanyData(companyId);
 
+    const title = `${data?.CompanyName} - Company Profile - Company Compass`;
+
+    const description = `${data?.CompanyName} ${companyId} is a company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Get insights into the company including financials, industry, Gazette notices and contact information.`;
     return {
-        title: `${data?.CompanyName} - Company Profile - Company Compass`,
-        description:
-            "Company Compass provides enriched Business Information for Risk Management, Sales & Marketing and Company Information Research.",
+        title: title,
+        description: description
+            ,
+            openGraph: {
+                title: title,
+                description: description,
+                url: `https://www.companycompass.co.uk/insight/company/${params.id}`
+               
+              },
     };
 }
+
+
+
+
+
 
 export default async function Page({ params }: { params: Promise<Params> }) {
     
