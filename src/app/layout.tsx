@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UK Company Profiles & Company Insolvency News - Company Compass",
-  description: "UK Company Information and Insights - Company Insolvency News and Analysis - Company Compass",
+  title: "Search Companies House - Company House - Company Check - Find Company Information - Company Compass UK",
+  description: "Company Portal App - UK Company Information and Insights from Companies House, The Gazette and elsewhere - Insolvency News and Analysis - Company Compass",
 };
 
 export default function RootLayout({
