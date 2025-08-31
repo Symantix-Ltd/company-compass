@@ -28,9 +28,9 @@ export default function Header() {
       <nav className="hidden md:flex space-x-6 text-sm">
       
       <a href="/explorer/company_insolvency" className="hover:text-blue-500">Company Insolvency UK</a>
-      <a href="/search" className="hover:text-blue-500">Company search</a>
-      <a href="/explorer/postcode" className="hover:text-blue-500">Postcode search</a>
-      <a href="/insights" className="hover:text-blue-500">Company Insights</a>
+      <a href="/search" className="hover:text-blue-500">Company Search</a>
+      <a href="/explorer/postcode" className="hover:text-blue-500">Postcode Search</a>
+      <a href="/insights" className="hover:text-blue-500">Insights</a>
         <a href="/" className="hover:text-blue-500">Home</a>
        <a href="/#about" className="hover:text-blue-500">About</a> 
         <a href="/#contact" className="hover:text-blue-500">Contact</a>

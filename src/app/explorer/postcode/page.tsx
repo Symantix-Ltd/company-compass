@@ -3,6 +3,7 @@ export const dynamic = 'force-dynamic';
 // app/search/page.tsx
 import SearchFormPostcode from '../../components/SearchFormPostcode'; // adjust path as needed
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
+import AdSlot from '../../components/AdSlot'
 
 interface CompanyResult {
   company_number: string;
@@ -56,6 +57,8 @@ export default async function SearchPage({ searchParams }: Props) {
   }
 
   return (
+    <div className="min-h-screen w-full bg-gray-50 text-gray-900">
+      <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
     <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
       <br/>
     <h1 className="f-heading-8 mb-4">Postcode search</h1>
@@ -116,5 +119,24 @@ export default async function SearchPage({ searchParams }: Props) {
         })}
       </div>
     </main>
+     <aside className="w-full lg:w-1/3 p-4">
+          
+       
+
+     <AdSlot
+               client="ca-pub-7212919066729459" 
+               slot="9729092224"            
+             />
+     
+     <br/>    
+     
+     <AdSlot
+               client="ca-pub-7212919066729459" 
+               slot="4867705256"            
+             />
+     
+             </aside>
+</div>
+</div>
   );
 }

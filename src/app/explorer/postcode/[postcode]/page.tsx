@@ -1,5 +1,8 @@
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 
+import AdSlot from '../../../components/AdSlot'
+
+
 // ISR: revalidate once per day
 export const revalidate = 86400;
 
@@ -56,6 +59,8 @@ export default async function PostcodePage({ params }: { params: Promise<Params>
   }
 
   return (
+    <div className="min-h-screen w-full bg-gray-50 text-gray-900">
+      <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
     <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
      <br/>
      
@@ -127,5 +132,24 @@ export default async function PostcodePage({ params }: { params: Promise<Params>
         })}
       </div>
     </main>
+    <aside className="w-full lg:w-1/3 p-4">
+          
+       
+
+          <AdSlot
+                    client="ca-pub-7212919066729459" 
+                    slot="9729092224"            
+                  />
+          
+          <br/>    
+          
+          <AdSlot
+                    client="ca-pub-7212919066729459" 
+                    slot="4867705256"            
+                  />
+          
+                  </aside>
+</div>
+</div>
   );
 }
