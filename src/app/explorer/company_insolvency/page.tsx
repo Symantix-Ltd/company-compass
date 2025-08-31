@@ -176,7 +176,7 @@ for (const notice of notices) {
           
           <AdSlot
                     client="ca-pub-7212919066729459" 
-                    slot="4867705256"            
+                    slot="4867705256"           
                   />
           
                   </aside>
