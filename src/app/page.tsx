@@ -29,27 +29,13 @@ export default function Home() {
                 
               </div>
 
-              <div className="mt-6">
-                <br/>
-              <h2 className="f-heading-1">
-                Company Insights
-              </h2>
-             <p>Stay informed with the latest updates on corporate insolvencies, administrative proceedings, and official Gazette notices affecting companies across the UK.</p>
-                <br/>
-                <Insights/>
-                
-              </div>
+           
             </div>
             
           </div>
           
 
-          <section className="mb-16 mt-16">
-          
-          <div className="mt-4">
-            <RssFeed />
-          </div>
-        </section>
+       
           {/* Services Section */}
           <section className="mb-16 mt-16">
             <h2 id="about" className="f-heading-1">What We Offer</h2>
