@@ -36,6 +36,7 @@ export default function RootLayout({
       <script async src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7212919066729459"
      crossOrigin="anonymous"></script>
+<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`} >

@@ -105,7 +105,8 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
 
     return (
-
+        <div className="min-h-screen w-full bg-gray-50 text-gray-900">
+      <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
         <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg  text-gray-900">
             <div >
                 <br/>
@@ -163,11 +164,20 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                     <h2 className='f-heading-1'>Financials</h2>
                     <Financials companyNumber={data.CompanyNumber} /> 
                 </div>
-
+               
             </div>
             <br />
+
+            
+
             <p>Page last updated: {formattedDate}</p>
         </main>
+         <aside className="w-full lg:w-1/3 p-4">
+          
+          
+        </aside>
+        </div>
+        </div>
 
     );
 }

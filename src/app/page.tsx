@@ -1,7 +1,7 @@
 import SearchForm from './components/SearchForm';
 import RssFeed from './components/RssFeed';
 import Insights from './components/Insights';
-
+import AdSlot from './components/AdSlot'
 
 
 export default function Home() {
@@ -31,9 +31,9 @@ export default function Home() {
 
               <div className="mt-6">
                 <br/>
-              <div className="f-heading-3">
+              <h2 className="f-heading-1">
                 Company Insights
-              </div>
+              </h2>
              <p>Stay informed with the latest updates on corporate insolvencies, administrative proceedings, and official Gazette notices affecting companies across the UK.</p>
                 <br/>
                 <Insights/>
@@ -84,9 +84,25 @@ export default function Home() {
             </p>
           </section>
         </main>
-
+        <aside className="w-full lg:w-1/3 p-4">
+          
        
-        
+
+<AdSlot
+          client="ca-pub-7212919066729459" 
+          slot="9729092224"            
+        />
+
+<amp-ad width="100vw" height="320"
+     type="adsense"
+     data-ad-client="ca-pub-7212919066729459"
+     data-ad-slot="9729092224"
+     data-auto-format="rspv"
+     data-full-width="">
+  <div overflow=""></div>
+</amp-ad>
+        </aside>
+       
         
       </div>
     </div>

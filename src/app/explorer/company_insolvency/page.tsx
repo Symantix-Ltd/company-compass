@@ -125,6 +125,7 @@ for (const notice of notices) {
   );
 
   return (
+    
     <main className="max-w-6xl mx-auto  bg-white rounded-lg text-gray-900">
       <br/>
       <h1 className="f-heading-8 mb-4">Company Insolvency UK</h1>
