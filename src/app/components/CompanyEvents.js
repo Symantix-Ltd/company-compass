@@ -74,7 +74,7 @@ export default function CompanyEvents({ companyNumber = '' }) {
 
   return (
     <div>
-      <p>Company events that have been published in The Gazette.</p><br/>
+      
     <ul>
       {notices.map((notice) => (
         <li key={notice.id} style={{ marginBottom: '1.5rem' }}>

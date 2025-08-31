@@ -106,13 +106,13 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
     return (
 
-        <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg  text-gray-900">
+        <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg  text-gray-900">
             <div >
                 <br/>
             <SearchForm/>
             <br/>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch ">
+            <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 items-stretch ">
                 {/* Summary company information */}
                 <div className='border border-silver-200 p-10 rounded-lg flex flex-col h-full'>         
                  <Summary data={data}/>
@@ -120,27 +120,27 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
                 {/* Company Events */}
                 <div className='border border-silver-200 p-10 rounded-lg' >
-                <h1 className='f-heading-1'>Company Events</h1>
-                
+                <h2 className='f-heading-1'>Company Insolvency Events</h2>
+                <p>Company insolvency events that have been published as notices in The <a href="https://www.thegazette.co.uk">Gazette</a>.</p>
                 
                     <CompanyEvents companyNumber={data.CompanyNumber} /> 
                 </div>
 
                 {/* Contact */}
                 <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full">
-                    <h1 className='f-heading-1'>Contact</h1>
+                    <h2 className='f-heading-1'>Contact</h2>
                     <CompanyAddress data={data} />
                 </div>
 
                 <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full">
-                    <h1 className='f-heading-1'>Latest Activity</h1>
+                    <h2 className='f-heading-1'>Latest Activity</h2>
                     <LatestActivityTable latestActivity={filing_data} />
                 </div>
 
                 {/* People */}
 
                 <div className="border border-silver-200 p-10 rounded-lg flex flex-col h-full">
-                    <h1 className='f-heading-1'>People</h1>
+                    <h2 className='f-heading-1'>People</h2>
                     <div>
                     {officer_data.items?.map((officer:any, index:number) => (
   <OfficerItem 
@@ -153,14 +153,14 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
                 { /* Documents */}
 
-                <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full"><h1 className='f-heading-1'>Documents</h1>
+                <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full"><h2 className='f-heading-1'>Documents</h2>
                     <br />
                     <FilingHistoryList filings={filing_data} companyNumber={data.CompanyNumber} />
                 </div>
 
                  {/* Financials */}
                  <div className='border border-silver-200 p-10 rounded-lg' >
-                    <h1 className='f-heading-1'>Financials</h1>
+                    <h2 className='f-heading-1'>Financials</h2>
                     <Financials companyNumber={data.CompanyNumber} /> 
                 </div>
 
@@ -173,7 +173,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 }
 
 /* 
- <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full"><h1 className='f-heading-1'>Gazette Notices</h1></div>
+ <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full"><h2 className='f-heading-1'>Gazette Notices</h2></div>
 
 <div className="row-start-4 border border-silver-200 p-10 rounded-lg">8</div>
    <div className="row-start-5 border border-silver-200 p-10 rounded-lg">9</div>
