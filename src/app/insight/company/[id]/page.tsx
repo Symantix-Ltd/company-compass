@@ -18,6 +18,7 @@ import Summary from '../../../components/Summary';
 
 import SearchForm from '../../../components/SearchForm'; // adjust path as needed
 
+import AdSlot from './components/AdSlot'
 
 interface Params {
         id: string;
@@ -173,7 +174,11 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             <p>Page last updated: {formattedDate}</p>
         </main>
          <aside className="w-full lg:w-1/3 p-4">
-          
+         <AdSlot
+          client="ca-pub-7212919066729459" 
+          slot="9729092224"            
+        />
+
           
         </aside>
         </div>
