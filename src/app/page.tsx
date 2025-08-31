@@ -93,14 +93,7 @@ export default function Home() {
           slot="9729092224"            
         />
 
-<amp-ad width="100vw" height="320"
-     type="adsense"
-     data-ad-client="ca-pub-7212919066729459"
-     data-ad-slot="9729092224"
-     data-auto-format="rspv"
-     data-full-width="">
-  <div overflow=""></div>
-</amp-ad>
+
         </aside>
        
         
