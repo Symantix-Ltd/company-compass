@@ -44,6 +44,12 @@ export default function Home() {
           </div>
           
 
+          <section className="mb-16 mt-16">
+          
+          <div className="mt-4">
+            <RssFeed />
+          </div>
+        </section>
           {/* Services Section */}
           <section className="mb-16 mt-16">
             <h2 id="about" className="f-heading-1">What We Offer</h2>
@@ -79,13 +85,8 @@ export default function Home() {
           </section>
         </main>
 
-        {/* Aside / Right Column */}
-        <aside className="w-full lg:w-1/3 p-4">
-          <h2 className="f-heading-2">Company Events</h2>
-          <div className="mt-4">
-            <RssFeed />
-          </div>
-        </aside>
+       
+        
         
       </div>
     </div>

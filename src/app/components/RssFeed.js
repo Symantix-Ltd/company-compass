@@ -61,7 +61,7 @@ export default async function RssFeed() {
 
     return (
       <div>
-        <p className="f-heading-8">Corporate Insolvency</p>
+        <h2 className="f-heading-1">Company Insolvency</h2>
         <p>
           Recent appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices.
         </p>
