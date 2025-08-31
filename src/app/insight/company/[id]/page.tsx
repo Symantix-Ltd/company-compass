@@ -45,9 +45,9 @@ export async function generateMetadata(
 
     const data = await getCompanyData(companyId);
 
-    const title = `${data?.CompanyName} - Companies House Search UK - Company Compass`;
+    const title = `${data?.CompanyName}`;
 
-    const description = `${data?.CompanyName} ${companyId} is a company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Get insights into the company including financials, industry, Gazette and contact information.`;
+    const description = `${data?.CompanyName} ${companyId} is a company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Check company credentials including financials, industry, and contact information from Companies House and The Gazette - Company Compass UK`;
     return {
         title: title,
         description: description
