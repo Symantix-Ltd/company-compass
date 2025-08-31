@@ -93,6 +93,12 @@ export default function Home() {
           slot="9729092224"            
         />
 
+<br/>    
+
+<AdSlot
+          client="ca-pub-7212919066729459" 
+          slot="4867705256"            
+        />
 
         </aside>
        
