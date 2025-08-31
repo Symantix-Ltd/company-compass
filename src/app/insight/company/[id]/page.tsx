@@ -18,7 +18,7 @@ import Summary from '../../../components/Summary';
 
 import SearchForm from '../../../components/SearchForm'; // adjust path as needed
 
-import AdSlot from './components/AdSlot'
+import AdSlot from '../../../components/AdSlot'
 
 interface Params {
         id: string;
