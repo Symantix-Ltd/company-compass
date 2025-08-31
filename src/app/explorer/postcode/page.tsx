@@ -57,7 +57,10 @@ export default async function SearchPage({ searchParams }: Props) {
 
   return (
     <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
-      <br />
+      <br/>
+    <h1 className="f-heading-8 mb-4">Postcode search</h1>
+    <p>Search for companies listed in Companies House using postcode</p>
+<br/>
       <SearchFormPostcode/>
       <br />
       <h1 className="text-2xl font-bold mb-4"><span className='font-bold'>{query}</span></h1>

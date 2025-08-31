@@ -125,10 +125,11 @@ for (const notice of notices) {
   );
 
   return (
-    <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
-      <h1 className="f-heading-8 mb-4">Corporate Insolvency Notices</h1>
-      
-
+    <main className="max-w-6xl mx-auto  bg-white rounded-lg text-gray-900">
+      <br/>
+      <h1 className="f-heading-8 mb-4">Company Insolvency UK</h1>
+      <p>Recent company insolvency events as notified in <a href="https://www.thegazette.co.uk">The Gazette</a></p>
+<br/>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {companyBlocks.map((company) => (
           <div key={company.companyNumber || company.companyName} className="border p-4 rounded shadow-sm flex gap-4">
