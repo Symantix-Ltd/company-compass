@@ -1,9 +1,9 @@
 
 import { redirect } from 'next/navigation';
 
-export default function CompanyNamePage({ params }: { params: { company_number: string;  } }) {
-  redirect(`/company/${params.company_number}//companies-house-data`);
+export default async function CompanyNamePage({ params }: { params: Promise<Params> }) {
+
+    const {company_number, company_name } = await params;
+
+  redirect(`/company/${company_number}/${company_name}/companies-house-data`);
 }
-
-
-

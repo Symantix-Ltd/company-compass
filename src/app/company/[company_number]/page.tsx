@@ -13,9 +13,14 @@ function slugify(title: string) {
   }
 
 
-export default async function CompanyNamePage({ params }: { params: { company_number: string } }) {
+
+
+
+export default async function CompanyNamePage({ params }: { params: Promise<Params> }) {
+
+    const {company_number} = await params;
     const apiKey = process.env.CH_API_KEY;
-  const company_number = params.company_number;
+ 
 
   const response = await fetch(`https://api.company-information.service.gov.uk/company/${company_number}`, {
     headers: {
