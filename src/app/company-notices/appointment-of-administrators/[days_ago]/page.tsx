@@ -128,7 +128,7 @@ for (const notice of notices) {
   return (
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
-    <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
+    <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
       <br/>
       <h1 className="f-heading-8 mb-4">Appointment of Administrators</h1>
       <p>Recent Appointment of Administrator notices published in <a href="https://www.thegazette.co.uk">The Gazette</a></p>
