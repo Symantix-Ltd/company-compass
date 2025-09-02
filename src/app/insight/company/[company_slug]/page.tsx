@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 
 
-export default function CompanyNamePage({ params }: { params: Promise<Params> }) {
+export default async function CompanyNamePage({ params }: { params: Promise<Params> }) {
 
     const {company_slug} = await params;
 const [company_number, ...rest] = company_slug.split('-');
