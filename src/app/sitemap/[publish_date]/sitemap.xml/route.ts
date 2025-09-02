@@ -98,7 +98,7 @@ export async function GET(_req: NextRequest, context: any) {
       .map((entry) => {
         const companyNumber = entry.companyNumber!;
         const companyName = entry.title;
-        const url = `https://www.companycompass.co.uk/insight/company/${companyNumber}-${slugify(companyName)}`;
+        const url = `https://www.companycompass.co.uk/company/${companyNumber}/${slugify(companyName)}/companies-house-data`;
         const lastMod = new Date().toISOString();
 
         return `

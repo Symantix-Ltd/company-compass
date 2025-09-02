@@ -54,7 +54,7 @@ export default function CompanyEvents({ companyNumber = '' }) {
             noticeType,
             publishedDate,
             summary,
-            internalUrl: compNum ? `/insight/company/${compNum}-${slugify(companyName)}` : '#',
+            internalUrl: compNum ? `/company/${compNum}/${slugify(companyName)}/companies-house-data` : '#',
             gazetteUrl,
           };
         });

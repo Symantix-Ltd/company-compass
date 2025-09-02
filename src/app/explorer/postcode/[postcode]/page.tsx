@@ -73,8 +73,8 @@ export default async function PostcodePage({ params }: { params: Promise<Params>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
         {results.map((company) => {
-          const slug = `${company.company_number}-${slugify(company.company_name)}`;
-          const companyUrl = `/insight/company/${slug}`;
+          const slug = `${company.company_number}/${slugify(company.company_name)}`;
+          const companyUrl = `/company/${slug}/companies-house-data`;
 
           const address = company.registered_office_address;
           const address_snippet = [

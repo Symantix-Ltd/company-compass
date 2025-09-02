@@ -103,7 +103,7 @@ export async function GET(request: Request) {
       .map((entry) => {
         const companyNumber = entry.companyNumber!;
         const companyName = entry.title.replace(/\n/g, '').replace(/\/n/g, '').trim(); 
-        const url = `https://www.companycompass.co.uk/insight/company/${companyNumber}-${slugify(companyName)}`;
+        const url = `https://www.companycompass.co.uk/company/${companyNumber}/${slugify(companyName)}/companies-house-data`;
 
         return `
           <item>

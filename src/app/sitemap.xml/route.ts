@@ -91,7 +91,7 @@ export async function GET() {
       .map((entry) => {
         const companyNumber = entry.companyNumber!;
         const companyName = entry.title || 'Unknown Company';
-        const url = `https://www.companycompass.co.uk/insight/company/${companyNumber}-${slugify(companyName)}`;
+        const url = `https://www.companycompass.co.uk/company/${companyNumber}/${slugify(companyName)}/companies-house-data`;
         const lastMod = new Date(entry.publishedDate).toISOString();
 
         return `

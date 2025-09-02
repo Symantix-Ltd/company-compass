@@ -83,7 +83,7 @@ export async function getStaticProps() {
       const noticeType = entry.category?.term || 'Notice';
 
       const insightUrl = companyNumber
-        ? `/insight/company/${companyNumber}-${slugify(companyName)}`
+        ? `/${companyNumber}/${slugify(companyName)}/companies-house-data`
         : '#';
 
       const publishedDate = new Date(entry.published);
