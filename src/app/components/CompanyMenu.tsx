@@ -4,8 +4,24 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-function Dropdown({ item, isActive }) {
+
+interface MenuItem {
+  title: string;
+  route: string;
+  children?: MenuItem[];
+}
+
+interface DropdownProps {
+  item: MenuItem;
+  isActive: boolean;
+}
+
+// 👇 Use the prop type in the function
+function Dropdown({ item, isActive }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+
+
 
   return (
     <div
@@ -45,16 +61,25 @@ function Dropdown({ item, isActive }) {
   );
 }
 
-export default function CompanyMenu({ company_number, company_name }) {
+
+interface CompanyMenuProps {
+  company_number: string;
+  company_name: string;
+}
+
+export default function CompanyMenu({ company_number, company_name }: CompanyMenuProps) {
+
+
   const pathname = usePathname();
   const basePath = `/company/${company_number}/${company_name}`;
   const [selectedMobile, setSelectedMobile] = useState('');
 
-  const handleMobileChange = (e) => {
+  const handleMobileChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     setSelectedMobile(value);
     if (value) window.location.href = value;
   };
+
 
   const menuItems = [
     {
