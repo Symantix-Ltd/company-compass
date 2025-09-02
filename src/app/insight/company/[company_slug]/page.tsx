@@ -1,10 +1,13 @@
 
 import { redirect } from 'next/navigation';
 
-export default function CompanyNamePage({ params }: { params: { company_slug: string,  } }) {
 
 
-const [company_number, ...rest] = params.company_slug.split('-');
+
+export default function CompanyNamePage({ params }: { params: Promise<Params> }) {
+
+    const {company_slug} = await params;
+const [company_number, ...rest] = company_slug.split('-');
 const company_name = rest.join('-');
 
 
