@@ -5,23 +5,27 @@ export const revalidate = 86400;
 import { getRecordFromDynamoDB } from '@/lib/dynamo';
 
 
-import LatestActivityTable from '../../../components/latestActivityTable';
-import CompanyAddress from '../../../components/companyAddress';
+import LatestActivityTable from '../../../../components/latestActivityTable';
+import CompanyAddress from '../../../../components/companyAddress';
 
-import CompanyEvents from '../../../components/CompanyEvents';
+ 
+import FilingHistoryList from "../../../../components/filingHistoryList";
 
-import FilingHistoryList from "../../../components/filingHistoryList";
+import Financials from '../../../../components/Financials';
+import OfficerItem from '../../../../components/OfficerItem';
+import Summary from '../../../../components/Summary';
 
-import Financials from '../../../components/Financials';
-import OfficerItem from '../../../components/OfficerItem';
-import Summary from '../../../components/Summary';
+import SearchForm from '../../../../components/SearchForm';
 
-import SearchForm from '../../../components/SearchForm'; // adjust path as needed
+import AdSlot from '../../../../components/AdSlot';
 
-import AdSlot from '../../../components/AdSlot'
+import CompanyMenu from '../../../../components/CompanyMenu';
+
+import CompanyHeader from '../../../../components/CompanyHeader';
 
 interface Params {
-        id: string;
+        company_number: string;
+        company_name: string;
       };
 
 // No pre-rendered pages
@@ -30,24 +34,23 @@ export async function generateStaticParams(): Promise<Params[]> {
   }
   
 
-async function getCompanyData(id: string) {
-    const data = await getRecordFromDynamoDB(id);
+async function getCompanyData(company_number: string) {
+    const data = await getRecordFromDynamoDB(company_number);
     return data;
 }
-interface Params {
-    id: string;
-  };
+
 
 export async function generateMetadata(
     { params }: { params: Promise<Params> }) {
-    const { id } = await params;
-    const companyId = id.split("-")[0];
+    const { company_number, company_name } = await params;
+    
 
-    const data = await getCompanyData(companyId);
+    const data = await getCompanyData(company_number);
 
-    const title = `${data?.CompanyName}`;
+    const title = `${data?.CompanyName}. Free business summary taken from official Companies House information. Registered as ${company_number}`;
 
-    const description = `${data?.CompanyName} ${companyId} is a company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Check company credentials including financials, industry, and contact information from Companies House and The Gazette - Company Compass UK`;
+
+    const description = `${data?.CompanyName} ${company_number} is a company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Check company credentials including financials, industry, and contact information from Companies House and The Gazette - Company Compass UK`;
     return {
         title: title,
         description: description
@@ -55,7 +58,7 @@ export async function generateMetadata(
             openGraph: {
                 title: title,
                 description: description,
-                url: `https://www.companycompass.co.uk/insight/company/${id}`
+                url: `https://www.companycompass.co.uk/company/${company_number}/${company_name}/companies_house_data`
                
               },
     };
@@ -68,14 +71,9 @@ export async function generateMetadata(
 
 export default async function Page({ params }: { params: Promise<Params> }) {
     
-    const { id } = await params;
+    const { company_number, company_name } = await params;
 
-    console.log(`[SSR] Rendering page for id: ${id} at ${new Date().toISOString()}`);
-
-
-
-    // page parameters
-    const companyId = id.split("-")[0];
+    console.log(`[SSR] Rendering page for id: ${company_number} at ${new Date().toISOString()}`);
 
     /* last date page was updated  */
     const lastUpdated = new Date().toISOString();
@@ -87,62 +85,51 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     // [id, ...companyParts] = p.id.split("-");
    // const cName = companyParts.join(" ");
 
-    const data = await getCompanyData(companyId);
+    const data = await getCompanyData(company_number);
     if (!data) { return <div>Company not found</div>; }
 
     /* CH officers API */
-    const officer_res = await fetch(`https://api.company-information.service.gov.uk/company/${companyId}/officers`, {
+    const officer_res = await fetch(`https://api.company-information.service.gov.uk/company/${company_number}/officers`, {
         headers: { 'Authorization': `Basic ${Buffer.from(apiKey + ':').toString('base64')}` },  next: { revalidate: 86400 }  });
     if (!officer_res.ok) {    return { notFound: true }; }
     const officer_data = await officer_res.json();
-
-
-    /* CH filing history API */
-    const filing_res = await fetch(`https://api.company-information.service.gov.uk/company/${companyId}/filing-history`, {
-        headers: { 'Authorization': `Basic ${Buffer.from(apiKey + ':').toString('base64')}`   },  next: { revalidate: 86400 } });
-    if (!filing_res.ok) {  return { notFound: true }; }
-    const filing_data = await filing_res.json();
-    //console.log(filing_data)
 
 
     return (
         <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
         <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg  text-gray-900">
-            <div >
-                <br/>
+            <div className=" bg-white rounded-lg border text-gray-900" >
+               
             <SearchForm/>
-            <br/>
+            
+
+    
             </div>
+            <br/>
+            <div className="bg-white rounded-lg  text-gray-900 ">
+
+      {/* Header */}
+      <CompanyHeader company={data} />
+              
+<br/>
+            <CompanyMenu   company_number={company_number} company_name={company_name} />
+
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 items-stretch ">
                 {/* Summary company information */}
                 <div className='border border-silver-200 p-10 rounded-lg flex flex-col h-full'>         
                  <Summary data={data}/>
                     </div>
 
-                {/* Company Events */}
-                <div className='border border-silver-200 p-10 rounded-lg' >
-                <h2 className='f-heading-1'>Company Insolvency Events</h2>
-                <p>Company insolvency events that have been published as notices in The <a href="https://www.thegazette.co.uk">Gazette</a>.</p>
-                
-                    <CompanyEvents companyNumber={data.CompanyNumber} /> 
-                </div>
-
-                {/* Contact */}
-                <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full">
-                    <h2 className='f-heading-1'>Contact</h2>
-                    <CompanyAddress data={data} />
-                </div>
-
-                <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full">
-                    <h2 className='f-heading-1'>Latest Activity</h2>
-                    <LatestActivityTable latestActivity={filing_data} />
-                </div>
+               
 
                 {/* People */}
 
-                <div className="border border-silver-200 p-10 rounded-lg flex flex-col h-full">
-                    <h2 className='f-heading-1'>People</h2>
+                <div  id="directors-and-secretaries" className="border border-silver-200 p-10 rounded-lg flex flex-col h-full">
+                    <h2 className='f-heading-1'>Directors and Secretaries</h2>
+                    <br/>
                     <div>
                     {officer_data.items?.map((officer:any, index:number) => (
   <OfficerItem 
@@ -153,15 +140,10 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                     </div>
                 </div>
 
-                { /* Documents */}
-
-                <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full"><h2 className='f-heading-1'>Documents</h2>
-                    <br />
-                    <FilingHistoryList filings={filing_data} companyNumber={data.CompanyNumber} />
-                </div>
+                
 
                  {/* Financials */}
-                 <div className='border border-silver-200 p-10 rounded-lg' >
+                 <div id="key-financials" className='border border-silver-200 p-10 rounded-lg' >
                     <h2 className='f-heading-1'>Financials</h2>
                     <Financials companyNumber={data.CompanyNumber} /> 
                 </div>

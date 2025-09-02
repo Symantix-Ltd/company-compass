@@ -75,8 +75,8 @@ export default async function SearchPage({ searchParams }: Props) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
         {results.map((company) => {
-          const slug = `${company.company_number}-${slugify(company.title)}`;
-          const companyUrl = `/insight/company/${slug}`;
+          const slug = `${company.company_number}/${slugify(company.title)}/companies-house-data`;
+          const companyUrl = `/company/${slug}`;
 
           return (
             <div key={company.company_number} className="border p-4 rounded shadow-md flex gap-4">

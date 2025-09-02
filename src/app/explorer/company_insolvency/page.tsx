@@ -86,8 +86,8 @@ export default async function InsolvencyPage() {
 
     const summary = content.replace(/<[^>]*>/g, '').slice(0, 200) + '...';
 
-    const slug = `${companyNumber}-${slugify(companyName)}`;
-    const insightUrl = `/insight/company/${slug}`;
+    const slug = `${companyNumber}/${slugify(companyName)}/companies-house-data`;
+    const insightUrl = `/company/${slug}`;
 
     return {
       id,

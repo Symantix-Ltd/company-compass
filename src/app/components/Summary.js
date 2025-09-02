@@ -120,9 +120,7 @@ export default function Summary({ data }) {
   return (
 <div>
                     
-{/* Company Name */}
-<h1 className="f-heading-2  text-blue-500">{data.CompanyName}</h1>
-<br />
+
 {/* Intro paragraph */}
 <p className="text-lg text-gray-700 mb-8 leading-relaxed">
     {data.CompanyName} is a <span className="font-semibold">{data.CompanyCategory}</span> company incorporated on{" "}
@@ -133,19 +131,29 @@ export default function Summary({ data }) {
 <br />
 
 
+
+
+<section className="mb-8">
+    <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Company Name</h2>
+    <p className="text-lg font-bold">{data.CompanyName}</p>
+</section>
+
+
+{/* Company Type */}
+<section className="mb-8">
+    <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Company Type</h2>
+
+    <p className="text-gray-600 font-bold  mt-1">{data.CompanyCategory}</p>
+</section>
+
 {/* Status */}
 <section className="mb-8">
     <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Status</h2>
     <p className="text-lg text-blue-500 font-bold">{data.CompanyStatus}</p>
 </section>
-<br />
-{/* Company Number */}
-<section className="mb-8">
-    <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Company Number</h2>
-    <p className="text-lg text-gray-700  font-bold">{data.CompanyNumber}</p>
-    <p className="text-gray-600 italic mt-1">{data.CompanyCategory}</p>
-</section>
-<br />
+
+
+
 {/* Age */}
 <section className="mb-8">
     <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Age</h2>
