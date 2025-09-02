@@ -28,17 +28,17 @@ export default function Footer() {
       </div>
         
   
-          {/* Company 
+          {
           <div>
             <h3 className="mb-3 font-semibold text-white">&nbsp;</h3>
-            <a href="/about" className="block mb-1 hover:underline">
+            <a href="/#about" className="block mb-1 hover:underline">
               About
             </a>
-            <a href="/careers" className="block mb-1 hover:underline">
-              Careers
+            <a href="/#contact" className="block mb-1 hover:underline">
+              Contact
             </a>
           </div>
-  */}
+  }
           {/* Products & Services
           <div>
             <h3 className="mb-3 font-semibold text-white">Products & Services</h3>
@@ -52,17 +52,17 @@ export default function Footer() {
    */}
           {/* Search */}
           <div>
-            <h3 className="mb-3 font-semibold text-black">Search</h3>
+            <h3 className="mb-3 text-white  font-semibold">Search</h3>
             <a href="/search" className="block mb-1 hover:underline">
-              Company
+              by Company Name
             </a>
             <a href="/explorer/postcode" className="block mb-1 hover:underline">
-              Postcode
+              by Postcode
             </a>
            
           </div>
   
-          {/* Help 
+         
           <div>
             <h3 className="mb-3 font-semibold text-white">Help</h3>
             <a href="/help" className="block mb-1 hover:underline">
@@ -75,7 +75,7 @@ export default function Footer() {
               Privacy Policy
             </a>
           </div>
-  */}
+  
           {/* Copyright */}
           <div className="md:col-span-6 text-center mt-10 border-t border-gray-700 pt-6 text-sm text-gray-200 leading-relaxed">
             Company Compass © 2025 is published by Symantix Ltd (Company No. 05672247) a company registered in England and Wales&nbsp;

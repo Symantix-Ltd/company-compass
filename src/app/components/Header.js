@@ -31,9 +31,7 @@ export default function Header() {
       <a href="/search" className="hover:text-blue-500">Company Search</a>
       <a href="/explorer/postcode" className="hover:text-blue-500">Postcode Search</a>
       <a href="/insights" className="hover:text-blue-500">Insights</a>
-        <a href="/" className="hover:text-blue-500">Home</a>
-       <a href="/#about" className="hover:text-blue-500">About</a> 
-        <a href="/#contact" className="hover:text-blue-500">Contact</a>
+       
        
     {/*    <a href="/help/" className="text-blue-500"><QuestionMarkCircleIcon className="size-8" /></a>
         <a href="/sign-in/" className="text-blue-500"><UserCircleIcon className="size-8" /></a> */}
