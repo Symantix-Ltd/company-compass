@@ -147,9 +147,9 @@ export default async function Home() {
             <div className="space-y-2">
               {company.notices.map((notice) => (
                 <div key={notice.id} className="border-t pt-2">
-                  <span className="block text-sm font-medium">{notice.noticeType}</span>
+                 
                   <span className="block text-xs text-gray-500 mb-1">Published: {notice.dateString}</span>
-                  <p className="text-sm text-gray-700">{notice.summary}</p>
+                
                 </div>
               ))}
             </div>
