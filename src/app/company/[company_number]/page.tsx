@@ -13,7 +13,10 @@ function slugify(title: string) {
   }
 
 
-
+  type Params = {
+    company_number: string;
+   
+  };
 
 
 export default async function CompanyNamePage({ params }: { params: Promise<Params> }) {
