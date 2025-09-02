@@ -6,7 +6,7 @@ import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 
 
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
 
@@ -122,7 +122,43 @@ export default async function Home() {
   return (
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
+      <aside className="md:w-1/4 lg:w-1/4 p-4 bg-blue-100 rounded ">
+      
+        
+        <p className="text-blue-600 font-bold f-heading-10">Appointment of Administrators</p>
+        <p>Recent <a className="underline italic" href="company-notices/appointment-of-administrators/0">Appointment of Administrators</a> notices published in The Gazette</p>
+   <br/>
+    <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
+      {companyBlocks.map((company) => (
+        <div key={company.companyNumber || company.companyName} className="border p-4 rounded shadow-sm flex gap-4">
+          <div className="w-4 h-8 flex-shrink-0">
+            <BuildingOfficeIcon className="size-6 text-blue-500" />
+          </div>
+          <div className="flex-1">
+            <a href={company.insightUrl} className="text-blue-600 font-bold text-base">
+              {company.companyName}
+            </a>
+            {company.companyNumber && (
+              <p className="text-sm text-gray-500 mb-2">
+                Company Number: {company.companyNumber}
+              </p>
+            )}
 
+            <div className="space-y-2">
+              {company.notices.map((notice) => (
+                <div key={notice.id} className="border-t pt-2">
+                  <span className="block text-sm font-medium">{notice.noticeType}</span>
+                  <span className="block text-xs text-gray-500 mb-1">Published: {notice.dateString}</span>
+                  <p className="text-sm text-gray-700">{notice.summary}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+   
+      </aside>
         {/* Main Content */}
         <main className="flex-1">
           <div className="xl:grid-layout gap-y-0 mt-16 md:mt-24">
@@ -148,42 +184,9 @@ export default async function Home() {
             
           </div>
           
-<br/>
-       <div className="bg-blue-100 rounded p-5">
-        
-          <h1 className="f-heading-8 mb-4">Appointment of Administrators</h1>
-      <p>Recent Appointment of Administrator notices published in <a href="https://www.thegazette.co.uk">The Gazette</a></p>
-<br/>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {companyBlocks.map((company) => (
-          <div key={company.companyNumber || company.companyName} className="border p-4 rounded shadow-sm flex gap-4">
-            <div className="w-10 h-10 flex-shrink-0">
-              <BuildingOfficeIcon className="size-6 text-blue-500" />
-            </div>
-            <div className="flex-1">
-              <a href={company.insightUrl} className="text-blue-600 font-bold text-base">
-                {company.companyName}
-              </a>
-              {company.companyNumber && (
-                <p className="text-sm text-gray-500 mb-2">
-                  Company Number: {company.companyNumber}
-                </p>
-              )}
 
-              <div className="space-y-2">
-                {company.notices.map((notice) => (
-                  <div key={notice.id} className="border-t pt-2">
-                    <span className="block text-sm font-medium">{notice.noticeType}</span>
-                    <span className="block text-xs text-gray-500 mb-1">Published: {notice.dateString}</span>
-                    <p className="text-sm text-gray-700">{notice.summary}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      </div>
+      
+      
         {/* Services Section */}
         <section className="mb-16 mt-16">
             <h2 id="about" className="f-heading-1">What We Offer</h2>
