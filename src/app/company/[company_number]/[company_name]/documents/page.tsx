@@ -119,7 +119,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
              
 
-                <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full"><h2 className='f-heading-1'>Companies House Documents</h2>
+                <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full"><h2 className='font-bold'>Companies House Documents</h2>
                     <br />
                     <FilingHistoryList filings={filing_data} companyNumber={data.CompanyNumber} />
                 </div>

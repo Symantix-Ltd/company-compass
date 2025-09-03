@@ -61,16 +61,16 @@ export default async function SearchPage({ searchParams }: Props) {
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
     <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
       <br/>
-    <h1 className="f-heading-8 mb-4">Postcode search</h1>
+    <h1 className=" text-4xl font-bold">Postcode search</h1>
     <p>Search for companies listed in Companies House using postcode</p>
 <br/>
       <SearchFormPostcode/>
       <br />
-      <h1 className="text-2xl font-bold mb-4"><span className='font-bold'>{query}</span></h1>
+      <h2 className="text-2xl font-bold mb-4"><span className='font-bold'>{query}</span></h2>
 <br/>
       {results.length === 0 && query && <p>No results found.</p>}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
+      <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 ">
         {results.map((company) => {
           const slug = `${company.company_number}/${slugify(company.title)}/companies-house-data`;
           const companyUrl = `/company/${slug}`;
@@ -119,7 +119,7 @@ export default async function SearchPage({ searchParams }: Props) {
         })}
       </div>
     </main>
-     <aside className="w-full lg:w-1/3 p-4">
+     <aside className="lg:w-1/4 p-4">
           
        
 

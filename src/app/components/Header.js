@@ -14,12 +14,12 @@ export default function Header() {
     <div className="max-w-7xl mx-auto flex justify-between items-left">
       {/* Logo + Company name + Byline */}
       <div className="flex items-center space-x-3">
-        <img style={{ width: 50 }} src="/compass.png" alt="Company Compass logo" />
+      <a href="/"><img style={{ width: 50 }} src="/compass.png" alt="Company Compass logo" /></a>
         <div className="flex flex-col leading-tight">
-          <h1 className="f-heading-3 font-bold tracking-tight">
-            <a href="/">Company Compass</a>
+          <h1 className=" font-bold tracking-tight">
+            <a href="/" className="text-2xl">Company Compass</a>
           </h1>
-          <p className="f-heading-12 text-gray-600">Transforming Business Intelligence into Actionable Insights</p>
+          <p className=" text-gray-600">Transforming Business Intelligence into Actionable Insights</p>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ export default function Header() {
 
  <header className="bg-white shadow-md p-6 flex justify-between items-center p-4 ">
           <div>
-      <h1 className="f-heading-3  font-bold tracking-tight"><a href="/">UK Company Insights</a></h1>
+      <h1 className="  font-bold tracking-tight"><a href="/">UK Company Insights</a></h1>
 </div>
 <div className="flex space-x-2">
       <a href="/help/"><QuestionMarkCircleIcon className="size-8 text-blue-500"/></a><a href="/sign-in/"><UserCircleIcon className="size-8 text-blue-500"/></a>

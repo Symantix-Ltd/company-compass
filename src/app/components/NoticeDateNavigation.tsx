@@ -29,7 +29,7 @@ const daysAgo = parseInt(daysAgoParam, 10);
   displayedDate.setDate(displayedDate.getDate() - daysAgo);
 
   return (
-    <div className="flex items-center text-pink-800 font-bold py-5 f-heading-8">
+    <div className="flex items-center text-pink-800 font-bold py-5 ">
       <CalendarIcon className="h-6 w-6 mr-2" />
 
       {/* Left chevron → add 1 to days-ago */}

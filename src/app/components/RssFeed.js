@@ -8,7 +8,7 @@ const toTitleCaseWithLowercaseS = (str) =>
 export default async function RssFeed() {
   try {
     // Fetch RSS feed at build time / ISR
-    const feedUrl = `${process.env.BASE_URL}/api/gazette/corporate-insolvency/publish_date_rss`;
+    const feedUrl = `${process.env.BASE_URL}/api/gazette/company-insolvency/publish_date_rss`;
     const res = await fetch(feedUrl, { next: { revalidate: 3600 } }); // rebuild hourly
     const text = await res.text();
 
@@ -61,7 +61,7 @@ export default async function RssFeed() {
 
     return (
       <div>
-        <h2 className="f-heading-1">Company Insolvency</h2>
+        <h2 className="">Company Insolvency</h2>
         <p>
           Recent appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices.
         </p>

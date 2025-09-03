@@ -55,7 +55,7 @@ export function YearsSince(dateInput) {
     <div className="border rounded shadow-md p-6 md:flex md:justify-between md:items-start space-y-4 md:space-y-0 bg-silver">
       {/* Left Section */}
       <div className="md:flex-1">
-        <h1 className=" f-heading-3">{name}</h1>
+        <h1 className="font-bold ">{name}</h1>
 
         {/* Address */}
         <p className="text-gray-700 mb-4 flex items-start gap-2">

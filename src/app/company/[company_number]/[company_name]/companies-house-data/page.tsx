@@ -128,7 +128,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                 {/* People */}
 
                 <div  id="directors-and-secretaries" className="border border-silver-200 p-10 rounded-lg flex flex-col h-full">
-                    <h2 className='f-heading-1'>Directors and Secretaries</h2>
+                    <h2 className='font-bold'>Directors and Secretaries</h2>
                     <br/>
                     <div>
                     {officer_data.items?.map((officer:any, index:number) => (
@@ -144,7 +144,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
                  {/* Financials */}
                  <div id="key-financials" className='border border-silver-200 p-10 rounded-lg' >
-                    <h2 className='f-heading-1'>Financials</h2>
+                    <h2 className='font-bold'>Financials</h2>
                     <Financials companyNumber={data.CompanyNumber} /> 
                 </div>
                
@@ -175,7 +175,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 }
 
 /* 
- <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full"><h2 className='f-heading-1'>Gazette Notices</h2></div>
+ <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full"><h2 className=''>Gazette Notices</h2></div>
 
 <div className="row-start-4 border border-silver-200 p-10 rounded-lg">8</div>
    <div className="row-start-5 border border-silver-200 p-10 rounded-lg">9</div>

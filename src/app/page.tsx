@@ -56,10 +56,10 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
-      <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
-      <aside className="md:w-1/4 lg:w-1/4 p-4   ">
-      
-        <h2 className="f-heading-7">Company Insolvency News</h2>
+      <div className="max-w-7xl mx-auto  flex flex-col lg:flex-row gap-8">
+      <aside className="md:w-1/4 lg:w-1/4 sm:w-1 p-5   ">
+  
+        <h2 className="text-2xl">Company Insolvency News</h2>
        <h3 className="text-pink-800 text-bold py-2">Notices published in <a className="italic" href="https://www.thegazette.co.uk/all-notices">The Gazette</a> on {new Date().toLocaleDateString('en-UK', {
   year: 'numeric',
   month: 'long',
@@ -94,12 +94,10 @@ export default async function Home() {
 />
       </aside>
         {/* Main Content */}
-        <main className="flex-1">
-          <div className="xl:grid-layout gap-y-0 mt-16 md:mt-24">
-            <div className="xl:col-span-9">
-              <div className="f-heading-8">
-                Company checks made simple
-              </div>
+        <main className="flex-1 p-5 ">
+          <div className="xl:grid-layout gap-y-0 ">
+           
+              <h2 className="text-3xl font-bold">Company checks made simple</h2>
 
               <p className="text-lg text-gray-700 leading-relaxed max-w-prose mt-4">
                 Our platform provides comprehensive data on UK companies, sourced directly from{" "}
@@ -114,7 +112,7 @@ export default async function Home() {
               </div>
 
            
-            </div>
+           
             
           </div>
           
@@ -123,14 +121,14 @@ export default async function Home() {
       
         {/* Services Section */}
         <section className="mb-16 mt-16">
-            <h2 id="about" className="f-heading-1">What We Offer</h2>
+            <h2 id="about" className="font-bold">What We Offer</h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700 text-lg max-w-prose mt-6">
               {[
                 "Up-to-date company registration and filing data from Companies House",
                 "Official insolvency and liquidation notices from The Gazette",
                 "Searchable company profiles with key business insights",
                 "Alerts and monitoring for changes in company status",
-                "Upcoming ChatGPT-style smart search to query company info in natural language"
+                
               ].map((text, idx) => (
                 <li key={idx} className="flex items-start space-x-3">
                   <span className="inline-block mt-1 text-blue-600">
@@ -146,7 +144,7 @@ export default async function Home() {
 
           {/* Contact Section */}
           <section id="contact" className="mb-16 max-w-prose">
-            <h2 className="f-heading-1">Contact & Support</h2>
+            <h2 className="font-bold">Contact & Support</h2>
             <p className="text-lg text-gray-700 leading-relaxed mt-4">
               Questions or feedback? Reach out to us at{" "}
               <a href="mailto:contact@symantix.co.uk" className="text-blue-600 underline hover:text-blue-800">
@@ -155,7 +153,7 @@ export default async function Home() {
             </p>
           </section>
         </main>
-        <aside className="w-full lg:w-1/3 p-4">
+        <aside className=" w-1/4 p-4">
           
        
 

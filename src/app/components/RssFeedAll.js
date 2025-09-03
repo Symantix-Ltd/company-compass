@@ -29,7 +29,7 @@ export default function RssFeed({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
-      <p className="f-heading-8">Corporate Insolvency</p>
+      <p className="">Corporate Insolvency</p>
       <p>
         Recent appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices.
       </p>

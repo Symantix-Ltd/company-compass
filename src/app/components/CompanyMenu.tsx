@@ -32,7 +32,7 @@ function Dropdown({ item, isActive }: DropdownProps) {
       {/* Main Tab as Link */}
       <Link
         href={item.route}
-        className={`px-6 py-2 border  border-gray-300     ${
+        className={`px-6 py-2 border  border-gray-700     ${
           isActive ? 'bg-white text-gray-900' : 'bg-gray-200 text-gray-700 '
         } hover:bg-white hover:text-gray-900 transition`}
       >
@@ -50,7 +50,7 @@ function Dropdown({ item, isActive }: DropdownProps) {
             <Link
               key={child.route}
               href={child.route}
-              className="px-4 py-2 text-gray-700 hover:bg-gray-100"
+              className="px-4 py-2 text-gray-700 hover:bg-gray-100 "
             >
               {child.title}
             </Link>
@@ -136,18 +136,23 @@ export default function CompanyMenu({ company_number, company_name }: CompanyMen
       </div>
 
       {/* Desktop Tabs */}
-      <div className="hidden md:flex   whitespace-nowrap gap-1 px-1 py-0 ">
-        {menuItems.map((item) => {
-          // Active tab logic
-          const isActive = item.children
-            ? item.children.some(
-                (child) =>
-                  pathname === child.route || pathname.startsWith(child.route)
-              )
-            : pathname === item.route || pathname.startsWith(item.route);
+      <div className="hidden md:flex  whitespace-nowrap gap-1 px-1 py-0 ">
+      {menuItems.map((item) => {
+  // Active tab logic
+  const isActive = Boolean(
+    pathname === item.route ||
+    pathname.startsWith(item.route) ||
+    (item.children &&
+      item.children.some(
+        (child) =>
+          pathname === child.route || pathname.startsWith(child.route)
+      ))
+  );
 
-          return <Dropdown key={item.route} item={item} isActive={isActive} />;
-        })}
+  return <Dropdown key={item.route} item={item} isActive={isActive} />;
+})}
+
+
       </div>
     </div>
   );

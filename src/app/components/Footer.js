@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="flex items-center space-x-3">
         
         <div className="flex flex-col leading-tight ">
-          <h1 className="f-heading-1  font-bold tracking-tight ">
+          <h1 className="  font-bold tracking-tight ">
             <a href="/" >Company Compass</a>
           </h1>
            </div>
@@ -78,7 +78,7 @@ export default function Footer() {
   
           {/* Copyright */}
           <div className="md:col-span-6 text-center mt-10 border-t border-gray-700 pt-6 text-sm text-gray-200 leading-relaxed">
-            Company Compass © 2025 is published by Symantix Ltd (Company No. 05672247) a company registered in England and Wales&nbsp;
+            Company Compass © 2025 is published by <a href="https://www.symantix.co.uk">Symantix Ltd</a> (Company No. <a href="/company/05672247">05672247</a>) a company registered in England and Wales&nbsp;
             
             
           </div>
@@ -96,7 +96,7 @@ export default function Footer() {
 
  <header className="bg-white shadow-md p-6 flex justify-between items-center p-4 ">
           <div>
-      <h1 className="f-heading-3  font-bold tracking-tight"><a href="/">UK Company Insights</a></h1>
+      <h1 className="  font-bold tracking-tight"><a href="/">UK Company Insights</a></h1>
 </div>
 <div className="flex space-x-2">
       <a href="/help/"><QuestionMarkCircleIcon className="size-8 text-blue-500"/></a><a href="/sign-in/"><UserCircleIcon className="size-8 text-blue-500"/></a>

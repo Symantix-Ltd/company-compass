@@ -64,7 +64,7 @@ export default async function SearchPage({ searchParams }: Props) {
    
     <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
        <br/>
-    <h1 className="f-heading-8 mb-4">Company Search</h1>
+    <h1 className=" text-4xl font-bold">Company Search</h1>
     <p>Search for a company registered with Companies House</p>
 <br/>
       <SearchForm />
@@ -122,7 +122,7 @@ export default async function SearchPage({ searchParams }: Props) {
         })}
       </div>
     </main>
-    <aside className="w-full lg:w-1/3 p-4">
+    <aside className="w-1/4 p-4">
           
        
 

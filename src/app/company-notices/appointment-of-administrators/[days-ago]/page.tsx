@@ -139,7 +139,7 @@ for (const notice of notices) {
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
     <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
       
-      <h1 className="f-heading-8 mb-4">Appointment of Administrators</h1>
+      <h1 className=" mb-4">Appointment of Administrators</h1>
       <p>Appointment of Administrator notices published in <a className="italic" href="https://www.thegazette.co.uk">The Gazette</a></p>
 
 <NoticeDateNavigation baseUrl="/company-notices/appointment-of-administrators" />

@@ -108,7 +108,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
                 {/* Company Events */}
                 <div className='border border-silver-200 p-10 rounded-lg' >
-                <h2 className='f-heading-1'>Gazette Notices</h2>
+                <h2 className='font-bold'>Gazette Notices</h2>
                 <p>Company events that have been published as notices in The <a href="https://www.thegazette.co.uk">Gazette</a>.</p>
                 
                     <CompanyEvents companyNumber={data.CompanyNumber} /> 

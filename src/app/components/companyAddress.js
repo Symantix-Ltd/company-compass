@@ -101,7 +101,7 @@ export default function CompanyAddress({ data }) {
       <MapPinIcon className="size-6 text-blue-500"/>
       </div>
       <div className="text-left">
-      <p className="f-heading-7">Address</p>
+      <p className="">Address</p>
 
         {RegAddress_AddressLine1}
         <br />

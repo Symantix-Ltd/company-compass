@@ -108,7 +108,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
                 {/* Contact */}
                 <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full">
-                    <h2 className='f-heading-1'>Contact</h2>
+                    <h2 className='font-bold'>Contact</h2>
                     <CompanyAddress data={data} />
                 </div>
 

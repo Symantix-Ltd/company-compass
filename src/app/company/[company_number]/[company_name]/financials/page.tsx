@@ -112,7 +112,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
                  {/* Financials */}
                  <div className='border border-silver-200 p-10 rounded-lg' >
-                    <h2 className='f-heading-1'>Financials</h2>
+                    <h2 className='font-bold'>Financials</h2>
                     <Financials companyNumber={data.CompanyNumber} /> 
                 </div>
                

@@ -64,7 +64,7 @@ export default async function PostcodePage({ params }: { params: Promise<Params>
     <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
      <br/>
      
-      <h1 className="f-heading-7">
+      <h1 className="">
         Active companies in <span className="font-bold">{postcode.toUpperCase()}</span>
       </h1>
       <br/>

@@ -46,7 +46,7 @@ async function fetchNotices(endpoint: string): Promise<Notice[]> {
 
   
     notices.sort((a: Notice, b: Notice) => a.companyName.localeCompare(b.companyName));
-    
+
     return notices;
   } catch (err) {
     console.error('Error loading notices:', err);
@@ -86,7 +86,7 @@ export default function NoticeBlock({
   if (notices.length === 0) return ( 
   
     <div className="p-4 bg-blue-100 rounded">
-      <p className="text-blue-600 font-bold f-heading-10 py-2">{title}</p>
+      <p className="text-blue-600 font-bold  py-2">{title}</p>
       <p>No recent notices found.</p>
       {linkUrl && (
         <p className="mt-1 text-sm py-5">
@@ -102,10 +102,10 @@ export default function NoticeBlock({
 
   return (
     <div className="p-4 bg-blue-100 rounded">
-      <p className="text-blue-600 font-bold f-heading-10 py-2">{title}</p>
+      <p className="text-blue-600 font-bold  py-2">{title}</p>
       
     
-      <ul className="mt-4 list-disc list-inside space-y-1">
+      <ul className="mt-4 list-decimal list-inside space-y-1">
         {notices.map((notice) => (
           <li key={notice.id}>
             <a href={notice.insightUrl} className="text-blue-500 underline text-sm">

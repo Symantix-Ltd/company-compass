@@ -37,17 +37,17 @@ export default async function Insights() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center', // center cards horizontally
-        py: 4,
+        py: 2,
       }}
     >
       <Grid
         container
-        spacing={3}
+        
         direction="column" // stack items vertically
-        alignItems="center" // center items
+        alignItems="left" // center items
       >
         {posts.map((post) => (
-          <Grid item key={post.guid} sx={{ width: '100%', maxWidth: 600 }}>
+          <Grid item key={post.guid} sx={{ width: '100%' }}>
             <Card
               variant="outlined"
               sx={{

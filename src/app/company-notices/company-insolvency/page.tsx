@@ -130,7 +130,7 @@ for (const notice of notices) {
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
     <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
      
-      <h1 className="f-heading-8 mb-4">Company Insolvency News</h1>
+      <h1 className=" text-4xl font-bold">Company Insolvency News</h1>
      
 
 
@@ -171,8 +171,8 @@ for (const notice of notices) {
 
 
 </div>
-
-<h2 className="f-heading-8 mb-4 ">All Company Insolvency Notices</h2>
+<br/>
+<h2 className=" text-2xl font-bold">All Company Insolvency Notices</h2>
 <h3 className="text-pink-800 text-bold py-5">Notices published in <a className="italic" href="https://www.thegazette.co.uk/all-notices">The Gazette</a> on {new Date().toLocaleDateString('en-UK', {
   year: 'numeric',
   month: 'long',
