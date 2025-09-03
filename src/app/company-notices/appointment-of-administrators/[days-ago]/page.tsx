@@ -1,8 +1,13 @@
 // src/app/explorer/insolvency/page.tsx
 
-import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
-import AdSlot from '../../../components/AdSlot'
+import { BuildingOfficeIcon, ChevronLeftIcon,
+  ChevronRightIcon,
+  CalendarIcon } from '@heroicons/react/24/solid';
 
+
+
+import AdSlot from '../../../components/AdSlot';
+import NoticeDateNavigation from '../../../components/NoticeDateNavigation';
 
 export const dynamic = 'force-static';
 export const revalidate = 3600;
@@ -37,7 +42,7 @@ function slugify(name: string) {
 
   let title = `Gazette Company Notices - Appointment of Administrators - Company Compass`;
 
-  let description = `Company Insolvency UK - Recent appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices published in The Gazette.`;
+  let description = `Company Insolvency UK - Appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices published in The Gazette.`;
   
 
   export const metadata = {
@@ -53,7 +58,7 @@ function slugify(name: string) {
 
 
 export default async function InsolvencyPage() {
-  const res = await fetch(`${process.env.BASE_URL}/api/gazette/corporate_insolvency/appointment-of-administrators`, {
+  const res = await fetch(`${process.env.BASE_URL}/api/gazette/company-insolvency/appointment-of-administrators`, {
     next: { revalidate },
   });
 
@@ -129,10 +134,13 @@ for (const notice of notices) {
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
     <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
-      <br/>
+      
       <h1 className="f-heading-8 mb-4">Appointment of Administrators</h1>
-      <p>Recent Appointment of Administrator notices published in <a href="https://www.thegazette.co.uk">The Gazette</a></p>
-<br/>
+      <p>Appointment of Administrator notices published in <a className="italic" href="https://www.thegazette.co.uk">The Gazette</a></p>
+
+<NoticeDateNavigation baseUrl="/company-notices/appointment-of-administrators" />
+
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {companyBlocks.map((company) => (
           <div key={company.companyNumber || company.companyName} className="border p-4 rounded shadow-sm flex gap-4">
@@ -154,7 +162,7 @@ for (const notice of notices) {
                   <div key={notice.id} className="border-t pt-2">
                     <span className="block text-sm font-medium">{notice.noticeType}</span>
                     <span className="block text-xs text-gray-500 mb-1">Published: {notice.dateString}</span>
-                    <p className="text-sm text-gray-700">{notice.summary}</p>
+                   
                   </div>
                 ))}
               </div>

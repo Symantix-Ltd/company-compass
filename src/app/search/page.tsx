@@ -98,7 +98,7 @@ export default async function SearchPage({ searchParams }: Props) {
                           : 'bg-red-200 text-red-800'
                       }`}
                     >
-                      {company.company_status.toUpperCase()}
+                      {company.company_status?.toUpperCase()}
                     </div>
                   </div>
                   <div>

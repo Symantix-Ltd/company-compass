@@ -35,7 +35,7 @@ export default function SearchForm() {
                    
     
     <form onSubmit={handleSubmit} className="flex-grow max-w-4xl relative">
-      <div className="flex items-center  bg-blue-100 p-4 rounded-md overflow-hidden">
+      <div className="flex items-center  bg-blue-100 p-4 rounded-md overflow-hidden border">
         <input
           type="text"
           autoComplete="off"

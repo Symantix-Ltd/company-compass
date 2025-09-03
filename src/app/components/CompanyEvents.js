@@ -35,7 +35,7 @@ export default function CompanyEvents({ companyNumber = '' }) {
           const companyNumberMatch = contentText.match(/Company Number:\s*(\w+)/i);
           const compNum = companyNumberMatch ? companyNumberMatch[1] : '';
 
-          const companyName = entry.title || 'Unknown Company';
+          const companyName = entry.title || '';
           const noticeType = entry.category?.term || 'Notice';
           const publishedDate = new Date(entry.published).toLocaleDateString('en-GB');
 
@@ -77,10 +77,10 @@ export default function CompanyEvents({ companyNumber = '' }) {
       
     <ul>
       {notices.map((notice) => (
-        <li key={notice.id} style={{ marginBottom: '1.5rem' }}>
-          <a href={notice.internalUrl} style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+        <li key={notice.id} style={{ marginBottom: '1.5rem' }} className="border p-5">
+          <p style={{ fontWeight: 'bold' }}>
             {notice.noticeType}
-          </a>
+          </p>
           <div style={{ fontSize: '0.9rem', color: '#555', margin: '0.25rem 0' }}>
             Published: {notice.publishedDate}
           </div>
@@ -92,7 +92,7 @@ export default function CompanyEvents({ companyNumber = '' }) {
               href={notice.gazetteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ fontSize: '0.85rem', color: 'silver' }}
+              style={{ fontSize: '0.85rem', color: 'blue' }}
             >
               source: The Gazette
             </a>

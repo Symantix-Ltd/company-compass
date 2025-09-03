@@ -1,7 +1,7 @@
 // src/app/explorer/insolvency/page.tsx
 
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
-import AdSlot from '../../components/AdSlot'
+import AdSlot from '../../../components/AdSlot'
 
 
 export const dynamic = 'force-static';
@@ -35,7 +35,7 @@ function slugify(name: string) {
 }
 
 
-  let title = `Company Insolvency UK - Company Compass`;
+  let title = `Gazette Company Notices - Petition to Wind Up (Company) - Company Compass`;
 
   let description = `Company Insolvency UK - Recent appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices published in The Gazette.`;
   
@@ -47,13 +47,13 @@ function slugify(name: string) {
         openGraph: {
             title: title,
             description: description,
-            url: `https://www.companycompass.co.uk/explorer/company_insolvency`
+            url: `https://www.companycompass.co.uk/company-notices/winding-up-petition`
           }
   };
 
 
 export default async function InsolvencyPage() {
-  const res = await fetch(`${process.env.BASE_URL}/api/gazette/corporate_insolvency/publish_date_all`, {
+  const res = await fetch(`${process.env.BASE_URL}/api/gazette/company-insolvency/winding-up-petition`, {
     next: { revalidate },
   });
 
@@ -129,9 +129,9 @@ for (const notice of notices) {
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
     <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
-      <br/>
-      <h1 className="f-heading-8 mb-4">Company Insolvency UK</h1>
-      <p>Recent company insolvency events as notified in <a href="https://www.thegazette.co.uk">The Gazette</a></p>
+      
+      <h1 className="f-heading-8 mb-4">Petitions to Wind Up (Company)</h1>
+      <p>Recent Petition to Wind Up (Company) notices published in <a className=" italic" href="https://www.thegazette.co.uk">The Gazette</a></p>
 <br/>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {companyBlocks.map((company) => (
@@ -163,17 +163,14 @@ for (const notice of notices) {
         ))}
       </div>
     </main>
-    <aside className="w-full  md:w-1/3 lg:w-1/3 p-4">
+    <aside className="w-full lg:w-1/3 p-4">
           
-       
-
           <AdSlot
                     client="ca-pub-7212919066729459" 
                     slot="9729092224"            
                   />
           
           <br/>    
-          
           <AdSlot
                     client="ca-pub-7212919066729459" 
                     slot="4867705256"           

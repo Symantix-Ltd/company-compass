@@ -1,7 +1,9 @@
 import SearchForm from './components/SearchForm';
 import RssFeed from './components/RssFeed';
 import Insights from './components/Insights';
-import AdSlot from './components/AdSlot'
+import AdSlot from './components/AdSlot';
+import NoticeBlock from './components/NoticeBlock';
+
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 
 
@@ -42,79 +44,12 @@ function slugify(name: string) {
 
 export default async function Home() {
 
-  const res = await fetch(`${process.env.BASE_URL}/api/gazette/corporate_insolvency/appointment-of-administrators`, {
-    next: { revalidate },
-  });
-  
-  if (!res.ok) {
-    console.error('Failed to fetch insolvency data');
-    return <div>Failed to load data.</div>;
-  }
-  
-  const json = await res.json();
-  const entries = Array.isArray(json) ? json : json?.entry || [];
-  
-  const notices: Notice[] = entries.flatMap((entry: any) => {
-    const id = entry.id;
-    const companyName = entry.title.replace(/\n/g, '').replace(/\/n|\/N/g, '').trim();
-    const content = entry.content || '';
-    const published = entry.published;
-    const category = entry.category?.['@term'] || 'Notice';
-  
-    const companyNumberMatch = content.match(/Company Number[:]*\s*(\w+)/i);
-    const companyNumber = companyNumberMatch ? companyNumberMatch[1] : '';
-  
-    if (!companyNumber) return [];
-  
-    const date = new Date(published);
-    const dateString = date.toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: 'long',
-      year: 'numeric',
-    });
-  
-    const summary = content.replace(/<[^>]*>/g, '').slice(0, 200) + '...';
-  
-    const slug = `${companyNumber}/${slugify(companyName)}/companies-house-data`;
-    const insightUrl = `/company/${slug}`;
-  
-    return {
-      id,
-      companyName,
-      companyNumber,
-      noticeType: category,
-      insightUrl,
-      published,
-      dateString,
-      summary,
-    };
-  });
-  
-  
-  // Group notices by companyNumber or companyName
-  const grouped: Record<string, CompanyBlock> = {};
-  
-  for (const notice of notices) {
-  const key = notice.companyNumber;
-  if (!grouped[key]) {
-    grouped[key] = {
-      companyName: notice.companyName,
-      companyNumber: notice.companyNumber,
-      insightUrl: notice.insightUrl,
-      notices: [],
-    };
-  }
-  grouped[key].notices.push(notice);
-  }
-  
-  
-  
-  // Convert grouped object to array and sort by company name
-  const companyBlocks = Object.values(grouped).sort((a, b) =>
-    a.companyName.localeCompare(b.companyName)
-  );
   
 
+  
+  
+  
+  
 
 
 
@@ -122,42 +57,41 @@ export default async function Home() {
   return (
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
-      <aside className="md:w-1/4 lg:w-1/4 p-4 bg-blue-100 rounded ">
+      <aside className="md:w-1/4 lg:w-1/4 p-4   ">
       
-        
-        <p className="text-blue-600 font-bold f-heading-10">Appointment of Administrators</p>
-        <p>Recent <a className="underline italic" href="company-notices/appointment-of-administrators/0">Appointment of Administrators</a> notices published in The Gazette</p>
-   <br/>
-    <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
-      {companyBlocks.map((company) => (
-        <div key={company.companyNumber || company.companyName} className="border p-4 rounded shadow-sm flex gap-4">
-          <div className="w-4 h-8 flex-shrink-0">
-            <BuildingOfficeIcon className="size-6 text-blue-500" />
-          </div>
-          <div className="flex-1">
-            <a href={company.insightUrl} className="text-blue-600 font-bold text-base">
-              {company.companyName}
-            </a>
-            {company.companyNumber && (
-              <p className="text-sm text-gray-500 mb-2">
-                Company Number: {company.companyNumber}
-              </p>
-            )}
+        <h2 className="f-heading-7">Company Insolvency News</h2>
+       <h3 className="text-pink-800 text-bold py-2">Notices published in <a className="italic" href="https://www.thegazette.co.uk/all-notices">The Gazette</a> on {new Date().toLocaleDateString('en-UK', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+})}</h3>
+    
+    <NoticeBlock 
+  endpoint="appointment-of-administrators"
+  title="Appointment of Administrators"
+  linkUrl="company-notices/appointment-of-administrators/0"
+/>
+    
+<br/>
+<NoticeBlock 
+  endpoint="winding-up-petition"
+  title="Petitions to Wind Up (Companies)"
+  linkUrl="company-notices/winding-up-petition/0"
+/>
+<br/>
+<NoticeBlock 
+  endpoint="appointment-of-liquidator"
+  title="Appointment of Liquidator"
+  linkUrl="company-notices/appointment-of-liquidator/0"
+/>
 
-            <div className="space-y-2">
-              {company.notices.map((notice) => (
-                <div key={notice.id} className="border-t pt-2">
-                 
-                  <span className="block text-xs text-gray-500 mb-1">Published: {notice.dateString}</span>
-                
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-   
+
+<br/>
+<NoticeBlock 
+  endpoint="winding-up-order"
+  title="Petitions to Wind Up (Companies)"
+  linkUrl="company-notices/winding-up-order/0"
+/>
       </aside>
         {/* Main Content */}
         <main className="flex-1">

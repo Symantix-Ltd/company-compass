@@ -86,7 +86,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
         <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg  text-gray-900">
-            <div className=" bg-white rounded-lg border text-gray-900" >   
+            <div className=" bg-white rounded-lg text-gray-900" >   
             <SearchForm/>
             
 
@@ -109,7 +109,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                 {/* Company Events */}
                 <div className='border border-silver-200 p-10 rounded-lg' >
                 <h2 className='f-heading-1'>Gazette Notices</h2>
-                <p>Company insolvency events that have been published as notices in The <a href="https://www.thegazette.co.uk">Gazette</a>.</p>
+                <p>Company events that have been published as notices in The <a href="https://www.thegazette.co.uk">Gazette</a>.</p>
                 
                     <CompanyEvents companyNumber={data.CompanyNumber} /> 
                 </div>

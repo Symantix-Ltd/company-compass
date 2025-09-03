@@ -1,3 +1,5 @@
+
+
 import { NextResponse } from 'next/server';
 
 interface GazetteLink {
@@ -60,10 +62,10 @@ export async function GET(request: Request) {
 
   try {
     do {
-      const feedUrl = `https://www.thegazette.co.uk/all-notices/publish-date/${date}/notice/data.json?categorycode=G305010100&results-page-size=${pageSize}&results-page=${page}`;
+      const feedUrl = `https://www.thegazette.co.uk/all-notices/publish-date/${date}/notice/data.json?categorycode=all&noticetypes=2452&results-page-size=${pageSize}&results-page=${page}`;
       
       
-      
+     
       
       const response = await fetch(feedUrl);
 

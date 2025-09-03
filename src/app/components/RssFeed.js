@@ -8,7 +8,7 @@ const toTitleCaseWithLowercaseS = (str) =>
 export default async function RssFeed() {
   try {
     // Fetch RSS feed at build time / ISR
-    const feedUrl = `${process.env.BASE_URL}/api/gazette/corporate_insolvency/publish_date_rss`;
+    const feedUrl = `${process.env.BASE_URL}/api/gazette/corporate-insolvency/publish_date_rss`;
     const res = await fetch(feedUrl, { next: { revalidate: 3600 } }); // rebuild hourly
     const text = await res.text();
 
@@ -83,6 +83,6 @@ export default async function RssFeed() {
     );
   } catch (err) {
     console.error('Failed to fetch RSS feed', err);
-    return <p>Failed to load RSS feed</p>;
+    return <p></p>;
   }
 }
