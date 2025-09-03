@@ -130,7 +130,7 @@ for (const notice of notices) {
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
     <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
      
-      <h1 className="f-heading-8 mb-4">Company Insolvency UK</h1>
+      <h1 className="f-heading-8 mb-4">Company Insolvency News</h1>
      
 
 

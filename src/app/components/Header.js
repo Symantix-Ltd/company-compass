@@ -27,7 +27,7 @@ export default function Header() {
       {/* Desktop Menu */}
       <nav className="hidden md:flex space-x-6 text-sm">
       
-      <a href="/company-notices/company-insolvency" className="hover:text-blue-500">Company Insolvency UK</a>
+      <a href="/company-notices/company-insolvency" className="hover:text-blue-500">Company Insolvency News</a>
       <a href="/search" className="hover:text-blue-500">Company Search</a>
       <a href="/explorer/postcode" className="hover:text-blue-500">Postcode Search</a>
       <a href="/insights" className="hover:text-blue-500">Insights</a>

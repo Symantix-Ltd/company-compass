@@ -14,6 +14,8 @@ export default function NoticeDateNavigation({ baseUrl }: NoticeDateNavigationPr
   // Ensure daysAgoParam is a string
 const daysAgoParamRaw = params?.['days-ago'] || '0';
 const daysAgoParam = Array.isArray(daysAgoParamRaw) ? daysAgoParamRaw[0] : daysAgoParamRaw;
+
+if (!daysAgoParam) return null;
 const daysAgo = parseInt(daysAgoParam, 10);
 
 

@@ -89,6 +89,10 @@ export default async function InsolvencyPage() {
       year: 'numeric',
     });
 
+
+
+
+    
     const summary = content.replace(/<[^>]*>/g, '').slice(0, 200) + '...';
 
     const slug = `${companyNumber}/${slugify(companyName)}/companies-house-data`;
