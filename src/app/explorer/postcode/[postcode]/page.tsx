@@ -1,8 +1,8 @@
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 
-import AdSlot from '../../../components/AdSlot'
+import AdSlot from '../../../components/AdSlot';
 
-
+import PostcodeMap from '../../../components/PostcodeMap';
 // ISR: revalidate once per day
 export const revalidate = 86400;
 
@@ -71,6 +71,7 @@ export default async function PostcodePage({ params }: { params: Promise<Params>
 
       {results.length === 0 && postcode && <p>No results found.</p>}
 
+      <PostcodeMap postcode="{postcode}" />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
         {results.map((company) => {
           const slug = `${company.company_number}/${slugify(company.company_name)}`;

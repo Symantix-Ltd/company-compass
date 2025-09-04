@@ -73,7 +73,7 @@ export function YearsSince(dateInput) {
           <span>
             {address.street} <br />
             {address.region} <br />
-            {address.postalCode}
+            <a className="underline" href={`/explorer/postcode?q=${address.postalCode}`}>{address.postalCode}</a>
           </span>
         </p>
 

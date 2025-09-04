@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic';
 import SearchFormPostcode from '../../components/SearchFormPostcode'; // adjust path as needed
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 import AdSlot from '../../components/AdSlot'
-
+import PostcodeMap from '../../components/PostcodeMap'
 interface CompanyResult {
   company_number: string;
   title: string;
@@ -66,8 +66,12 @@ export default async function SearchPage({ searchParams }: Props) {
 <br/>
       <SearchFormPostcode/>
       <br />
-      <h2 className="text-2xl font-bold mb-4"><span className='font-bold'>{query}</span></h2>
+      <h2 className="text-2xl font-bold mb-4"><span className='font-bold'>{query.toUpperCase()}</span></h2>
 <br/>
+
+<PostcodeMap postcode={query}  />
+<br/><br/>
+
       {results.length === 0 && query && <p>No results found.</p>}
 
       <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 ">

@@ -24,7 +24,7 @@ export default function OfficerItem({ officer }) {
         <UserCircleIcon className="h-10 w-10 text-blue-500" />
       </div>
       <div className="text-left space-y-1">
-        <strong className="text-lg underline text-blue-500"><a href="{personPageLink}">{officer.name}</a></strong>
+        <strong className="text-lg underline text-blue-500"><a href={personPageLink}>{officer.name}</a></strong>
         <div className="text-sm text-gray-600">
           {roles} • {nationality} • {residence}
         </div>
