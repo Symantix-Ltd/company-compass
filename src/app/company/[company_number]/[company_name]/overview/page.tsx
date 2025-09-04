@@ -49,7 +49,7 @@ export async function generateMetadata(
 
     const data = await getCompanyData(company_number);
 
-    const title = `Overview of ${data?.CompanyName}. Free business summary taken from official Companies House information. Registered as ${company_number}`;
+    const title = `Overview of ${data?.CompanyName} - free business summary taken from official Companies House information. Registered as ${company_number}`;
 
 
     const description = `${data?.CompanyName} ${company_number} is a company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Check company credentials including financials, industry, and contact information from Companies House and The Gazette - Company Compass UK`;
