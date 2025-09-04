@@ -44,83 +44,65 @@ function slugify(name: string) {
 
 export default async function Home() {
 
-  
-
-  
-  
-  
-  
-
-
-
-
   return (
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto  flex flex-col lg:flex-row gap-8">
-      <aside className="md:w-1/4 lg:w-1/4 sm:w-1 p-5   ">
-  
-        <h2 className="text-2xl">Company Insolvency News</h2>
-       <h3 className="text-pink-800 text-bold py-2">Notices published in <a className="italic" href="https://www.thegazette.co.uk/all-notices">The Gazette</a> on {new Date().toLocaleDateString('en-UK', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-})}</h3>
-    
-    <NoticeBlock 
-  endpoint="appointment-of-administrators"
-  title="Appointment of Administrators"
-  linkUrl="company-notices/appointment-of-administrators/0"
-/>
-    
-<br/>
-<NoticeBlock 
-  endpoint="winding-up-petition"
-  title="Petitions to Wind Up (Companies)"
-  linkUrl="company-notices/winding-up-petition/0"
-/>
-<br/>
-<NoticeBlock 
-  endpoint="appointment-of-liquidator"
-  title="Appointment of Liquidator"
-  linkUrl="company-notices/appointment-of-liquidator/0"
-/>
+        <aside className="  order-3 lg:order-1 md:w-1/4 lg:w-1/4 sm:w-1 p-5 ">
 
+          <h2 className="text-2xl">Company Insolvency News</h2>
+          <h3 className="text-pink-800 text-bold py-2">Notices published in <a className="italic" href="https://www.thegazette.co.uk/all-notices">The Gazette</a> on {new Date().toLocaleDateString('en-UK', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}</h3>
 
-<br/>
-<NoticeBlock 
-  endpoint="winding-up-order"
-  title="Petitions to Wind Up (Companies)"
-  linkUrl="company-notices/winding-up-order/0"
-/>
-      </aside>
+          <NoticeBlock
+            endpoint="appointment-of-administrators"
+            title="Appointment of Administrators"
+            linkUrl="company-notices/appointment-of-administrators/0"
+          />
+          <br />
+          <NoticeBlock
+            endpoint="winding-up-petition"
+            title="Petitions to Wind Up (Companies)"
+            linkUrl="company-notices/winding-up-petition/0"
+          />
+          <br />
+          <NoticeBlock
+            endpoint="appointment-of-liquidator"
+            title="Appointment of Liquidator"
+            linkUrl="company-notices/appointment-of-liquidator/0"
+          />
+
+          <br />
+          <NoticeBlock
+            endpoint="winding-up-order"
+            title="Petitions to Wind Up (Companies)"
+            linkUrl="company-notices/winding-up-order/0"
+          />
+        </aside>
         {/* Main Content */}
-        <main className="flex-1 p-5 ">
+        <main className="order-1 lg:order-2 flex-1 p-5 ">
           <div className="xl:grid-layout gap-y-0 ">
-           
-              <h2 className="text-3xl font-bold">Company checks made simple</h2>
 
-              <p className="text-lg text-gray-700 leading-relaxed max-w-prose mt-4">
-                Our platform provides comprehensive data on UK companies, sourced directly from{" "}
-                <strong className="text-gray-900">Companies House</strong> and{" "}
-                <strong className="text-gray-900">The Gazette</strong>. Access official company filings, insolvency notices, and public records all in one place, making business research and compliance easier than ever.
-              </p>
+            <h2 className="text-3xl font-bold">Company checks made simple</h2>
 
-              <div className="mt-6">
-                
-                <SearchForm />
-                
-              </div>
+            <p className="text-lg text-gray-700 leading-relaxed max-w-prose mt-4">
+              Our platform provides comprehensive data on UK companies, sourced directly from{" "}
+              <strong className="text-gray-900">Companies House</strong> and{" "}
+              <strong className="text-gray-900">The Gazette</strong>. Access official company filings, insolvency notices, and public records all in one place, making business research and compliance easier than ever.
+            </p>
 
-           
-           
-            
+            <div className="mt-6">
+
+              <SearchForm />
+
+            </div>
+
           </div>
-          
 
-      
-      
-        {/* Services Section */}
-        <section className="mb-16 mt-16">
+          {/* Services Section */}
+          <section className="mb-16 mt-16">
             <h2 id="about" className="font-bold">What We Offer</h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700 text-lg max-w-prose mt-6">
               {[
@@ -128,7 +110,7 @@ export default async function Home() {
                 "Official insolvency and liquidation notices from The Gazette",
                 "Searchable company profiles with key business insights",
                 "Alerts and monitoring for changes in company status",
-                
+
               ].map((text, idx) => (
                 <li key={idx} className="flex items-start space-x-3">
                   <span className="inline-block mt-1 text-blue-600">
@@ -153,25 +135,17 @@ export default async function Home() {
             </p>
           </section>
         </main>
-        <aside className=" w-1/4 p-4">
-          
-       
-
-<AdSlot
-          client="ca-pub-7212919066729459" 
-          slot="9729092224"            
-        />
-
-<br/>    
-
-<AdSlot
-          client="ca-pub-7212919066729459" 
-          slot="4867705256"            
-        />
-
+        <aside className="order-2 w-full lg:order-3 lg:w-1/4 p-4">
+          <AdSlot
+            client="ca-pub-7212919066729459"
+            slot="9729092224"
+          />
+          <br />
+          <AdSlot
+            client="ca-pub-7212919066729459"
+            slot="4867705256"
+          />
         </aside>
-       
-        
       </div>
     </div>
   );

@@ -29,11 +29,11 @@ body {
 }
 
 main {
-  padding-top: 50px; /* match header height */
+  padding-top: 80px; /* match header height */
 }
 
 aside {
-  padding-top: 50px; /* match header height */
+  padding-top: 80px; /* match header height */
   background-color: whitesmoke;
 }
 
