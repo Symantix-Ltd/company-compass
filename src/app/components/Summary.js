@@ -1,213 +1,84 @@
-
-
-
 "use client";
 import React from "react";
+import { LongDate, MonthsSince, MonthsUntil, YearsSince, parseDate } from "./utils"; // import your helpers
 
-/*
-const LongDate: React.FC<LongDateProps> = ({ date }) => {
-    const dateObj = new Date(date);
-
-    const longDate = dateObj.toLocaleDateString("en-UK", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-    });
-
-    return longDate;
-};
-*/
-
-const MonthsSince = ({ date }) => {
-    const startDate = new Date(date);
-    const today = new Date();
-  
-    const months =
-      (today.getFullYear() - startDate.getFullYear()) * 12 +
-      (today.getMonth() - startDate.getMonth());
-  
-    return <>{months < 0 ? 0 : months}</>;
-  };
-  
-  export {MonthsSince};
-  
-
-const LongDate = ({ date }) => {
-    const dateObj = new Date(date);
-  
-    const longDate = dateObj.toLocaleDateString("en-UK", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  
-    return <>{longDate}</>;
-  };
-  
-  export { LongDate};
-
-const MonthsUntil = ({ date }) => {
-    const targetDate = new Date(date);
-    const today = new Date();
-  
-    const months =
-      (targetDate.getFullYear() - today.getFullYear()) * 12 +
-      (targetDate.getMonth() - today.getMonth());
-  
-    return <>{months < 0 ? 0 : months}</>;
-  };
-  
-  export {MonthsUntil};
-  
-  
-
-// utils/yearsSince.js
-export function YearsSince(dateInput) {
-    if (!dateInput) return null; // handle null/undefined
-  
-    const dateStr = typeof dateInput === 'string' ? dateInput : dateInput.date;
-    if (!dateStr) return null;
-  
-    const parts = dateStr.split('-').map(Number);
-    if (parts.length !== 3) return null; // invalid format
-  
-    const startDate = new Date(parts[0], parts[1] - 1, parts[2]);
-    if (isNaN(startDate)) return null;
-  
-    const today = new Date();
-    let years = today.getFullYear() - startDate.getFullYear();
-  
-    if (
-      today.getMonth() < startDate.getMonth() ||
-      (today.getMonth() === startDate.getMonth() && today.getDate() < startDate.getDate())
-    ) {
-      years--;
-    }
-  
-    return years;
-  }
-  
-  
-
-const parseDate = (dateStr) => {
-
-    
-    if (dateStr && dateStr.includes("/")) {
-      // Parse as DD/MM/YYYY
-      return parseDMY(dateStr);
-    }
-    // Otherwise, try direct parsing (ISO or other formats)
-    return new Date(dateStr);
-  };
-  
-  export { parseDate };
-  
-
-const parseDMY = (dateStr) => {
-    const [day, month, year] = dateStr.split("/").map(Number);
-    return new Date(year, month - 1, day);
-  };
-  
-  export { parseDMY};
-
-  
 export default function Summary({ data }) {
-  
   if (!data) return null;
 
-
-
   return (
-<div>
-                    
+    <div className="space-y-10 p-6 max-w-5xl mx-auto">
 
-{/* Intro paragraph */}
-<p className="text-lg text-gray-700 mb-8 leading-relaxed">
-    {data.CompanyName} is a <span className="font-semibold">{data.CompanyCategory}</span> company incorporated on{" "}
-    <LongDate date={data.IncorporationDate} /> with the registered office in{" "}
-    <span className="font-medium">{data.RegAddress_AddressLine2} {data.RegAddress_PostTown}</span>.
-</p>
+      {/* Intro */}
+      <p className="text-lg text-gray-700 leading-relaxed">
+        <span className="font-semibold">{data.CompanyName}</span> is a{" "}
+        <span className="font-semibold">{data.CompanyCategory}</span> company, incorporated on{" "}
+        <LongDate date={data.IncorporationDate} /> with its registered office in{" "}
+        <span className="font-medium">{data.RegAddress_AddressLine2}, {data.RegAddress_PostTown}</span>.
+      </p>
 
-<br />
+      {/* Grid for key metadata */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
+        {/* Company Name */}
+        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Company Name</h3>
+          <p className="text-lg font-bold">{data.CompanyName}</p>
+        </div>
 
+        {/* Company Type */}
+        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Company Type</h3>
+          <p className="text-gray-700 font-bold">{data.CompanyCategory}</p>
+        </div>
 
+        {/* Status */}
+        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Status</h3>
+          <p className="text-blue-500 font-bold">{data.CompanyStatus}</p>
+        </div>
 
-<section className="mb-8">
-    <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Company Name</h2>
-    <p className="text-lg font-bold">{data.CompanyName}</p>
-</section>
+        {/* Age */}
+        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Age</h3>
+          <p className="text-lg text-gray-700 font-bold">
+            <YearsSince date={data.IncorporationDate} /> years
+          </p>
+          <p className="text-gray-500 italic">
+            Incorporated <LongDate date={data.IncorporationDate} />
+          </p>
+        </div>
 
+        {/* Confirmation */}
+        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Confirmation</h3>
+          <p className="text-gray-700 font-bold mb-2">
+            Last made up on <LongDate date={data.ConfStmtLastMadeUpDate} /> (<MonthsSince date={data.ConfStmtLastMadeUpDate} /> months ago)
+          </p>
+          <ul className="list-disc list-inside text-gray-600">
+            <li>Next confirmation due: <LongDate date={data.ConfStmtNextDueDate} /></li>
+            <li>(<MonthsUntil date={data.ConfStmtNextDueDate} /> months remaining)</li>
+          </ul>
+        </div>
 
-{/* Company Type */}
-<section className="mb-8">
-    <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Company Type</h2>
+        {/* Accounts */}
+        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Accounts</h3>
+          <ul className="list-disc list-inside text-gray-600">
+            {data.Accounts_LastMadeUpDate && (
+              <li>Last made up to <LongDate date={parseDate(data.Accounts_LastMadeUpDate)} /></li>
+            )}
+            <li>Accounts type: <span className="text-blue-500 font-bold">{data.Accounts_AccountCategory}</span></li>
+            <li className="font-bold">Next accounts due: <LongDate date={parseDate(data.Accounts_NextDueDate)} /></li>
+          </ul>
+        </div>
 
-    <p className="text-gray-600 font-bold  mt-1">{data.CompanyCategory}</p>
-</section>
+        {/* SIC / Nature of Business */}
+        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200 col-span-1 md:col-span-2 lg:col-span-3">
+          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Nature of Business (SIC)</h3>
+          <p className="text-lg text-gray-700 font-bold">{data.SICCode_SicText_1}</p>
+        </div>
 
-{/* Status */}
-<section className="mb-8">
-    <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Status</h2>
-    <p className="text-lg text-blue-500 font-bold">{data.CompanyStatus}</p>
-</section>
-
-
-
-{/* Age */}
-<section className="mb-8">
-    <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Age</h2>
-    <p className="text-lg text-gray-700 font-bold">
-        <YearsSince date={data.IncorporationDate} /> years
-    </p>
-    <p className="text-gray-600 italic ">
-        Incorporated <LongDate date={data.IncorporationDate} />
-    </p>
-</section>
-
-{/* Size 
-<section className="mb-8">
-<h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Size</h2>
-<p className="text-lg  mb-2 text-blue-500">{data.Accounts_AccountCategory}</p>
-<ul className="list-disc list-inside text-gray-600">
-<li>Reason e.g. turnover is under £1m</li>
-</ul>
-</section>
-*/}
-{/* Confirmation */}
-<section className="mb-8">
-    <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Confirmation</h2>
-    <p className="text-lg text-gray-700 mb-2 font-bold">
-        Dated <LongDate date={data.ConfStmtLastMadeUpDate} /> (<MonthsSince date={data.ConfStmtLastMadeUpDate} /> months ago)
-    </p>
-    <ul className="list-disc list-inside text-gray-600">
-        <li>Next confirmation due date <LongDate date={data.ConfStmtNextDueDate} /></li>
-        <li>(<MonthsUntil date={data.ConfStmtNextDueDate} /> months remaining)</li>
-    </ul>
-</section>
-
-{/* Accounts */}
-<section className="mb-8">
-    <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Accounts</h2>
-
-    <ul className="list-disc list-inside text-gray-600">
-    {data.Accounts_LastMadeUpDate && ( 
-        <li>Last accounts made up to <LongDate date={parseDate(data.Accounts_LastMadeUpDate)} /></li>
-)}
-
-        <li>Accounts type is <span className="text-blue-500 font-bold">{data.Accounts_AccountCategory}</span></li>
-
-        <li className="font-bold">Next accounts due date <LongDate date={parseDate(data.Accounts_NextDueDate)} /></li>
-    </ul>
-</section>
-
-
-{/* Nature of Business */}
-<section>
-    <h2 className="text-2xl font-semibold mb-2 text-gray-900 border-b border-gray-200 pb-1">Nature of Business (SIC)</h2>
-    <p className="text-lg text-gray-700 font-bold">{data.SICCode_SicText_1}</p>
-</section>
-
-</div>
-
-  )};
+      </div>
+    </div>
+  );
+}

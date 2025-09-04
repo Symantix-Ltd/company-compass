@@ -10,6 +10,7 @@ import CompanyAddress from '../../../../components/companyAddress';
 import FilingHistoryList from "../../../../components/filingHistoryList";
 
 
+
 import SearchForm from '../../../../components/SearchForm';
 
 import AdSlot from '../../../../components/AdSlot';
@@ -109,6 +110,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
       <CompanyHeader company={data} />
               
 <br/>
+
             <CompanyMenu   company_number={company_number} company_name={company_name} />
 
             </div>
@@ -116,12 +118,41 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 items-stretch ">
               
 
+                <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full"><h2 className='font-bold '>Companies House Documents</h2>
+                  <br/>
 
-             
+                  <h3 className="font-semibold">Order a Company Certificate</h3>
+               <p> 
+             Request an official certificate of incorporation through the official Companies House portal.
 
-                <div className=" border border-silver-200 p-10 rounded-lg flex flex-col h-full"><h2 className='font-bold'>Companies House Documents</h2>
+             <br/>
+                <a
+        href={`https://find-and-update.company-information.service.gov.uk/company/${company_number}/orderable/certificates`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block px-6 py-3 bg-blue-400 text-white font-semibold rounded-lg hover:bg-blue-500 border transition-colors"
+      >Order a Company Certificate</a>
+      </p>
+
+      <p> 
+             Request certified documents through the official Companies House portal.
+
+             <br/>
+                <a
+        href={`https://find-and-update.company-information.service.gov.uk/company/${company_number}/orderable/certified-copies`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block px-6 py-3 bg-blue-400 text-white font-semibold rounded-lg hover:bg-blue-500 border transition-colors"
+      >Order Certified Company Documents</a>
+      </p>
+
+                 
+                  
                     <br />
                     <FilingHistoryList filings={filing_data} companyNumber={data.CompanyNumber} />
+
+
+                  
                 </div>
 
                 

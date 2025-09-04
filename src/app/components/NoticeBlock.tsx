@@ -33,7 +33,7 @@ async function fetchNotices(endpoint: string): Promise<Notice[]> {
       const companyNumber = companyNumberMatch ? companyNumberMatch[1] : '';
       if (!companyNumber || !companyName) return [];
 
-      const slug = `${companyNumber}/${slugify(companyName)}/companies-house-data`;
+      const slug = `${companyNumber}/${slugify(companyName)}`;
       const insightUrl = `/company/${slug}`;
 
       return {

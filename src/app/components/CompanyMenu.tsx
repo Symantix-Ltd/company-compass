@@ -67,6 +67,8 @@ interface CompanyMenuProps {
   company_name: string;
 }
 
+
+
 export default function CompanyMenu({ company_number, company_name }: CompanyMenuProps) {
 
 
@@ -82,14 +84,20 @@ export default function CompanyMenu({ company_number, company_name }: CompanyMen
 
 
   const menuItems = [
+
+    {
+      title: 'Overview',
+      route: `${basePath}/overview`
+      
+    },
     {
       title: 'Companies House Data',
       route: `${basePath}/companies-house-data`,
       children: [
         { title: 'Summary', route: `${basePath}/companies-house-data#summary` },
-        { title: 'Directors & Secretaries', route: `${basePath}/companies-house-data#directors-and-secretaries` },
+        { title: 'Directors & Secretaries', route: `${basePath}/companies-house-data#directors-and-secretaries` }
      
-        { title: 'Key Financials', route: `${basePath}/companies-house-data#key-financials` },
+       
       ],
     },
     {
@@ -136,7 +144,7 @@ export default function CompanyMenu({ company_number, company_name }: CompanyMen
       </div>
 
       {/* Desktop Tabs */}
-      <div className="hidden md:flex  whitespace-nowrap gap-1 px-1 py-0 ">
+      <div className="hidden md:flex  whitespace-nowrap gap-1 px-1 py-0 text-sm ">
       {menuItems.map((item) => {
   // Active tab logic
   const isActive = Boolean(

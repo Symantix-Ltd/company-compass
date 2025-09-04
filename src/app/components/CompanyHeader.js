@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-
+import ShareButtons from './ShareButtons';
 
 export function YearsSince(dateInput) {
     if (!dateInput) return null; // handle null/undefined
@@ -31,6 +31,14 @@ export function YearsSince(dateInput) {
   }
   
 
+  function slugify(name) {
+    return name
+      .toLowerCase()
+      .replace(/\./g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
   export default function CompanyHeader({ company }) {
     if (!company) return null; // safety check
   
@@ -46,13 +54,16 @@ export function YearsSince(dateInput) {
       postalCode: company.RegAddress_PostCode,
     };
     const country = company.RegAddress_Country;
+
+    const companyNameSlug = slugify(name);
     
     //  {country && <img src={'/img/' + country.toLowerCase() + '.png'} alt={country + ' Country Flag'} className="w-5 h-5 mt-1 border" />}
        
-
+    const companyUrl = "https://www.companycompass.co.uk/company/" + companyNumber + "/" + companyNameSlug;
 
   return (
     <div className="border rounded shadow-md p-6 md:flex md:justify-between md:items-start space-y-4 md:space-y-0 bg-silver">
+     
       {/* Left Section */}
       <div className="md:flex-1">
         <h1 className="font-bold ">{name}</h1>
@@ -124,7 +135,10 @@ export function YearsSince(dateInput) {
         >
           Log In to watch
         </Link>
+        <ShareButtons companyName={name} companyUrl={companyUrl} />
       </div>
+     
+  
     </div>
   );
 }
