@@ -29,11 +29,12 @@ export default function UKPostcodeMap({ postcode }) {
       try {
         let url = "";
         
-
+        console.log('anything');
         // Full postcode (e.g., SW1A 1AA)
         if (/^[A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2}$/i.test(postcode)) {
           url = `https://api.postcodes.io/postcodes/${encodeURIComponent(postcode)}`;
          
+          console.log(url);
           const res = await fetch(url);
           const data = await res.json();
           if (data.status === 200) {
@@ -44,12 +45,14 @@ export default function UKPostcodeMap({ postcode }) {
             setError("Postcode not found");
           }
         } else {
-          // Partial postcode (e.g., SW1A)
+          
           url = `https://api.postcodes.io/postcodes?q=${encodeURIComponent(postcode)}`;
 
-         
+          console.log(url);
           const res = await fetch(url);
           const data = await res.json();
+
+         
           if (data.status === 200 && data.result.length > 0) {
             // Take the first matching result
             setCoords([data.result[0].latitude, data.result[0].longitude]);
@@ -62,6 +65,7 @@ export default function UKPostcodeMap({ postcode }) {
       } catch (err) {
         setCoords(null);
         setError("Error fetching location");
+        console.log(err);
       } finally {
         setLoading(false);
       }

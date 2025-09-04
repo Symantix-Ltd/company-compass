@@ -30,7 +30,7 @@ export default function Header() {
       <a href="/company-notices/company-insolvency" className="hover:text-blue-500">Company Insolvency News</a>
       <a href="/search" className="hover:text-blue-500">Company Search</a>
       <a href="/explorer/postcode" className="hover:text-blue-500">Postcode Search</a>
-      <a href="/insights" className="hover:text-blue-500">Insights</a>
+      <a href="/newsletter" className="hover:text-blue-500">Newsletter</a>
        
        
     {/*    <a href="/help/" className="text-blue-500"><QuestionMarkCircleIcon className="size-8" /></a>

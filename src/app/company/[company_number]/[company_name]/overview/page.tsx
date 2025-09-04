@@ -5,16 +5,6 @@ export const revalidate = 86400;
 import { getRecordFromDynamoDB } from '@/lib/dynamo';
 
 
-import LatestActivityTable from '../../../../components/latestActivityTable';
-import CompanyAddress from '../../../../components/companyAddress';
-
- 
-import FilingHistoryList from "../../../../components/filingHistoryList";
-
-import Financials from '../../../../components/Financials';
-import OfficerItem from '../../../../components/OfficerItem';
-import Summary from '../../../../components/Summary';
-
 import SearchForm from '../../../../components/SearchForm';
 
 import AdSlot from '../../../../components/AdSlot';
@@ -23,7 +13,9 @@ import CompanyMenu from '../../../../components/CompanyMenu';
 
 import CompanyHeader from '../../../../components/CompanyHeader';
 
-import CompanyDirectors from '../../../../components/CompanyDirectors';
+// import CompanySummary from '../../../../components/CompanySummary';
+
+
 
 interface Params {
         company_number: string;
@@ -115,6 +107,8 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                 {/* Summary company information */}
                 <div className='border border-silver-200 p-10 rounded-lg flex flex-col h-full'>         
                 
+
+              
                     </div>
 
                

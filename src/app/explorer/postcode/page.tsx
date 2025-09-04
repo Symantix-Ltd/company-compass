@@ -64,7 +64,7 @@ export default async function SearchPage({ searchParams }: Props) {
     <h1 className=" text-4xl font-bold">Postcode search</h1>
     <p>Search for companies listed in Companies House using postcode</p>
 <br/>
-      <SearchFormPostcode/>
+<SearchFormPostcode/>
       <br />
       <h2 className="text-2xl font-bold mb-4"><span className='font-bold'>{query.toUpperCase()}</span></h2>
 <br/>
