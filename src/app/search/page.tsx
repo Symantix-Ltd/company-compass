@@ -64,12 +64,12 @@ export default async function SearchPage({ searchParams }: Props) {
    
     <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
        <br/>
-    <h1 className=" text-4xl font-bold">Company Search</h1>
+    <h1 className=" text-3xl font-bold">Company Search</h1>
     <p>Search for a company registered with Companies House</p>
 <br/>
       <SearchForm />
       <br />
-      <h1 className="text-2xl font-bold mb-4"><span className='font-bold'>{query}</span></h1>
+      <h3 className="text-2xl font-bold mb-4"><span className='font-bold'>{query}</span></h3>
 <br/>
       {results.length === 0 && query && <p>No results found.</p>}
 

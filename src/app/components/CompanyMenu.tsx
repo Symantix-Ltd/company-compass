@@ -85,11 +85,7 @@ export default function CompanyMenu({ company_number, company_name }: CompanyMen
 
   const menuItems = [
 
-    {
-      title: 'Overview',
-      route: `${basePath}/overview`
-      
-    },
+    
     {
       title: 'Companies House Data',
       route: `${basePath}/companies-house-data`,
@@ -106,15 +102,7 @@ export default function CompanyMenu({ company_number, company_name }: CompanyMen
       
     },
    
-    {
-      title: 'Financials',
-      route: `${basePath}/financials`,
-      children: [
-        { title: 'Key Financials', route: `${basePath}/financials#key-financials` },
-       
-        { title: 'Accounts Tables', route: `${basePath}/financials#accounts-table` },
-      ],
-    },
+    
     { title: 'Documents', route: `${basePath}/documents` },
     {
       title: 'Contact',
@@ -168,6 +156,23 @@ export default function CompanyMenu({ company_number, company_name }: CompanyMen
 
 
 /*
+
+
+{
+      title: 'Overview',
+      route: `${basePath}/overview`
+      
+    },
+
+{
+      title: 'Financials',
+      route: `${basePath}/financials`,
+      children: [
+        { title: 'Key Financials', route: `${basePath}/financials#key-financials` },
+       
+        { title: 'Accounts Tables', route: `${basePath}/financials#accounts-table` },
+      ],
+    },
 
  {
       title: 'Credit Report',

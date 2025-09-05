@@ -16,9 +16,9 @@ export default function Header() {
       <div className="flex items-center space-x-3">
       <a href="/"><img style={{ width: 50 }} src="/compass.png" alt="Company Compass logo" /></a>
         <div className="flex flex-col leading-tight">
-          <h1 className=" font-bold tracking-tight">
+          <div className=" font-bold tracking-tight">
             <a href="/" className="text-2xl">Company Compass</a>
-          </h1>
+          </div>
           <p className=" text-gray-600">Transforming Business Intelligence into Actionable Insights</p>
         </div>
       </div>

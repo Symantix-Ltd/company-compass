@@ -101,6 +101,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
         <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg  text-gray-900">
+        <h1 className="text-3xl font-bold py-5">Company Profile | {data.CompanyName} </h1>
             <div className=" bg-white rounded-lg  text-gray-900" >
                
             <SearchForm/>
