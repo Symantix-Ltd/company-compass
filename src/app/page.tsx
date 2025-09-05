@@ -1,4 +1,7 @@
 import SearchForm from './components/SearchForm';
+
+import SearchFormPerson from './components/SearchFormPerson';
+import SearchFormPostcode from './components/SearchFormPostcode';
 import RssFeed from './components/RssFeed';
 import Insights from './components/Insights';
 import AdSlot from './components/AdSlot';
@@ -98,7 +101,16 @@ export default async function Home() {
               <SearchForm />
 
             </div>
+            <div className="mt-6">
 
+<SearchFormPerson />
+
+</div>
+<div className="mt-6">
+
+<SearchFormPostcode />
+
+</div>
           </div>
 
           {/* Services Section */}

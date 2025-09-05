@@ -7,7 +7,7 @@ import { useState } from "react";
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 import { useRouter } from 'next/navigation';
 
-export default function SearchFormPostcode() {
+export default function SearchFormPerson() {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const router = useRouter();
@@ -25,7 +25,7 @@ export default function SearchFormPostcode() {
     if (!query.trim()) return;
 
     // Redirect to search page
-    router.push(`?q=${encodeURIComponent(query.trim())}`);
+    router.push(`/search/person?q=${encodeURIComponent(query.trim())}`);
   }
 
 
@@ -35,14 +35,12 @@ export default function SearchFormPostcode() {
                    
     
     <form onSubmit={handleSubmit} className="flex-grow max-w-4xl relative">
-     
       <div className="flex items-center  bg-blue-100 p-4 rounded-md overflow-hidden border">
-     
         <input
           type="text"
           autoComplete="off"
           name="q"
-          placeholder="Search by Postcode"
+          placeholder="Search for a Person"
           className="flex-grow px-4 py-4   "
           value={query}
           onChange={(e) => handleInput(e.target.value)}
@@ -68,7 +66,7 @@ export default function SearchFormPostcode() {
               onClick={() => {
                 setQuery(sug);
                 setSuggestions([]);
-                window.location.href = `?q=${encodeURIComponent(sug)}`;
+                window.location.href = `/search/person?q=${encodeURIComponent(sug)}`;
               }}
             >
               {sug}

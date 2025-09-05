@@ -29,6 +29,7 @@ export default function Header() {
       
       <a href="/company-notices/company-insolvency" className="hover:text-blue-500">Company Insolvency News</a>
       <a href="/search" className="hover:text-blue-500">Company Search</a>
+      <a href="/search/person" className="hover:text-blue-500">Person Search</a>
       <a href="/explorer/postcode" className="hover:text-blue-500">Postcode Search</a>
       <a href="/newsletter" className="hover:text-blue-500">Newsletter</a>
        
@@ -57,6 +58,7 @@ export default function Header() {
         <a href="/company-notices/company-insolvency" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Company Insolvency UK</a>
          
         <a href="/search" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Company Search</a>
+        <a href="/search/person" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Person Search</a>
          
         <a href="/explorer/postcode" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Postcode Search</a>
         <a href="/insights" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Insights</a>
