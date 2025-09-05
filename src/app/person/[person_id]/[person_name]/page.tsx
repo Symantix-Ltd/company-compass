@@ -1,5 +1,5 @@
-import AppointmentList from "../../components/AppointmentList";
-import AdSlot from '../../components/AdSlot';
+import AppointmentList from "../../../components/AppointmentList";
+import AdSlot from '../../../components/AdSlot';
 
 interface Appointment {
   appointed_to: {

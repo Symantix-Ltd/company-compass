@@ -3,9 +3,25 @@ import React from "react";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
+
+
+
+
+
+function slugify(title) {
+  return title
+    .toLowerCase()
+    .replace(/,/g, '') 
+    .trim() 
+    .replace(/\./g, '') 
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 export default function OfficerItem({ officer }) {
 
-  //console.log(officer);
+  
+  console.log(officer);
   const roles = officer.officer_role.charAt(0).toUpperCase() + officer.officer_role.slice(1) || "";
   const nationality = officer.nationality || "";
   const residence = officer.country_of_residence || "";
@@ -16,7 +32,7 @@ export default function OfficerItem({ officer }) {
     ? `${officer.date_of_birth.month ? officer.date_of_birth.month + "/" : ""}${officer.date_of_birth.year}`
     : "N/A";
   const companyHouseLink = `https://find-and-update.company-information.service.gov.uk${officer.links?.officer?.appointments || ""}`;
-  const personPageLink = `/person/${officer.person_number}`;
+  const personPageLink = `/person/${officer.links?.officer.appointments.match(/\/officers\/([^\/]+)\//)[1]}/${slugify(officer.name)}`;
 
   return (
     <div className="grid grid-cols-[min-content_auto] gap-x-4 gap-y-2  bg-blue-100 rounded p-5 pb-4 mb-4">
@@ -36,7 +52,7 @@ export default function OfficerItem({ officer }) {
         )}
 
         <div className="text-sm">
-        <span className='font-bold'>Appointed on:</span> {appointedOn} •  {resignedOn} • <span className="font-bold">Is this a Pre-1992 Appointment?:</span> {pre1992}
+        <span className='font-bold'>Appointed on:</span> {appointedOn} •  {resignedOn} 
         </div>
 
         <div className="text-sm">
