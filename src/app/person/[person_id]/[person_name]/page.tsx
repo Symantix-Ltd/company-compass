@@ -33,9 +33,7 @@ interface PersonData {
   inactive_count: number;
 }
 
-interface PersonPageProps {
-  params: { person_id: string };
-}
+
 
 // Fetch data from Companies House API
 async function getPersonData(person_id: string): Promise<PersonData | null> {
@@ -60,20 +58,31 @@ async function getPersonData(person_id: string): Promise<PersonData | null> {
   }
 }
 
-export default async function PersonPage({ params }: PersonPageProps) {
-  const data = await getPersonData(params.person_id);
+interface Params {
+    person_id: string;
+    person_name: string;
+  };
+
+
+export default async function PersonPage({ params }: { params: Promise<Params> }) {
+
+    const { person_id, person_name } = await params;
+
+
+  const data = await getPersonData(person_id);
+
   if (!data) return <p className="p-4">No data found.</p>;
 
   return (
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
         <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
-          <h1 className="text-3xl font-bold py-5">Person Profile | {data.name} </h1>
+          <h1 className="text-3xl font-bold py-5">Person Profile | {data?.name} </h1>
           <p>
             Information source:{" "}
             <a
               target="_new"
-              href={`https://find-and-update.company-information.service.gov.uk/officers/${params.person_id}/appointments`}
+              href={`https://find-and-update.company-information.service.gov.uk/officers/${person_id}/appointments`}
               className="text-blue-600 hover:underline"
             >
               Companies House UK

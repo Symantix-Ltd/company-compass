@@ -33,12 +33,13 @@ interface PersonData {
   inactive_count: number;
 }
 
-interface PersonPageProps {
-  params: { person_id: string };
-}
+interface Params {
+    person_id: string;
+    
+  };
 
 // Fetch data from Companies House API
-async function getPersonData(person_id: string): Promise<PersonData | null> {
+async function getPersonData(person_id: string): Promise<PersonData | null > {
   const apiKey = process.env.CH_API_KEY;
   if (!apiKey) return null;
 
@@ -60,8 +61,12 @@ async function getPersonData(person_id: string): Promise<PersonData | null> {
   }
 }
 
-export default async function PersonPage({ params }: PersonPageProps) {
-  const data = await getPersonData(params.person_id);
+
+export default async function PersonPage({ params }: { params: Promise<Params>  }) {
+
+    const { person_id} = await params;
+
+const data = await getPersonData(person_id);
   if (!data) return <p className="p-4">No data found.</p>;
 
   return (
@@ -73,13 +78,12 @@ export default async function PersonPage({ params }: PersonPageProps) {
             Information source:{" "}
             <a
               target="_new"
-              href={`https://find-and-update.company-information.service.gov.uk/officers/${params.person_id}/appointments`}
+              href={`https://find-and-update.company-information.service.gov.uk/officers/${person_id}/appointments`}
               className="text-blue-600 hover:underline"
             >
               Companies House UK
             </a>
           </p>
-          <br/>
           <p className="mb-2">
             <strong>Date of Birth:</strong>{" "}
             {data.date_of_birth?.month}/{data.date_of_birth?.year || ""}

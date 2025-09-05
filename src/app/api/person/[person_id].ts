@@ -13,8 +13,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
 
-    url = `${COMPANIES_HOUSE_API_BASE}/officers/${person_id}/appointments`;
-    console.log(url);
+    const url = `${COMPANIES_HOUSE_API_BASE}/officers/${person_id}/appointments`;
+    
     const response = await fetch(url, {
       headers: {
         Authorization: 'Basic ' + Buffer.from(apiKey + ':').toString('base64'),
