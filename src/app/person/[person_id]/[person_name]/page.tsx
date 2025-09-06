@@ -1,6 +1,9 @@
 import AppointmentList from "../../../components/AppointmentList";
 import AdSlot from '../../../components/AdSlot';
 
+import PersonSchema from '../../../components/PersonSchema';
+
+
 interface Appointment {
   appointed_to: {
     company_name: string;
@@ -51,7 +54,9 @@ async function getPersonData(person_id: string): Promise<PersonData | null> {
       }
     );
 
+    
     if (!res.ok) return null;
+   
     return res.json();
   } catch {
     return null;
@@ -73,6 +78,7 @@ export default async function PersonPage({ params }: { params: Promise<Params> }
 
   if (!data) return <p className="p-4">No data found.</p>;
 
+ 
   return (
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
@@ -100,6 +106,8 @@ export default async function PersonPage({ params }: { params: Promise<Params> }
           </p>
 
           <AppointmentList appointments={data.items} personName={data.name} />
+
+          <PersonSchema personData={data} />
         </main>
         <aside className="w-full lg:w-1/3 p-4">
          <AdSlot

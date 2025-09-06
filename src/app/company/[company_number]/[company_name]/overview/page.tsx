@@ -13,6 +13,8 @@ import CompanyMenu from '../../../../components/CompanyMenu';
 
 import CompanyHeader from '../../../../components/CompanyHeader';
 
+import GleifLookup from '../../../../components/GleifLookup';
+
 // import CompanySummary from '../../../../components/CompanySummary';
 
 
@@ -105,10 +107,10 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 items-stretch ">
-                {/* Summary company information */}
+               
                 <div className='border border-silver-200 p-10 rounded-lg flex flex-col h-full'>         
                 
-
+<GleifLookup/>
               
                     </div>
 
