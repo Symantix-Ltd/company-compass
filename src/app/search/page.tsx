@@ -63,7 +63,7 @@ export default async function SearchPage({ searchParams }: Props) {
 <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
    
     <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
-       <br/>
+       
     <h1 className=" text-3xl font-bold">Company Search</h1>
     <p>Search for a company registered with Companies House</p>
 <br/>

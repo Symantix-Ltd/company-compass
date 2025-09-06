@@ -36,24 +36,24 @@ export default function SearchFormPostcode() {
     
     <form onSubmit={handleSubmit} className="flex-grow max-w-4xl relative">
      
-      <div className="flex items-center  bg-blue-100 p-4 rounded-md overflow-hidden border">
+      <div className="flex items-center  bg-blue-100 p-2 rounded-md overflow-hidden border">
      
         <input
           type="text"
           autoComplete="off"
           name="q"
           placeholder="Search by Postcode"
-          className="flex-grow px-4 py-4   "
+          className="flex-grow px-2 py-2   "
           value={query}
           onChange={(e) => handleInput(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") handleSubmit(e);
           }}
         />
-        <MagnifyingGlassIcon className="w-5 h-5  text-blue-500"/>
+        <MagnifyingGlassIcon className="w-10 h-10 px-2 text-blue-600"/>
         <button
           type="submit"
-          className="px-4 bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center ml-2"
+          className="px-2 bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center ml-2"
           aria-label="Search"
         >
         </button>
