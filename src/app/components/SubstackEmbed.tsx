@@ -16,10 +16,10 @@ export default function SubstackEmbed() {
       buttonText: 'Subscribe',
       theme: 'custom',
       colors: {
-        primary: 'skyblue',
-        input: 'white',
-        email: 'silver',
-        text: '#000000',
+        primary: 'royalblue',
+        input: '',
+        email: 'royalblue',
+        text: 'white',
       },
     };
 
@@ -28,5 +28,9 @@ export default function SubstackEmbed() {
     };
   }, []);
 
-  return <div id="custom-substack-embed" />;
+  return <div>
+    <p>Subscribe to our newsletter for regular updates on company news, including insolvency notices and useful business insights.</p>
+   <br/>
+    <div id="custom-substack-embed" className="flex w-full  "/>
+    </div>;
 }

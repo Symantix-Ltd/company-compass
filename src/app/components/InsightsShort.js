@@ -51,8 +51,7 @@ export default async function InsightsShort() {
       id="insights"
  
     >
-        <h2 className="font-bold">Newsletter</h2>
-        <br/>
+        
       <Grid
         container
         

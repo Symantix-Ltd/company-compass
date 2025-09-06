@@ -11,6 +11,9 @@ import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 
 import InsightsShort from './components/InsightsShort';
 
+import SubstackEmbed from './components/SubstackEmbed';
+
+
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
 
@@ -101,19 +104,21 @@ export default async function Home() {
               <SearchForm />
 
             </div>
-            <div className="mt-6">
-
-<SearchFormPerson />
-
-</div>
-<div className="mt-6">
-
-<SearchFormPostcode />
-
-</div>
+<br/>
+            <p><a className="underline" href="/search/person">Search for a Person</a> <a className="underline" href="/explorer/postcode">Search by Postcode</a></p>
+           
           </div>
 
-          {/* Services Section */}
+         
+
+              <section id="newsletter" >
+              <h2 className="font-bold py-5 ">Newsletter</h2>
+              <SubstackEmbed/>
+<br/>
+                <InsightsShort/>
+              </section>
+
+               {/* Services Section */}
           <section className="mb-16 mt-16">
             <h2 id="about" className="font-bold">What We Offer</h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700 text-lg max-w-prose mt-6">
@@ -146,10 +151,6 @@ export default async function Home() {
               </a>.
             </p>
           </section>
-
-              <section id="newsletter" >
-                <InsightsShort/>
-              </section>
 
         </main>
         <aside className="order-2 w-full lg:order-3 lg:w-1/4 p-4">
