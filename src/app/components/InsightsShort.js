@@ -6,6 +6,21 @@ import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import { parseStringPromise } from 'xml2js';
 
+import truncate from 'html-truncate';
+
+const TruncatedPost = ({ content }) => {
+  // Truncate to first 100 words (approximately)
+  const truncatedContent = truncate(content, 1000, { keepImageTag: true }); // 1000 chars roughly ~100 words
+
+  return (
+    <div
+      dangerouslySetInnerHTML={{ __html: truncatedContent }}
+      style={{ overflow: 'hidden' }}
+    />
+  );
+};
+
+
 async function getPosts() {
   const substackRssUrl = "https://companycompass.substack.com/feed";
 
@@ -20,6 +35,7 @@ async function getPosts() {
       guid: item.guid[0]._,
       title: item.title[0],
       content: item['content:encoded'][0],
+      
     }));
   } catch (err) {
     console.error("Failed to fetch or parse posts:", err);
@@ -27,7 +43,7 @@ async function getPosts() {
   }
 }
 
-export default async function Insights() {
+export default async function InsightsShort() {
   const posts = await getPosts();
 
   return (
@@ -59,10 +75,9 @@ export default async function Insights() {
             >
               <CardHeader title={post.title} />
               <CardContent>
-                <div
-                  dangerouslySetInnerHTML={{ __html: post.content }}
-                  style={{ overflow: 'hidden' }}
-                />
+                
+
+<TruncatedPost content={post.content} />
               </CardContent>
             </Card>
           </Grid>

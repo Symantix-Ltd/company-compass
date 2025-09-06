@@ -6,9 +6,7 @@ import { getRecordFromDynamoDB } from '@/lib/dynamo';
 
 import CompanyAddress from '../../../../components/companyAddress';
 
- 
 import SearchForm from '../../../../components/SearchForm';
-
 import AdSlot from '../../../../components/AdSlot';
 
 import CompanyMenu from '../../../../components/CompanyMenu';
@@ -86,12 +84,9 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg  text-gray-900">
         <h1 className="text-3xl font-bold py-5">Company Profile | {data.CompanyName} </h1>
             <div className=" bg-white rounded-lg text-gray-900" >
-               
-               
+                 
             <SearchForm/>
-            
-
-    
+          
             </div>
             <br/>
             <div className="bg-white rounded-lg  text-gray-900 ">

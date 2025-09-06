@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import { MapPinIcon, InformationCircleIcon } from "@heroicons/react/24/outline";
 import { MapPinIcon as MapPinSolid} from "@heroicons/react/24/solid";
 
-import PostcodeMap from './PostcodeMap';
+//import PostcodeMap from './PostcodeMap';
 
 
 export default function CompanyAddress({ data }) {
@@ -122,7 +122,7 @@ export default function CompanyAddress({ data }) {
             <a style={{ lineHeight: "16px" }} href={postcodeLink}>
               View Companies in {RegAddress_PostCode}
             </a>
-            <PostcodeMap postcode={RegAddress_PostCode}  />
+           
           </div>
 
          

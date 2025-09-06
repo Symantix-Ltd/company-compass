@@ -9,7 +9,7 @@ import NoticeBlock from './components/NoticeBlock';
 
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 
-
+//import InsightsShort from './components/InsightsShort';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
@@ -146,6 +146,11 @@ export default async function Home() {
               </a>.
             </p>
           </section>
+
+              <section id="newsletter" >
+                
+              </section>
+
         </main>
         <aside className="order-2 w-full lg:order-3 lg:w-1/4 p-4">
           <AdSlot
