@@ -34,7 +34,7 @@ async function getPosts() {
     return items.slice(0, 10).map(item => ({
       guid: item.guid[0]._,
       title: item.title[0],
-      content: item['content:encoded'][0],
+      description: item.description[0],
       
     }));
   } catch (err) {
@@ -49,35 +49,29 @@ export default async function InsightsShort() {
   return (
     <Container
       id="insights"
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center', // center cards horizontally
-        py: 2,
-      }}
+ 
     >
+        <h2 className="font-bold">Newsletter</h2>
+        <br/>
       <Grid
         container
         
         direction="column" // stack items vertically
         alignItems="left" // center items
       >
-        {posts.map((post) => (
-          <Grid item key={post.guid} sx={{ width: '100%' }}>
+        {posts.map((post,index) => (
+          <Grid item key={index} >
             <Card
               variant="outlined"
-              sx={{
-                width: '100%', // full width of grid item
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}
+
+              className="width-max px-5 "
+
             >
               <CardHeader title={post.title} />
               <CardContent>
                 
 
-<TruncatedPost content={post.content} />
+<a className="underline" href={"/newsletter#" + index }>{post.description}</a>
               </CardContent>
             </Card>
           </Grid>

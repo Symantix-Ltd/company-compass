@@ -27,7 +27,7 @@ export default function Header() {
       {/* Desktop Menu */}
       <nav className="hidden md:flex space-x-6 text-sm">
       
-      <a href="/company-notices/company-insolvency" className="hover:text-blue-500">Company Insolvency News</a>
+      <a href="/company-notices/company-insolvency" className="hover:text-blue-500">Company Insolvency</a>
       <a href="/search" className="hover:text-blue-500">Company Search</a>
       <a href="/search/person" className="hover:text-blue-500">Person Search</a>
       <a href="/explorer/postcode" className="hover:text-blue-500">Postcode Search</a>
@@ -55,7 +55,7 @@ export default function Header() {
       <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
         <nav className="flex flex-col p-4 space-y-4">
        
-        <a href="/company-notices/company-insolvency" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Company Insolvency UK</a>
+        <a href="/company-notices/company-insolvency" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Company Insolvency</a>
          
         <a href="/search" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Company Search</a>
         <a href="/search/person" className="hover:text-blue-500" onClick={() => setIsOpen(false)}>Person Search</a>

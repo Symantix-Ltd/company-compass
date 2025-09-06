@@ -9,7 +9,7 @@ import NoticeBlock from './components/NoticeBlock';
 
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 
-//import InsightsShort from './components/InsightsShort';
+import InsightsShort from './components/InsightsShort';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
@@ -52,7 +52,7 @@ export default async function Home() {
       <div className="max-w-7xl mx-auto  flex flex-col lg:flex-row gap-8">
         <aside className="  order-3 lg:order-1 md:w-1/4 lg:w-1/4 sm:w-1 p-5 ">
 
-          <h2 className="text-2xl">Company Insolvency News</h2>
+          <h2 className="text-2xl">Company Insolvency</h2>
           <h3 className="text-pink-800 text-bold py-2">Notices published in <a className="italic" href="https://www.thegazette.co.uk/all-notices">The Gazette</a> on {new Date().toLocaleDateString('en-UK', {
             year: 'numeric',
             month: 'long',
@@ -148,7 +148,7 @@ export default async function Home() {
           </section>
 
               <section id="newsletter" >
-                
+                <InsightsShort/>
               </section>
 
         </main>

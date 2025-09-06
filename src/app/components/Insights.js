@@ -46,8 +46,8 @@ export default async function Insights() {
         direction="column" // stack items vertically
         alignItems="left" // center items
       >
-        {posts.map((post) => (
-          <Grid item key={post.guid} sx={{ width: '100%' }}>
+        {posts.map((post,index) => (
+          <Grid item id={index} key={post.guid} sx={{ width: '100%' }}>
             <Card
               variant="outlined"
               sx={{
