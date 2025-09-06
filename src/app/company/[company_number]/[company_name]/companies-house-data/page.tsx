@@ -25,6 +25,8 @@ import CompanyHeader from '../../../../components/CompanyHeader';
 
 import CompanyDirectors from '../../../../components/CompanyDirectors';
 
+
+
 interface Params {
         company_number: string;
         company_name: string;
@@ -97,8 +99,12 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     const officer_data = await officer_res.json();
 
 
+    //console.log(officer_data);
+
+    console.log(data);
     return (
         <div className="min-h-screen w-full bg-gray-50 text-gray-900">
+           
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
         <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg  text-gray-900">
         <h1 className="text-3xl font-bold py-5">Company Profile | {data.CompanyName} </h1>
@@ -148,8 +154,10 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             
 
             <p>Page last updated: {formattedDate}</p>
+            
         </main>
          <aside className="w-full lg:w-1/3 p-4">
+         
          <AdSlot
           client="ca-pub-7212919066729459" 
           slot="9729092224"            

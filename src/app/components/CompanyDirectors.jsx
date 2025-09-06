@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import OfficerItem from './OfficerItem';
-
+import OfficersSchema from './OfficersSchema';
 export default function CompanyDirectors({ officer_data }) {
   const [showCurrentOnly, setShowCurrentOnly] = useState(true);
 
@@ -18,6 +18,8 @@ export default function CompanyDirectors({ officer_data }) {
 
   return (
     <div className="border border-silver-200 p-10 rounded-lg flex flex-col h-full space-y-4">
+
+<OfficersSchema data={officer_data} />
       <h2 className="font-bold text-lg">Directors and Secretaries</h2>
 
       <div className="flex items-center gap-4">
