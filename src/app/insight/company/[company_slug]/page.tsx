@@ -9,9 +9,8 @@ type Params = {
 export default async function CompanyNamePage({ params }: { params: Promise<Params> }) {
 
 const {company_slug} = await params;
-const [company_number, ...rest] = company_slug.split('-');
-const company_name = rest.join('-');
+const [company_number] = company_slug.split('-')[0];
 
 
-  redirect(`/company/${company_number}/${company_name}/companies-house-data`);
+  redirect(`/company/${company_number}`);
 }
