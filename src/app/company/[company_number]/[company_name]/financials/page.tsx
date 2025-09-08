@@ -50,7 +50,7 @@ export async function generateMetadata(
       alternates: {
           canonical: `https://www.companycompass.co.uk/company/${company_number}/${company_name}/financials`,
         },
-          ,
+          
           openGraph: {
               title: title,
               type: "localbusiness",
