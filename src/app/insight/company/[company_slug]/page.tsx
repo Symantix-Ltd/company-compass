@@ -9,8 +9,7 @@ type Params = {
 export default async function CompanyNamePage({ params }: { params: Promise<Params> }) {
 
 const {company_slug} = await params;
-const [company_number] = company_slug.split('-')[0];
-
+const company_number = company_slug.split('-')[0];
 
   redirect(`/company/${company_number}`);
 }
