@@ -57,10 +57,17 @@ export async function generateMetadata(
     const description = `${data?.CompanyName} ${company_number} is a company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Check company credentials including financials, industry, and contact information from Companies House and The Gazette - Company Compass UK`;
     return {
         title: title,
-        description: description
+        description: description,
+        author: "Company Compass",
+        keywords: `${data?.CompanyName} ${company_number} ${data?.RegAddress_PostTown} ${data?.RegAddress_PostCode}`,
+        alternates: {
+            canonical: `https://www.companycompass.co.uk/company/${company_number}/${company_name}/companies_house_data`,
+          },
             ,
             openGraph: {
                 title: title,
+                type: "localbusiness",
+                site_name: "Company Compass",
                 description: description,
                 url: `https://www.companycompass.co.uk/company/${company_number}/${company_name}/companies_house_data`
                
@@ -69,6 +76,15 @@ export async function generateMetadata(
 }
 
 
+
+          
+   
+
+
+
+
+    
+    
 
 
 

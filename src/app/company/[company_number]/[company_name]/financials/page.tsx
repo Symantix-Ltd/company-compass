@@ -38,21 +38,28 @@ export async function generateMetadata(
 
     const data = await getCompanyData(company_number);
 
-    const title = `${data?.CompanyName}. Free business summary taken from official Companies House information. Registered as ${company_number}`;
+    const title = `${data?.CompanyName} - Financial Data -  Free business summary taken from official Companies House information. Registered as ${company_number}`;
 
 
-    const description = `${data?.CompanyName} ${company_number} is a company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Check company credentials including financials, industry, and contact information from Companies House and The Gazette - Company Compass UK`;
+    const description = `${data?.CompanyName} ${company_number} - Financial data - company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Check company credentials including financials, industry, and contact information from Companies House and The Gazette - Company Compass UK`;
     return {
-        title: title,
-        description: description
-            ,
-            openGraph: {
-                title: title,
-                description: description,
-                url: `https://www.companycompass.co.uk/company/${company_number}/${company_name}/companies_house_data`
-               
-              },
-    };
+      title: title,
+      description: description,
+      author: "Company Compass",
+      keywords: `${data?.CompanyName} ${company_number} ${data?.RegAddress_PostTown} ${data?.RegAddress_PostCode}`,
+      alternates: {
+          canonical: `https://www.companycompass.co.uk/company/${company_number}/${company_name}/financials`,
+        },
+          ,
+          openGraph: {
+              title: title,
+              type: "localbusiness",
+              site_name: "Company Compass",
+              description: description,
+              url: `https://www.companycompass.co.uk/company/${company_number}/${company_name}/financials`
+             
+            },
+  };
 }
 
 
