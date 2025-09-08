@@ -8,6 +8,9 @@ import { parseStringPromise } from 'xml2js';
 
 import truncate from 'html-truncate';
 
+import AdSlot from './AdSlot';
+
+
 const TruncatedPost = ({ content }) => {
   // Truncate to first 100 words (approximately)
   const truncatedContent = truncate(content, 1000, { keepImageTag: true }); // 1000 chars roughly ~100 words
@@ -73,6 +76,11 @@ export default async function InsightsShort() {
 <a className="underline" href={"/newsletter#" + index }>{post.description}</a>
               </CardContent>
             </Card>
+
+<AdSlot
+                    client="ca-pub-7212919066729459" 
+                    slot="4685100751"            
+                  />
           </Grid>
         ))}
       </Grid>

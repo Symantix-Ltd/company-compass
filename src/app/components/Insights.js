@@ -5,6 +5,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import { parseStringPromise } from 'xml2js';
+import AdSlot from './AdSlot'
 
 async function getPosts() {
   const substackRssUrl = "https://companycompass.substack.com/feed";
@@ -65,7 +66,14 @@ export default async function Insights() {
                 />
               </CardContent>
             </Card>
+           
+
+<AdSlot
+                    client="ca-pub-7212919066729459" 
+                    slot="4685100751"            
+                  />
           </Grid>
+          
         ))}
       </Grid>
     </Container>
