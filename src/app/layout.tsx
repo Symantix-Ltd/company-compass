@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { GoogleTagManager } from '@next/third-parties/google'
 
@@ -52,6 +52,7 @@ export default function RootLayout({
        
         <Footer/>
         <Analytics/>
+        <SpeedInsights/>
       </body>
     </html>
   );
