@@ -77,10 +77,13 @@ export default async function InsightsShort() {
               </CardContent>
             </Card>
 
-<AdSlot
-                    client="ca-pub-7212919066729459" 
-                    slot="4685100751"            
-                  />
+<AdSlot client="ca-pub-7212919066729459" slot="4685100751"  layout_key="-e5-5+1v-2l-d" />
+
+
+
+
+
+
           </Grid>
         ))}
       </Grid>

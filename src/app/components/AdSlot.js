@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 
-export default function AdSlot({ client, slot, format = 'auto', responsive = 'true' }) {
+export default function AdSlot({ client, slot, format = 'auto', responsive = 'true', layout_key="" }) {
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({})
@@ -12,12 +12,20 @@ export default function AdSlot({ client, slot, format = 'auto', responsive = 'tr
   }, [])
 
   return (
+
+    <div> 
+      <script async src={'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + client }
+     crossorigin="anonymous"></script>
     <ins className="adsbygoogle"
       style={{ display: 'block' }}
       data-ad-client={client}
       data-ad-slot={slot}
       data-ad-format={format}
+      data-ad-layout-key={layout_key}
       data-full-width-responsive={responsive}
     ></ins>
+
+</div>
   )
 }
+
