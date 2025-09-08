@@ -36,7 +36,7 @@ export default function RootLayout({
       <GoogleTagManager gtmId="GTM-T2HVKFJV" />
       <Head>
       <meta charSet="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
   
       <meta name="msvalidate.01" content="6F2D6D7E6622829F73D997615CEEA43D" />
