@@ -66,7 +66,7 @@ export async function generateMetadata(
             
             openGraph: {
                 title: title,
-                type: "localbusiness",
+                type: "website",
                 site_name: "Company Compass",
                 description: description,
                 url: `https://www.companycompass.co.uk/company/${company_number}/${company_name}/companies_house_data`
