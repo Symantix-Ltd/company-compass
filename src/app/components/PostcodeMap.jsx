@@ -29,7 +29,7 @@ export default function UKPostcodeMap({ postcode }) {
       try {
         let url = "";
         
-        console.log('anything');
+        
         // Full postcode (e.g., SW1A 1AA)
         if (/^[A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2}$/i.test(postcode)) {
           url = `https://api.postcodes.io/postcodes/${encodeURIComponent(postcode)}`;
@@ -48,7 +48,7 @@ export default function UKPostcodeMap({ postcode }) {
           
           url = `https://api.postcodes.io/postcodes?q=${encodeURIComponent(postcode)}`;
 
-          console.log(url);
+         
           const res = await fetch(url);
           const data = await res.json();
 

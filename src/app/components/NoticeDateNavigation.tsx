@@ -5,51 +5,54 @@ import { useParams } from 'next/navigation';
 
 interface NoticeDateNavigationProps {
   baseUrl: string;
+  currentDate: string; // expected in 'YYYY-MM-DD' format
+  previousDate: string;
+  nextDate: string| null;
 }
 
-export default function NoticeDateNavigation({ baseUrl }: NoticeDateNavigationProps) {
-  const params = useParams();
+export default function NoticeDateNavigation({ baseUrl, currentDate, previousDate, nextDate }: NoticeDateNavigationProps) {
+  const today = new Date();
+  const parsedCurrentDate = new Date(currentDate);
 
+  if (isNaN(parsedCurrentDate.getTime())) return null;
 
-  // Ensure daysAgoParam is a string
-const daysAgoParamRaw = params?.['days-ago'] || '0';
-const daysAgoParam = Array.isArray(daysAgoParamRaw) ? daysAgoParamRaw[0] : daysAgoParamRaw;
+  // Helper to format date as YYYY-MM-DD
+  const formatDate = (date: Date): string =>
+    date.toISOString().split('T')[0];
 
-if (!daysAgoParam) return null;
-const daysAgo = parseInt(daysAgoParam, 10);
+  // Calculate previous and next dates
+  //const prevDate = new Date(parsedCurrentDate);
+  //prevDate.setDate(parsedCurrentDate.getDate() - 1);
 
+  //const nextDate = new Date(parsedCurrentDate);
+  //nextDate.setDate(parsedCurrentDate.getDate() + 1);
 
-
-  // Compute new days-ago values for chevrons
-  const prevDaysAgo = daysAgo + 1; // left chevron → older
-  const nextDaysAgo = Math.max(daysAgo - 1, 0); // right chevron → newer, min 0
-
-  // Compute the displayed date based on daysAgo
-  const displayedDate = new Date();
-  displayedDate.setDate(displayedDate.getDate() - daysAgo);
+  const isToday = formatDate(parsedCurrentDate) === formatDate(today);
 
   return (
-    <div className="flex items-center text-pink-800 font-bold py-5 ">
+    <div className="flex items-center text-pink-800 font-bold py-5">
       <CalendarIcon className="h-6 w-6 mr-2" />
 
-      {/* Left chevron → add 1 to days-ago */}
-      <a href={`${baseUrl}/${prevDaysAgo}`} className="mx-1">
+      {/* Left chevron → previous date */}
+      <a href={`${baseUrl}/${previousDate}`} className="mx-1" aria-label="Previous day">
         <ChevronLeftIcon className="h-6 w-6 hover:text-pink-600" />
       </a>
 
       {/* Displayed date */}
-      <span>
-        {displayedDate.toLocaleDateString('en-UK', {
+      <span className="mx-2">
+        {parsedCurrentDate.toLocaleDateString('en-GB', {
           year: 'numeric',
           month: 'long',
           day: 'numeric',
         })}
       </span>
 
-      {/* Right chevron → subtract 1 from days-ago, min 0 */}
-      <a href={`${baseUrl}/${nextDaysAgo}`} className="mx-1">
-        <ChevronRightIcon className="h-6 w-6 hover:text-pink-600" />
-      </a>
+      {/* Right chevron → next date (only if not today) */}
+      {!isToday && (
+        <a href={`${baseUrl}/${nextDate}`} className="mx-1" aria-label="Next day">
+          <ChevronRightIcon className="h-6 w-6 hover:text-pink-600" />
+        </a>
+      )}
     </div>
   );
 }
