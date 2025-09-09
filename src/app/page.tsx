@@ -109,7 +109,16 @@ export default async function Home() {
            
           </div>
 
-         
+          <div className="mobile-only">
+  {/* AdSense Code */} 
+  <AdSlot
+            format="fluid"
+            layout="-gh-5+1v-2l-d"
+            client="ca-pub-7212919066729459"
+            slot="4685100751"
+          />
+  
+</div>
 
               <section id="newsletter" >
               <h2 className="font-bold py-5 ">Newsletter</h2>
@@ -155,13 +164,15 @@ export default async function Home() {
         </main>
         <aside className="order-2 w-full lg:order-3 lg:w-1/4 p-4">
           <AdSlot
-            client="ca-pub-7212919066729459"
-            slot="9729092224"
+           client="ca-pub-7212919066729459"
+           slot="9729092224"
+           format="auto"
           />
           <br />
           <AdSlot
-            client="ca-pub-7212919066729459"
-            slot="4867705256"
+             client="ca-pub-7212919066729459"
+             slot="4867705256"
+             format="auto"
           />
         </aside>
       </div>

@@ -42,12 +42,13 @@ function slugify(name: string) {
 
   let title = `Gazette Company Notices - Appointment of Administrators - Company Compass`;
 
-  let description = `Company Insolvency UK - Appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices published in The Gazette.`;
+  let description = `Appointment of administrators notices published in The Gazette - Company Compass`;
   
 
   export const metadata = {
     title: title,
-    description: description
+    description: description, 
+    keywords: "Gazette Insolvency Notices Appointment Administrators Company Compass"
         ,
         openGraph: {
             title: title,

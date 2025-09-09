@@ -63,8 +63,7 @@ export async function GET(request: Request) {
       const feedUrl = `https://www.thegazette.co.uk/all-notices/publish-date/${date}/notice/data.json?categorycode=all&noticetypes=2410&results-page-size=${pageSize}&results-page=${page}`;
       
       
-      
-      
+      console.log(feedUrl);
       const response = await fetch(feedUrl);
 
       if (!response.ok) {

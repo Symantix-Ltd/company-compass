@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 
-export default function AdSlot({ client, slot, format = 'auto', responsive = 'true', layout_key="" }) {
+export default function AdSlot({ client, slot, format = 'auto', responsive = 'true', layout="" }) {
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({})
@@ -21,7 +21,7 @@ export default function AdSlot({ client, slot, format = 'auto', responsive = 'tr
       data-ad-client={client}
       data-ad-slot={slot}
       data-ad-format={format}
-      data-ad-layout-key={layout_key}
+      data-ad-layout-key={layout}
       data-full-width-responsive={responsive}
     ></ins>
 

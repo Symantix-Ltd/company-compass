@@ -68,8 +68,13 @@ export default async function Insights() {
             </Card>
            
 
-            <AdSlot client="ca-pub-7212919066729459" slot="4685100751"  layout_key="-e5-5+1v-2l-d" />
+            <AdSlot format="fluid"
+            layout="-gh-5+1v-2l-d"
+            client="ca-pub-7212919066729459"
+            slot="4685100751" />
 
+
+            
           </Grid>
           
         ))}
