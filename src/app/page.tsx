@@ -112,7 +112,7 @@ export default async function Home() {
           <div className="mobile-only">
   {/* AdSense Code */} 
   <AdSlot
-            format="fluid"
+            format="auto"
             layout="-gh-5+1v-2l-d"
             client="ca-pub-7212919066729459"
             slot="4685100751"

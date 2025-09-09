@@ -31,7 +31,7 @@ export default function Insights({ posts }: InsightsProps) {
             </Card>
 
             <AdSlot
-              format="fluid"
+              format="auto"
               layout="-gh-5+1v-2l-d"
               client="ca-pub-7212919066729459"
               slot="4685100751"
