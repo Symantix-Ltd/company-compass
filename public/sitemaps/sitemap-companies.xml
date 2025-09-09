@@ -1,573 +1,431 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0001.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0002.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0003.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0004.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0005.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0006.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0007.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0008.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0009.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0010.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0011.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0012.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0013.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0014.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0015.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0016.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0017.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0001.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0002.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0003.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0004.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0005.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0006.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0007.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0008.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0009.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0010.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0011.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0012.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0013.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0014.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0015.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0016.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0017.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0001.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0002.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0003.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0004.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0005.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0006.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0007.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0008.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0009.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0010.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0011.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0012.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0013.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0014.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0015.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0016.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0017.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0001.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0002.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0003.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0004.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0005.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0006.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0007.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0008.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0009.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0010.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0011.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0012.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0013.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0014.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0015.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0016.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0017.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0001.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0002.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0003.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0004.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0005.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0006.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0007.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0008.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0009.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0010.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0011.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0012.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0001.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0002.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0003.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0004.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0005.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0006.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0007.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0008.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0009.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0010.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0011.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0012.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0013.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0014.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0015.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0016.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0017.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0001.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0002.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0003.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0004.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0005.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0006.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0007.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0008.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0009.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0010.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0011.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0012.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0013.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0014.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0015.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0016.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
-
-        <sitemap>
-            <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0017.xml.gz</loc>
-            <lastmod>2025-09-09</lastmod>
-        </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0001.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0002.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0003.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0004.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0005.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0006.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0007.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0008.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0009.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0010.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0011.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0012.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0013.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0014.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0015.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0016.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0017.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0018.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0019.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0020.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0021.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0022.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0023.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0024.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0025.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0026.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0027.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0028.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0029.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0030.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0031.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0032.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0033.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0034.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0035.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0036.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0037.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0038.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0039.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0040.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0041.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0042.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0043.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0044.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0045.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0046.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0047.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0048.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0049.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0050.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0051.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0052.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0053.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0054.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0055.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0056.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0057.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0058.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0059.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0060.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0061.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0062.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0063.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0064.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0065.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0066.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0067.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0068.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0069.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0070.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0071.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0072.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0073.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0074.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0075.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0076.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0077.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0078.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0079.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0080.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0081.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0082.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0083.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0084.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0085.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0086.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0087.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0088.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0089.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0090.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0091.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0092.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0093.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0094.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0095.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0096.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0097.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0098.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0099.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0100.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0101.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0102.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0103.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0104.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0105.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0106.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.companycompass.co.uk/sitemaps/company-sitemap-0107.xml.gz</loc>
+        <lastmod>2025-09-09</lastmod>
+    </sitemap>
 </sitemapindex>
