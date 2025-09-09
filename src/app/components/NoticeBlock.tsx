@@ -20,8 +20,6 @@ function slugify(name: string) {
 async function fetchNotices(endpoint: string): Promise<Notice[]> {
 
 
- 
-
   try {
     const res = await fetch(`/api/gazette/company-insolvency/${endpoint}`);
     if (!res.ok) throw new Error('Failed to fetch');
@@ -120,7 +118,7 @@ export default function NoticeBlock({
       
     
       <ul className="mt-4 list-decimal list-inside space-y-1">
-        {notices.map((notice) => (
+        {notices.slice(0, 5).map((notice) => (
           <li key={notice.id}>
             <a href={notice.insightUrl} className="text-blue-500 underline text-sm">
               {notice.companyName}

@@ -1,5 +1,7 @@
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 import AdSlot from '../../../components/AdSlot';
+import BreadcrumbsWrapper from '../../../components/BreadcrumbsWrapper';
+
 import NoticeDateNavigation from '../../../components/NoticeDateNavigation';
 
 function slugify(name: string) {
@@ -162,7 +164,9 @@ export default async function InsolvencyPage({ params }: { params: Promise<Param
   return (
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
+       
         <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
+        <BreadcrumbsWrapper/>
           <h1 className="font-bold text-3xl">Appointment of Administrators</h1>
           <p>
             Appointment of Administrator notices published in{' '}

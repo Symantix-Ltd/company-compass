@@ -1,6 +1,7 @@
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
 import AdSlot from '../../../components/AdSlot';
 import NoticeDateNavigation from '../../../components/NoticeDateNavigation';
+import BreadcrumbsWrapper from '../../../components/BreadcrumbsWrapper';
 
 function slugify(name: string) {
   return name
@@ -163,6 +164,7 @@ export default async function InsolvencyPage({ params }: { params: Promise<Param
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
         <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
+          <BreadcrumbsWrapper/>
           <h1 className="font-bold text-3xl">Winding-Up Orders</h1>
           <p>
             Winding-Up Order notices published in{' '}
