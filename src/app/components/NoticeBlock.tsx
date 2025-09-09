@@ -18,6 +18,10 @@ function slugify(name: string) {
 }
 
 async function fetchNotices(endpoint: string): Promise<Notice[]> {
+
+
+ 
+
   try {
     const res = await fetch(`/api/gazette/company-insolvency/${endpoint}`);
     if (!res.ok) throw new Error('Failed to fetch');
@@ -72,6 +76,16 @@ export default function NoticeBlock({
   title: string;
   linkUrl?: string;
 }) {
+
+
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  const date = `${yyyy}-${mm}-${dd}`;
+
+  linkUrl = linkUrl + "/" + date;
+
   const [notices, setNotices] = useState<Notice[]>([]);
   const [loading, setLoading] = useState(true);
 

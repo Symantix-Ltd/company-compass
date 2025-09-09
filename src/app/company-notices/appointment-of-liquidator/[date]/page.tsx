@@ -32,13 +32,13 @@ type Params = {
 
 export async function generateMetadata({ params }: { params: Promise<Params> }) {
   const { date } = await params;
-  const title = `Gazette Company Notices - Appointment of Administrators - ${date} - Company Compass`;
-  const description = `Appointment of administrators notices published in The Gazette on ${date} - Company Compass`;
+  const title = `Gazette Company Notices - Appointment of Liquidators - ${date} - Company Compass`;
+  const description = `Appointment of liquidators notices published in The Gazette on ${date} - Company Compass`;
 
   return {
     title,
     description,
-    keywords: "Gazette Insolvency Notices Appointment Administrators Company Compass ${date}",
+    keywords: "Gazette Insolvency Notices Appointment Liquidators Company Compass ${date}",
     openGraph: {
       title,
       description,
@@ -163,9 +163,9 @@ export default async function InsolvencyPage({ params }: { params: Promise<Param
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
         <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
-          <h1 className="font-bold text-3xl">Appointment of Administrators</h1>
+          <h1 className="font-bold text-3xl">Appointment of Liquidators</h1>
           <p>
-            Appointment of Administrator notices published in{' '}
+            Appointment of Liquidators notices published in{' '}
             <a className="italic" href="https://www.thegazette.co.uk">
               The Gazette
             </a>

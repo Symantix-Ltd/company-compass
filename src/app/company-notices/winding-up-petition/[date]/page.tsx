@@ -1,30 +1,6 @@
-// src/app/explorer/insolvency/page.tsx
-
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
-import AdSlot from '../../../components/AdSlot'
-
-
-export const dynamic = 'force-static';
-export const revalidate = 3600;
-
-
-interface Notice {
-  id: string;
-  companyName: string;
-  companyNumber: string;
-  noticeType: string;
-  insightUrl: string;
-  published: string;
-  dateString: string;
-  summary: string;
-}
-
-interface CompanyBlock {
-  companyName: string;
-  companyNumber: string;
-  insightUrl: string;
-  notices: Notice[];
-}
+import AdSlot from '../../../components/AdSlot';
+import NoticeDateNavigation from '../../../components/NoticeDateNavigation';
 
 function slugify(name: string) {
   return name
@@ -34,36 +10,92 @@ function slugify(name: string) {
     .replace(/^-+|-+$/g, '');
 }
 
+export const dynamicParams = true;
 
-  let title = `Gazette Company Notices - Petition to Wind Up (Company) - Company Compass`;
+export async function generateStaticParams() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  const todayStr = `${yyyy}-${mm}-${dd}`;
+  return [{ date: todayStr }];
+}
 
-  let description = `Company Insolvency UK - Recent appointment of administrators, appointment of liquidators, winding up petition notices and winding up order notices published in The Gazette.`;
+
+type Params = {
+  date: string;
+ 
+};
+
+
+
+
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
+  const { date } = await params;
+  const title = `Gazette Company Notices - Winding up petition - ${date} - Company Compass`;
+  const description = `Winding up petition notices published in The Gazette on ${date} - Company Compass`;
+
+  return {
+    title,
+    description,
+    keywords: "Gazette Insolvency Notices Winding up petition Company Compass ${date}",
+    openGraph: {
+      title,
+      description,
+      url: `https://www.companycompass.co.uk/company-notices/winding-up-petition/${date}`,
+    },
+  };
+}
   
 
-  export const metadata = {
-    title: title,
-    description: description
-        ,
-        openGraph: {
-            title: title,
-            description: description,
-            url: `https://www.companycompass.co.uk/company-notices/winding-up-petition`
-          }
-  };
 
 
-export default async function InsolvencyPage() {
-  const res = await fetch(`${process.env.BASE_URL}/api/gazette/company-insolvency/winding-up-petition`, {
-    next: { revalidate },
-  });
+
+
+// ✅ Page component — do NOT define a custom PageProps type
+export default async function InsolvencyPage({ params }: { params: Promise<Params> }) {
+  const { date}   = await params;
+
+  const currentDate = new Date(date);
+  const today = new Date();
+  today.setUTCHours(0, 0, 0, 0);
+  const isToday = currentDate.getTime() === today.getTime();
+
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.BASE_URL;
+
+  const res = await fetch(
+    `${baseUrl}/api/gazette/company-insolvency/winding-up-petition?date=${date}`,
+    { next: { revalidate: isToday ? 3600 : false } }
+  );
 
   if (!res.ok) {
-    console.error('Failed to fetch insolvency data');
-    return <div>Failed to load data.</div>;
+    return (
+      <div className="p-4 bg-red-100 text-red-800 rounded">
+        Failed to load notices for {date}. Please try again later.
+      </div>
+    );
   }
 
   const json = await res.json();
   const entries = Array.isArray(json) ? json : json?.entry || [];
+
+  interface Notice {
+    id: string;
+    companyName: string;
+    companyNumber: string;
+    noticeType: string;
+    insightUrl: string;
+    published: string;
+    dateString: string;
+    summary: string;
+  }
+
+  interface CompanyBlock {
+    companyName: string;
+    companyNumber: string;
+    insightUrl: string;
+    notices: Notice[];
+  }
 
   const notices: Notice[] = entries.flatMap((entry: any) => {
     const id = entry.id;
@@ -77,8 +109,8 @@ export default async function InsolvencyPage() {
 
     if (!companyNumber) return [];
 
-    const date = new Date(published);
-    const dateString = date.toLocaleDateString('en-GB', {
+    const dateObj = new Date(published);
+    const dateString = dateObj.toLocaleDateString('en-GB', {
       day: '2-digit',
       month: 'long',
       year: 'numeric',
@@ -101,83 +133,98 @@ export default async function InsolvencyPage() {
     };
   });
 
-
-// Group notices by companyNumber or companyName
-const grouped: Record<string, CompanyBlock> = {};
-
-for (const notice of notices) {
-  const key = notice.companyNumber;
-  if (!grouped[key]) {
-    grouped[key] = {
-      companyName: notice.companyName,
-      companyNumber: notice.companyNumber,
-      insightUrl: notice.insightUrl,
-      notices: [],
-    };
+  const grouped: Record<string, CompanyBlock> = {};
+  for (const notice of notices) {
+    const key = notice.companyNumber;
+    if (!grouped[key]) {
+      grouped[key] = {
+        companyName: notice.companyName,
+        companyNumber: notice.companyNumber,
+        insightUrl: notice.insightUrl,
+        notices: [],
+      };
+    }
+    grouped[key].notices.push(notice);
   }
-  grouped[key].notices.push(notice);
-}
 
-  
-
-  // Convert grouped object to array and sort by company name
   const companyBlocks = Object.values(grouped).sort((a, b) =>
     a.companyName.localeCompare(b.companyName)
   );
 
+  const formatDate = (d: Date) => d.toISOString().split('T')[0];
+  const previousDateObj = new Date(currentDate);
+  previousDateObj.setDate(currentDate.getDate() - 1);
+  const nextDateObj = new Date(currentDate);
+  nextDateObj.setDate(currentDate.getDate() + 1);
+  const previousDate = formatDate(previousDateObj);
+  const nextDate = nextDateObj <= today ? formatDate(nextDateObj) : null;
+
   return (
     <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
-    <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
-      
-      <h1 className=" mb-4">Petitions to Wind Up (Company)</h1>
-      <p>Recent Petition to Wind Up (Company) notices published in <a className=" italic" href="https://www.thegazette.co.uk">The Gazette</a></p>
-<br/>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {companyBlocks.map((company) => (
-          <div key={company.companyNumber || company.companyName} className="border p-4 rounded shadow-sm flex gap-4">
-            <div className="w-10 h-10 flex-shrink-0">
-              <BuildingOfficeIcon className="size-6 text-blue-500" />
-            </div>
-            <div className="flex-1">
-              <a href={company.insightUrl} className="text-blue-600 font-bold text-base">
-                {company.companyName}
-              </a>
-              {company.companyNumber && (
-                <p className="text-sm text-gray-500 mb-2">
-                  Company Number: {company.companyNumber}
-                </p>
-              )}
+        <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg text-gray-900">
+          <h1 className="font-bold text-3xl">Winding up Petition</h1>
+          <p>
+            Winding up Petition notices published in{' '}
+            <a className="italic" href="https://www.thegazette.co.uk">
+              The Gazette
+            </a>
+          </p>
 
-              <div className="space-y-2">
-                {company.notices.map((notice) => (
-                  <div key={notice.id} className="border-t pt-2">
-                    <span className="block text-sm font-medium">{notice.noticeType}</span>
-                    <span className="block text-xs text-gray-500 mb-1">Published: {notice.dateString}</span>
-                    <p className="text-sm text-gray-700">{notice.summary}</p>
+          <NoticeDateNavigation
+            baseUrl="/company-notices/winding-up-petition"
+            currentDate={date}
+            previousDate={previousDate}
+            nextDate={nextDate}
+          />
+
+          {companyBlocks.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {companyBlocks.map((company) => (
+                <div
+                  key={company.companyNumber || company.companyName}
+                  className="border p-4 rounded shadow-sm flex gap-4"
+                >
+                  <div className="w-10 h-10 flex-shrink-0">
+                    <BuildingOfficeIcon className="size-6 text-blue-500" />
                   </div>
-                ))}
-              </div>
+                  <div className="flex-1">
+                    <a href={company.insightUrl} className="text-blue-600 font-bold text-base">
+                      {company.companyName}
+                    </a>
+                    {company.companyNumber && (
+                      <p className="text-sm text-gray-500 mb-2">
+                        Company Number: {company.companyNumber}
+                      </p>
+                    )}
+                    <div className="space-y-2">
+                      {company.notices.map((notice) => (
+                        <div key={notice.id} className="border-t pt-2">
+                          <span className="block text-sm font-medium">{notice.noticeType}</span>
+                          <span className="block text-xs text-gray-500 mb-1">
+                            Published: {notice.dateString}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
-        ))}
+          ) : (
+            <div className="mt-6 p-6 text-center text-gray-600 bg-yellow-50 border border-yellow-200 rounded">
+              <p className="text-lg font-medium">No notices were published on this date.</p>
+              <p className="text-sm mt-1">Try browsing to a different date using the arrows above.</p>
+            </div>
+          )}
+        </main>
+
+        <aside className="w-full lg:w-1/3 p-4">
+          <AdSlot client="ca-pub-7212919066729459" slot="9729092224" />
+          <br />
+          <AdSlot client="ca-pub-7212919066729459" slot="4867705256" />
+        </aside>
       </div>
-    </main>
-    <aside className="w-full lg:w-1/3 p-4">
-          
-          <AdSlot
-                    client="ca-pub-7212919066729459" 
-                    slot="9729092224"            
-                  />
-          
-          <br/>    
-          <AdSlot
-                    client="ca-pub-7212919066729459" 
-                    slot="4867705256"           
-                  />
-          
-                  </aside>
-</div>
-</div>
+    </div>
   );
 }

@@ -65,26 +65,26 @@ export default async function Home() {
           <NoticeBlock
             endpoint="appointment-of-administrators"
             title="Appointment of Administrators"
-            linkUrl="company-notices/appointment-of-administrators/0"
+            linkUrl="company-notices/appointment-of-administrators"
           />
           <br />
           <NoticeBlock
             endpoint="winding-up-petition"
             title="Petitions to Wind Up (Companies)"
-            linkUrl="company-notices/winding-up-petition/0"
+            linkUrl="company-notices/winding-up-petition"
           />
           <br />
           <NoticeBlock
             endpoint="appointment-of-liquidator"
             title="Appointment of Liquidator"
-            linkUrl="company-notices/appointment-of-liquidator/0"
+            linkUrl="company-notices/appointment-of-liquidator"
           />
 
           <br />
           <NoticeBlock
             endpoint="winding-up-order"
-            title="Petitions to Wind Up (Companies)"
-            linkUrl="company-notices/winding-up-order/0"
+            title="Winding-Up Order"
+            linkUrl="company-notices/winding-up-order"
           />
         </aside>
         {/* Main Content */}
