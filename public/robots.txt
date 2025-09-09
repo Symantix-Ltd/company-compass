@@ -1,7 +1,7 @@
 User-agent: *
 Disallow: /*?*
 
-Sitemap: https://www.companycompass.co.uk/sitemap_index.xml 
+Sitemap: https://www.companycompass.co.uk/sitemaps/sitemap-companies.xml 
 
 User-agent: Amazonbot
 Disallow: /
