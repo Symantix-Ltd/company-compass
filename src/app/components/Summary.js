@@ -79,7 +79,7 @@ export default function Summary({ data }) {
             {data.accounts.last_accounts && (
               <li>Last made up to <LongDate date={parseDate(data.accounts.last_accounts.made_up_to)} /></li>
             )}
-            <li>Accounts type: <span className="text-blue-500 font-bold">{data.accounts.last_accounts.type.toUpperCase()}</span></li>
+            <li>Accounts type: <span className="text-blue-500 font-bold">{data.accounts.last_accounts?.type?.toUpperCase()}</span></li>
             <li className="font-bold">Next accounts due: <LongDate date={parseDate(data.accounts.next_accounts?.due_on)} /></li>
           </ul>
           </div>
