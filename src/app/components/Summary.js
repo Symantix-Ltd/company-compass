@@ -11,7 +11,7 @@ export default function Summary({ data }) {
       {/* Intro */}
       <p className="text-lg text-gray-700 leading-relaxed">
         <span className="font-semibold">{data.company_name}</span> is a{" "}
-        <span className="font-semibold">{data.CompanyCategory}</span> company, incorporated on{" "}
+        <span className="font-semibold">{data.type.toUpperCase()}</span> company, incorporated on{" "}
         <LongDate date={data.date_of_creation} /> with its registered office in{" "}
         <span className="font-medium">{data.registered_office_address.address_line_1}, {data.registered_office_address.locality}</span>.
       </p>
@@ -28,13 +28,13 @@ export default function Summary({ data }) {
         {/* Company Type */}
         <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
           <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Company Type</h3>
-          <p className="text-gray-700 font-bold">{data.CompanyCategory}</p>
+          <p className="text-gray-700 font-bold">{data.type.toUpperCase()}</p>
         </div>
 
         {/* Status */}
         <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
           <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Status</h3>
-          <p className="text-blue-500 font-bold">{data.company_status}</p>
+          <p className="text-blue-500 font-bold">{data.company_status.toUpperCase()}</p>
         </div>
 
         {/* Age */}
@@ -67,7 +67,7 @@ export default function Summary({ data }) {
             {data.accounts.last_accounts && (
               <li>Last made up to <LongDate date={parseDate(data.accounts.last_accounts.made_up_to)} /></li>
             )}
-            <li>Accounts type: <span className="text-blue-500 font-bold">{data.accounts.last_accounts.type}</span></li>
+            <li>Accounts type: <span className="text-blue-500 font-bold">{data.accounts.last_accounts.type.toUpperCase()}</span></li>
             <li className="font-bold">Next accounts due: <LongDate date={parseDate(data.accounts.next_accounts.due_on)} /></li>
           </ul>
         </div>
