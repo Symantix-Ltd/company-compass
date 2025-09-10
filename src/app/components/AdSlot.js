@@ -23,6 +23,7 @@ export default function AdSlot({ styleDef={display: 'block'}, client, slot, form
       data-ad-format={format}
       data-ad-layout-key={layout}
       data-full-width-responsive={responsive}
+      responsive="false"
     ></ins>
 
 </div>
