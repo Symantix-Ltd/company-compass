@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 
-export default function AdSlot({ styleDef="display: 'block'", client, slot, format = 'auto', responsive = 'true', layout="" }) {
+export default function AdSlot({ styleDef={display: 'block'}, client, slot, format = 'auto', responsive = 'true', layout="" }) {
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({})

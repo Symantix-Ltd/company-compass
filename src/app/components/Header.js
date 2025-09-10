@@ -20,7 +20,7 @@ export default function Header() {
             <a href="/" className="text-2xl">Company Compass</a>
           </div>
           <p className=" text-gray-600">Transforming Business Intelligence into Actionable Insights</p>
-          <AdSlot client="ca-pub-7212919066729459" slot="3616998459" styleDef="display:inline-block;width:260px;height:50px"/>
+          <AdSlot client="ca-pub-7212919066729459" slot="3616998459" styleDef={{display:inline-block;width:260px;height:50px}}/>
         </div>
       </div>
      
