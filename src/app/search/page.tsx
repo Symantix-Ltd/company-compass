@@ -3,8 +3,8 @@ export const dynamic = 'force-dynamic';
 // app/search/page.tsx
 import SearchForm from '../components/SearchForm'; // adjust path as needed
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
-import AdSlot from '../components/AdSlot'
-
+import AdSlot from '../components/AdSlot';
+import NoticeBlock from '../components/NoticeBlock';
 
 
 interface CompanyResult {
@@ -59,10 +59,44 @@ export default async function SearchPage({ searchParams }: Props) {
   }
 
   return (
+
 <div className="min-h-screen w-full bg-gray-50 text-gray-900">
-<div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
-   
-    <main className="max-w-6xl mx-auto p-6 bg-white rounded-lg text-gray-900">
+      <div className="max-w-7xl mx-auto  flex flex-col lg:flex-row gap-8">
+        <aside className="  order-3 lg:order-1 md:w-full sm:w-full lg:w-1/4 sm:w-1 p-5 ">
+
+        <h2 className="text-2xl">Company Insolvency</h2>
+          <h3 className="text-pink-800 text-bold py-2">Notices published in <a className="italic" href="https://www.thegazette.co.uk/all-notices">The Gazette</a> on {new Date().toLocaleDateString('en-UK', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}</h3>
+
+          <NoticeBlock
+            endpoint="appointment-of-administrators"
+            title="Appointment of Administrators"
+            linkUrl="company-notices/appointment-of-administrators"
+          />
+          <br />
+          <NoticeBlock
+            endpoint="winding-up-petition"
+            title="Petitions to Wind Up (Companies)"
+            linkUrl="company-notices/winding-up-petition"
+          />
+          <br />
+          <NoticeBlock
+            endpoint="appointment-of-liquidator"
+            title="Appointment of Liquidator"
+            linkUrl="company-notices/appointment-of-liquidator"
+          />
+
+          <br />
+          <NoticeBlock
+            endpoint="winding-up-order"
+            title="Winding-Up Order"
+            linkUrl="company-notices/winding-up-order"
+          />
+</aside>
+    <main className="order-1 lg:order-2 flex-1 p-5">
        
     <h1 className=" text-3xl font-bold">Company Search</h1>
     <p>Search for a company registered with Companies House</p>
@@ -122,7 +156,7 @@ export default async function SearchPage({ searchParams }: Props) {
         })}
       </div>
     </main>
-    <aside className="w-1/4 p-4">
+    <aside className="order-2 w-full lg:order-3 lg:w-1/4 p-4">
           
        
 
