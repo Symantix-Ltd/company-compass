@@ -49,27 +49,42 @@ export default function Summary({ data }) {
         </div>
 
         {/* Confirmation */}
+
+        
         <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
           <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Confirmation</h3>
+         
+          { data.confirmation_statement ? (
+            <div>
           <p className="text-gray-700 font-bold mb-2">
-            Last made up on <LongDate date={data.confirmation_statement.last_made_up_to} /> (<MonthsSince date={data.confirmation_statement.last_made_up_to} /> months ago)
+            Last made up on <LongDate date={data.confirmation_statement?.last_made_up_to} /> (<MonthsSince date={data.confirmation_statement?.last_made_up_to} /> months ago)
           </p>
           <ul className="list-disc list-inside text-gray-600">
-            <li>Next confirmation due: <LongDate date={data.confirmation_statement.next_due} /></li>
-            <li>(<MonthsUntil date={data.confirmation_statement.next_due} /> months remaining)</li>
+            <li>Next confirmation due: <LongDate date={data.confirmation_statement?.next_due} /></li>
+            <li>(<MonthsUntil date={data.confirmation_statement?.next_due} /> months remaining)</li>
           </ul>
+          </div>
+
+          )  : (<p>No confirmation statement data available for this company.</p>) }
         </div>
+        
 
         {/* Accounts */}
         <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
           <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Accounts</h3>
-          <ul className="list-disc list-inside text-gray-600">
+         
+          { data.confirmation_statement ? (
+            <div>
+         <ul className="list-disc list-inside text-gray-600">
             {data.accounts.last_accounts && (
               <li>Last made up to <LongDate date={parseDate(data.accounts.last_accounts.made_up_to)} /></li>
             )}
             <li>Accounts type: <span className="text-blue-500 font-bold">{data.accounts.last_accounts.type.toUpperCase()}</span></li>
-            <li className="font-bold">Next accounts due: <LongDate date={parseDate(data.accounts.next_accounts.due_on)} /></li>
+            <li className="font-bold">Next accounts due: <LongDate date={parseDate(data.accounts.next_accounts?.due_on)} /></li>
           </ul>
+          </div>
+
+          ) :  (<p>No accounts data available for this company.</p>) }
         </div>
 
         {/* SIC / Nature of Business */}
