@@ -32,9 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-T2HVKFJV" />
+     
       <head>
-      
+      <GoogleTagManager gtmId="G-G3QMGDEF71" />
   
       <meta name="msvalidate.01" content="6F2D6D7E6622829F73D997615CEEA43D" />
       <script async src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
