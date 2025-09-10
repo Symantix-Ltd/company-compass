@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { QuestionMarkCircleIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import SearchBar from "./SearchBar";
-
+import AdSlot from "./AdSlot";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,9 +20,10 @@ export default function Header() {
             <a href="/" className="text-2xl">Company Compass</a>
           </div>
           <p className=" text-gray-600">Transforming Business Intelligence into Actionable Insights</p>
+          <AdSlot client="ca-pub-7212919066729459" slot="3616998459" styleDef="display:inline-block;width:260px;height:50px"/>
         </div>
       </div>
-
+     
 
       {/* Desktop Menu */}
       <nav className="hidden md:flex space-x-6 text-sm">
