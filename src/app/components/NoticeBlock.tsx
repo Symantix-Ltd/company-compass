@@ -18,8 +18,6 @@ function slugify(name: string) {
 }
 
 async function fetchNotices(endpoint: string): Promise<Notice[]> {
-
-
   try {
     const res = await fetch(`/api/gazette/company-insolvency/${endpoint}`);
     if (!res.ok) throw new Error('Failed to fetch');
@@ -46,7 +44,6 @@ async function fetchNotices(endpoint: string): Promise<Notice[]> {
       };
     });
 
-  
     notices.sort((a: Notice, b: Notice) => a.companyName.localeCompare(b.companyName));
 
     return notices;
@@ -56,26 +53,17 @@ async function fetchNotices(endpoint: string): Promise<Notice[]> {
   }
 }
 
-
-type NoticeBlockProps = React.HTMLAttributes<HTMLDivElement> & {
-    endpoint: string;
-    title: string;
-    linkUrl?: string;
-  };
-
-  
+type NoticeBlockProps = {
+  endpoint: string;
+  title: string;
+  linkUrl?: string;
+};
 
 export default function NoticeBlock({
   endpoint,
   title,
   linkUrl,
-}: {
-  endpoint: string;
-  title: string;
-  linkUrl?: string;
-}) {
-
-
+}: NoticeBlockProps) {
   const today = new Date();
   const yyyy = today.getFullYear();
   const mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -94,33 +82,35 @@ export default function NoticeBlock({
     });
   }, [endpoint]);
 
-  if (loading) return <p className="italic"></p>;
-  if (notices.length === 0) return ( 
-  
-    <div className="p-4 bg-blue-100 rounded">
-      <p className="text-blue-600 font-bold  py-2">{title}</p>
-      <p>No recent notices found.</p>
-      {linkUrl && (
-        <p className="mt-1 text-sm py-5">
-          <a className="italic" href={linkUrl}>View all {title} notices</a>
-          
-        </p>
-        
-      )}
+  if (loading) return <p className="italic text-sm text-gray-500">Loading...</p>;
+
+  if (notices.length === 0) {
+    return (
+      <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg shadow-sm">
+        <p className="text-lg font-semibold text-blue-700 mb-2">{title}</p>
+        <p className="text-sm text-gray-700">No recent notices found.</p>
+        {linkUrl && (
+          <p className="mt-4 text-sm">
+            <a className="text-blue-600 hover:underline italic" href={linkUrl}>
+              View all {title} notices
+            </a>
+          </p>
+        )}
       </div>
-
-
-  );
+    );
+  }
 
   return (
-    <div className="p-4 bg-blue-100 rounded">
-      <p className="text-blue-600 font-bold  py-2">{title}</p>
-      
-    
-      <ul className="mt-4 list-decimal list-inside space-y-1">
+    <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg shadow-sm">
+      <p className="text-lg font-semibold text-blue-700 mb-4">{title}</p>
+
+      <ul className="list-decimal list-inside space-y-2 text-sm text-blue-800">
         {notices.slice(0, 5).map((notice) => (
           <li key={notice.id}>
-            <a href={notice.insightUrl} className="text-blue-500 underline text-sm">
+            <a
+              href={notice.insightUrl}
+              className="hover:text-blue-600 hover:underline transition"
+            >
               {notice.companyName}
             </a>
           </li>
@@ -128,13 +118,12 @@ export default function NoticeBlock({
       </ul>
 
       {linkUrl && (
-        <p className="mt-1 text-sm py-5">
-          <a className="italic" href={linkUrl}>View all {title} notices</a>
-          
+        <p className="mt-6 text-sm">
+          <a className="text-blue-600 hover:underline italic" href={linkUrl}>
+            View all {title} notices
+          </a>
         </p>
-        
       )}
     </div>
   );
 }
-
