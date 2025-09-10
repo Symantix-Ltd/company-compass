@@ -6,7 +6,6 @@ import Link from 'next/link';
 import ShareButtons from './ShareButtons';
 import CompanySchema from './CompanySchema';
 
-
 export function YearsSince(dateInput) {
     if (!dateInput) return null; // handle null/undefined
   
@@ -65,6 +64,8 @@ export function YearsSince(dateInput) {
 
   return (
     <div className="border rounded shadow-md p-6 md:flex md:justify-between md:items-start space-y-4 md:space-y-0 bg-silver">
+      
+
       <CompanySchema companyData={company} />
       {/* Left Section */}
       <div className="md:flex-1">

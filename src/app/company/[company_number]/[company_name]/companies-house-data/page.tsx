@@ -137,11 +137,16 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     
             </div>
             <br/>
+            <AdSlot  styleDef={{display:'block'}} layout="in-article" format="fluid" client="ca-pub-7212919066729459" slot="5570042676"/>
+<br/>
             <div className="bg-white rounded-lg  text-gray-900 ">
 
       {/* Header */}
       <CompanyHeader company={data} />
               
+<br/>
+<AdSlot  styleDef={{display:'block'}} layout="in-article" format="fluid" client="ca-pub-7212919066729459" slot="5570042676"/>
+
 <br/>
             <CompanyMenu   company_number={company_number} company_name={company_name} />
 
