@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
+import AdSlot from './AdSlot';
 interface Notice {
   id: string;
   companyName: string;
@@ -86,6 +86,7 @@ export default function NoticeBlock({
 
   if (notices.length === 0) {
     return (
+      <div>
       <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg shadow-sm">
         <p className="text-lg font-semibold text-blue-700 mb-2">{title}</p>
         <p className="text-sm text-gray-700">No recent notices found.</p>
@@ -97,10 +98,14 @@ export default function NoticeBlock({
           </p>
         )}
       </div>
+      <AdSlot client="ca-pub-7212919066729459" slot="3616998459"/>
+    
+      </div>
     );
   }
 
   return (
+    <div>
     <div className="p-6 bg-blue-50 border border-blue-200 rounded-lg shadow-sm">
       <p className="text-lg font-semibold text-blue-700 mb-4">{title}</p>
 
@@ -124,6 +129,10 @@ export default function NoticeBlock({
           </a>
         </p>
       )}
+
+  
+    </div>
+    <AdSlot client="ca-pub-7212919066729459" slot="3616998459" />
     </div>
   );
 }
