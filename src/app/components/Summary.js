@@ -10,7 +10,7 @@ export default function Summary({ data }) {
 
       {/* Intro */}
       <p className="text-lg text-gray-700 leading-relaxed">
-        <span className="font-semibold">{data.CompanyName}</span> is a{" "}
+        <span className="font-semibold">{data.company_name}</span> is a{" "}
         <span className="font-semibold">{data.CompanyCategory}</span> company, incorporated on{" "}
         <LongDate date={data.IncorporationDate} /> with its registered office in{" "}
         <span className="font-medium">{data.RegAddress_AddressLine2}, {data.RegAddress_PostTown}</span>.
@@ -22,7 +22,7 @@ export default function Summary({ data }) {
         {/* Company Name */}
         <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
           <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Company Name</h3>
-          <p className="text-lg font-bold">{data.CompanyName}</p>
+          <p className="text-lg font-bold">{data.company_name}</p>
         </div>
 
         {/* Company Type */}

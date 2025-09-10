@@ -16,15 +16,11 @@ export default function CompanyAddress({ data }) {
   
   if (!data) return null;
 
-  const {
-    RegAddress_AddressLine1,
-    RegAddress_PostTown,
-    RegAddress_PostCode,
-    CountryOfOrigin
-    
-   
-  } = data;
-
+  
+   const RegAddress_AddressLine1 = data.registered_office_address.address_line_1;
+   const RegAddress_PostTown = data.registered_office_address.locality;
+   const RegAddress_PostCode = data.registered_office_address.postal_code;
+   const CountryOfOrigin = data.registered_office_address.country;
   const postcodeLink =  RegAddress_PostCode ? `/explorer/postcode/${RegAddress_PostCode.replace(
     /\s+/g,
     "-"
@@ -34,7 +30,7 @@ export default function CompanyAddress({ data }) {
   
   const mapWidth = 150;
   const mapHeight = 233;
-  const postcode = data.RegAddress_PostCode;
+  const postcode = RegAddress_PostCode;
 
   const [pinStyle, setPinStyle] = useState({ left: "0px", top: "0px" });
 

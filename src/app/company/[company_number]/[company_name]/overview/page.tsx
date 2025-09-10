@@ -43,10 +43,17 @@ export async function generateMetadata(
 
     const data = await getCompanyData(company_number);
 
-    const title = `Overview of ${data?.CompanyName} - free business summary taken from official Companies House information. Registered as ${company_number}`;
+    const CompanyName = data.company_name;
+    const RegAddress_AddressLine1 = data.registered_office_address.address_line_1;
+    const RegAddress_PostTown = data.registered_office_address.locality;
+    const RegAddress_PostCode = data.registered_office_address.postal_code;
+    const CountryOfOrigin = data.registered_office_address.country;
 
 
-    const description = `${data?.CompanyName} ${company_number} is a company located in ${data?.RegAddress_PostTown}, ${data?.RegAddress_PostCode}. Check company credentials including financials, industry, and contact information from Companies House and The Gazette - Company Compass UK`;
+    const title = `Overview of ${CompanyName} - free business summary taken from official Companies House information. Registered as ${company_number}`;
+
+
+    const description = `${CompanyName} ${company_number} is a company located in ${RegAddress_PostTown}, ${RegAddress_PostCode}. Check company credentials including financials, industry, and contact information from Companies House and The Gazette - Company Compass UK`;
     return {
         title: title,
         description: description
@@ -87,7 +94,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         <div className="min-h-screen w-full bg-gray-50 text-gray-900">
       <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
         <main className="max-w-4xl mx-auto p-6 bg-white rounded-lg  text-gray-900">
-        <h1 className="text-3xl font-bold py-5">Company Profile | {data.CompanyName} </h1>
+        <h1 className="text-3xl font-bold py-5">Company Profile | {data.company_name} </h1>
             <div className=" bg-white rounded-lg  text-gray-900" >
                
             <SearchForm/>
@@ -108,16 +115,10 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
             <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 items-stretch ">
                
-                <div className='border border-silver-200 p-10 rounded-lg flex flex-col h-full'>         
-                
-<GleifLookup/>
-              
+                <div className='border border-silver-200 p-10 rounded-lg flex flex-col h-full'>                      
+<GleifLookup/>             
                     </div>
-
-               
-           
-
-                
+  
             </div>
             <br />
 

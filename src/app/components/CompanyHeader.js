@@ -45,17 +45,17 @@ export function YearsSince(dateInput) {
     if (!company) return null; // safety check
   
     // Map data from company object
-    const name = company.CompanyName;
-    const companyNumber = company.CompanyNumber;
-    const status = company.CompanyStatus;
-    const age = company.incorporationDate; // or calculate years if needed
+    const name = company.company_name;
+    const companyNumber = company.company_number;
+    const status = company.company_status;
+    const age = company.date_of_creation; // or calculate years if needed
     const directors = company.DirectorsCount; // optional if available
     const address = {
-      street: company.RegAddress_AddressLine1,
-      region: company.RegAddress_PostTown ,
-      postalCode: company.RegAddress_PostCode,
+      street: company.registered_office_address.address_line_1,
+      region: company.registered_office_address.locality ,
+      postalCode: company.registered_office_address.postal_code,
     };
-    const country = company.RegAddress_Country;
+    const country = company.registered_office_address.country;
 
     const companyNameSlug = slugify(name);
     
@@ -96,7 +96,7 @@ export function YearsSince(dateInput) {
                 href={`./companies-house-data`}
                 className="hover:underline"
               >
-                Age: <span className="font-semibold"><YearsSince date={age}/></span>
+                Age: <span className="font-semibold"><YearsSince date={age}/> years</span>
               </Link>
             </li>
           )}
