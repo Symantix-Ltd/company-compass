@@ -107,7 +107,7 @@ export default async function SearchPage({ searchParams }: Props) {
 <br/>
       {results.length === 0 && query && <p>No results found.</p>}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
+      <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 items-stretch">
         {results.map((company) => {
           const slug = `${company.company_number}/${slugify(company.title)}/companies-house-data`;
           const companyUrl = `/company/${slug}`;
