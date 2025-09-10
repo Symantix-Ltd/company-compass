@@ -77,8 +77,7 @@ export default async function InsightsShort() {
               </CardContent>
             </Card>
 
-<AdSlot client="ca-pub-7212919066729459" slot="4685100751" styleDef={{  width: '260px', height: '50px' }} layout_key="-e5-5+1v-2l-d" />
-
+            <AdSlot client="ca-pub-7212919066729459" slot="3616998459"/>
 
 
 

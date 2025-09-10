@@ -30,12 +30,7 @@ export default function Insights({ posts }: InsightsProps) {
               </CardContent>
             </Card>
 
-            <AdSlot
-              format="auto"
-              layout="-gh-5+1v-2l-d"
-              client="ca-pub-7212919066729459"
-              slot="4685100751"
-            />
+            <AdSlot client="ca-pub-7212919066729459" slot="3616998459"/>
           </div>
         ))}
       </Grid>

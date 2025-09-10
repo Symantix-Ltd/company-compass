@@ -142,7 +142,7 @@ for (const notice of notices) {
   day: 'numeric',
 })}</h3>
     
-    <div className="grid grid-cols-2  gap-10 ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 ">
     <NoticeBlock
   endpoint="appointment-of-administrators"
   title="Appointment of Administrators"
