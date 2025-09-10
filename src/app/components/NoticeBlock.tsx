@@ -98,7 +98,7 @@ export default function NoticeBlock({
           </p>
         )}
       </div>
-      <AdSlot client="ca-pub-7212919066729459" slot="3616998459"/>
+      
     
       </div>
     );
@@ -132,7 +132,12 @@ export default function NoticeBlock({
 
   
     </div>
-    <AdSlot client="ca-pub-7212919066729459" slot="3616998459" />
+   
     </div>
   );
 }
+
+
+
+//  <AdSlot client="ca-pub-7212919066729459" slot="3616998459" />
+//<AdSlot client="ca-pub-7212919066729459" slot="3616998459"/>
