@@ -17,7 +17,7 @@ export default function AdSlot({ styleDef="display: 'block'", client, slot, form
       <script async src={'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + client }
      crossorigin="anonymous"></script>
     <ins className="adsbygoogle"
-      style={{styleDef}}
+      style={styleDef}
       data-ad-client={client}
       data-ad-slot={slot}
       data-ad-format={format}
