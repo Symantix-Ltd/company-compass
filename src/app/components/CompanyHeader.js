@@ -86,7 +86,7 @@ export function YearsSince(dateInput) {
           {status && (
             <li>
               <div className=" text-blue-500 font-bold ">
-                {status}
+                {status.toUpperCase()}
               </div>
             </li>
           )}
