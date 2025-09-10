@@ -31,8 +31,9 @@ interface AppointmentListProps {
 export default function AppointmentList({ appointments, personName }: AppointmentListProps) {
   const [showActiveOnly, setShowActiveOnly] = useState(true);
 
+  // ✅ Filter appointments based on resignation
   const filtered = showActiveOnly
-    ? appointments.filter((a) => a.appointed_to.company_status.toLowerCase() === "active")
+    ? appointments.filter((a) => !a.resigned_on) // show only current appointments
     : appointments;
 
   function formatAddress(address: Appointment["address"]) {
@@ -97,7 +98,6 @@ export default function AppointmentList({ appointments, personName }: Appointmen
           key={company.company_number}
           className="border border-gray-300 p-6 bg-white rounded-md shadow-sm"
         >
-          {/* Company Heading */}
           <h2 className="text-xl font-semibold border-b border-gray-200 pb-2 mb-6">
             <Link
               href={`/company/${company.company_number}`}
@@ -107,7 +107,6 @@ export default function AppointmentList({ appointments, personName }: Appointmen
             </Link>
           </h2>
 
-          {/* Loop appointments (usually one per person per company) */}
           {appointments.map((app, idx) => (
             <div key={idx} className="space-y-6">
               {/* Grid Row 1 */}
