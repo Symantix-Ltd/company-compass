@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const response = await fetch(
-      `https://api.company-information.service.gov.uk/advanced-search/companies?sic_codes=${encodeURIComponent(q)}`,
+      `https://api.company-information.service.gov.uk/advanced-search/companies?company_status=active&sic_codes=${encodeURIComponent(q)}`,
       {
         headers: {
           Authorization: "Basic " + Buffer.from(apiKey + ":").toString("base64"),

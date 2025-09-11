@@ -93,11 +93,9 @@ export default async function SearchPage({ params }: { params: Promise<Params> }
     <main className="order-1 lg:order-2 flex-1 p-5">
      
     <h1 className=" text-3xl font-bold">Company Explorer - SIC Code</h1>
-    <p>View companies listed in Companies House using SIC Code</p>
-<br/>
+    <p>Companies listed in Companies House</p>
 
-      <br />
-      <h2 className="text-2xl font-bold mb-4"><span className='font-bold'>{sic_code}</span></h2>
+      <h2 className="text-2xl text-pink-700 mb-4"><span className='font-bold'>{sic_code} - {sicLabel}</span></h2>
 <br/>
 
 
