@@ -2,8 +2,16 @@
 import React from "react";
 import { LongDate, MonthsSince, MonthsUntil, YearsSince, parseDate } from "./utils"; // import your helpers
 
+
+import sicData from "/public/sic.json"; // Import the JSON directly
+
+
 export default function Summary({ data }) {
   if (!data) return null;
+
+  const sicLabels = data.sic_codes?.map(
+    (code) => sicData[code] || "Unknown SIC code"
+  );
 
   return (
     <div className="space-y-10 p-6 max-w-5xl mx-auto">
@@ -90,7 +98,13 @@ export default function Summary({ data }) {
         {/* SIC / Nature of Business */}
         <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200 col-span-1 md:col-span-2 lg:col-span-3">
           <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Nature of Business (SIC)</h3>
-          <p className="text-lg text-gray-700 font-bold">{data.sic_codes}</p>
+          <p className="text-lg text-gray-700 "><ul className=" list-inside ">
+          {sicLabels?.map((label, idx) => (
+          <li key={idx}>
+             <a className="underline" href={`/explorer/sic/${data.sic_codes[idx]}`}>{data.sic_codes[idx]} - {label}</a>
+          </li>
+        ))}
+      </ul></p>
         </div>
 
       </div>
