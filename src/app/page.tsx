@@ -105,7 +105,7 @@ export default async function Home() {
 
             </div>
 <br/>
-            <p><a className="underline" href="/search/person">Search for a Person</a> <a className="underline" href="/explorer/postcode">Search by Postcode</a></p>
+            <p><a className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded" href="/search/person">Search for a Person</a> <a className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded" href="/explorer/postcode">Search by Postcode</a></p>
            
           </div>
 
