@@ -77,8 +77,7 @@ export default async function InsightsShort() {
               </CardContent>
             </Card>
 
-            <AdSlot client="ca-pub-7212919066729459" slot="3616998459"/>
-
+           <br/>
 
 
           </Grid>

@@ -92,14 +92,14 @@ export default function NoticeBlock({
         <p className="text-sm text-gray-700">No recent notices found.</p>
         {linkUrl && (
           <p className="mt-4 text-sm">
-            <a className="text-blue-600 hover:underline italic" href={linkUrl}>
-              View all {title} notices
+            <a className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded" href={linkUrl}>
+              View all  notices
             </a>
           </p>
         )}
       </div>
       
-    
+    <br/>
       </div>
     );
   }
@@ -124,15 +124,15 @@ export default function NoticeBlock({
 
       {linkUrl && (
         <p className="mt-6 text-sm">
-          <a className="text-blue-600 hover:underline italic" href={linkUrl}>
-            View all {title} notices
+          <a className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded" href={linkUrl}>
+            View all  notices
           </a>
         </p>
       )}
 
   
     </div>
-   
+   <br/>
     </div>
   );
 }
