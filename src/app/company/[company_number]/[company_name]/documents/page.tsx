@@ -164,7 +164,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
                  
                   
                     <br />
-                    <FilingHistoryList filings={filing_data} companyNumber={data.CompanyNumber} />
+                    <FilingHistoryList filings={filing_data} companyNumber={company_number} />
 
 
                   

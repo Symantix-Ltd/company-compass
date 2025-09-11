@@ -38,9 +38,9 @@ export default function FilingHistoryList({ filings, companyNumber }) {
               className="button-download shrink-0"
               target="_blank"
               rel="noopener noreferrer"
-              href={'https://find-and-update.company-information.service.gov.uk/company/' + companyNumber + '/filing-history/' + data.transaction_id + '/document?format=pdf&amp;download=0' }
+              href={`/api/company/${companyNumber}/files/${data.transaction_id}.pdf`}
             >
-              <DocumentArrowDownIcon className="size-6 text-blue-500"/>
+              <DocumentArrowDownIcon className="size-6 text-blue-500 font-bold"/>
             </a>
           </div>
         ))}
