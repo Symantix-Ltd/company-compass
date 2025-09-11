@@ -33,8 +33,10 @@ export default function AppointmentList({ appointments, personName }: Appointmen
 
   // ✅ Filter appointments based on resignation
   const filtered = showActiveOnly
-    ? appointments.filter((a) => !a.resigned_on) // show only current appointments
-    : appointments;
+  ? appointments.filter(
+      (a) => !a.resigned_on && a.appointed_to.company_status.toLowerCase() === "active"
+    )
+  : appointments;
 
   function formatAddress(address: Appointment["address"]) {
     const parts = [

@@ -23,13 +23,6 @@ function slugify(title: string | undefined) {
 }
 
 
-
-
-
-
-
-
-
 interface Params {
   sic_code: string;
 }
