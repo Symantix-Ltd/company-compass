@@ -33,4 +33,7 @@ Disallow: /
 User-agent: SeekportBot
 Disallow: /
 
+User-agent: ClaudeBot
+Disallow: /
+
 
