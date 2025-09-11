@@ -1,21 +1,21 @@
 
 import { NextResponse, NextRequest } from 'next/server';
 
-
-
 export async function GET(request: NextRequest) {
   // Extract params from the URL
   const { pathname } = request.nextUrl; 
+
+ 
   // pathname: /api/company/12345678/files/abcd1234.pdf
   const pathParts = pathname.split('/').filter(Boolean);
 
   // Validate path
-  if (pathParts.length < 6) {
+  if (pathParts.length > 5) {
     return NextResponse.json({ error: 'Invalid URL' }, { status: 400 });
   }
 
-  const company_number = pathParts[3]; // index 3: company_number
-  const doc_with_ext = pathParts[5]; // index 5: doc_with_ext
+  const company_number = pathParts[2]; // index 3: company_number
+  const doc_with_ext = pathParts[4]; // index 5: doc_with_ext
 
   if (!doc_with_ext.endsWith('.pdf')) {
     return NextResponse.json({ error: 'Invalid document format' }, { status: 400 });
