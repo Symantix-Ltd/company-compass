@@ -18,8 +18,7 @@ interface CompanyResult {
 }
 
 function slugify(title: string) {
-  return title?
-    .toLowerCase()
+  return title?.toLowerCase()
     .replace(/\./g, '') 
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
