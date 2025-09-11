@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic';
 
-import sicData from "/public/sic.json"; // Import the JSON directly
+import sicData from "@/data/sic.json";
 
 // app/search/page.tsx
 import { BuildingOfficeIcon } from '@heroicons/react/24/solid';
