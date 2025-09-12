@@ -60,7 +60,7 @@ export default function RootLayout({
           <div className="ad-wrapper">
           
 
-<AdSlot client="ca-pub-7212919066729459" slot="6222216159" format="auto" styleDef={{display:'block'}} />
+<AdSlot client="ca-pub-7212919066729459" slot="6222216159"   />
           </div>
         </div>
 
