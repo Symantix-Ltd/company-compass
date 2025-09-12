@@ -98,8 +98,10 @@ export default async function Home() {
             <SearchForm />
           </div>
              {/* Search by Person/Postcode */}
+             <br/>
+             <p>As well as searching by company name, you can search by person name and postcode:</p>
              <p className="mt-4">
-              As well as searching by company name, you can search by person name and postcode:<br/>
+             
             <a className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded mr-2" href="/search/person">Search for a Person</a>
             <a className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded" href="/explorer/postcode">Search by Postcode</a>
           </p>
