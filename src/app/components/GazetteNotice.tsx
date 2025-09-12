@@ -135,16 +135,7 @@ export default function GazetteNotice({ noticeNumber }: GazetteNoticeProps) {
 </p>
       </header>
 
-      {noticeData.company && (
-        <section className="mb-4 p-4 bg-blue-100 rounded-md border border-blue-200">
-          <h3 className="text-xl font-semibold text-blue-700 mb-1">Company</h3>
-          <p><span className="font-semibold">Name:</span> {noticeData.company.name}</p>
-          <p><span className="font-semibold">Number:</span> {noticeData.company.number}</p>
-          <p><span className="font-semibold">Registered Office:</span> {noticeData.company.registeredOffice}</p>
-          {noticeData.company.principalTradingAddress && <p><span className="font-semibold">Principal Trading Address:</span> {noticeData.company.principalTradingAddress}</p>}
-          {noticeData.company.natureOfBusiness && <p><span className="font-semibold">Nature of Business:</span> {noticeData.company.natureOfBusiness}</p>}
-        </section>
-      )}
+     
 
       {noticeData.court && noticeData.court.caseCode && (
         <section className="mb-4 p-4 bg-blue-100 rounded-md border border-blue-200">

@@ -28,10 +28,11 @@ body {
  /* font-family: Arial, Helvetica, sans-serif;*/
 }
 
+/*
 main {
-  padding-top: 80px; /* match header height */
+  padding-top: 80px; 
 }
-
+*/
 aside {
   padding-top: 80px; /* match header height */
   background-color: whitesmoke;
@@ -50,4 +51,28 @@ aside {
   .mobile-only {
     display: block;
   }
+}
+
+/* Ad Banner - just scrolls away normally */
+.ad-banner {
+  width: 100%;
+  background-color: #f7f7f7;
+  padding: 1rem 0;
+  text-align: center;
+  z-index: 10;
+  height:250px;
+}
+
+/* Sticky Header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Optional: spacing between sections */
+main {
+  padding-top: 1rem;
 }
