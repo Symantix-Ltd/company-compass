@@ -69,7 +69,8 @@ export default function GazetteNotice({ noticeNumber }: GazetteNoticeProps) {
   if (error) return <div className="text-red-600 font-bold p-4">Error loading notice: {error}</div>;
   if (!noticeData) return <div className="text-blue-600 font-semibold p-4">Loading notice {noticeNumber}…</div>;
 
-  const noticeText = noticeCodes[noticeData.noticeCode] || '';
+  const noticeText = noticeCodes[String(noticeData.noticeCode) as keyof typeof noticeCodes] || '';
+
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -126,9 +127,12 @@ export default function GazetteNotice({ noticeNumber }: GazetteNoticeProps) {
       <header className="mb-4 border-b border-blue-300 pb-2">
         <h2 className="text font-bold text-blue-800 mb-1">Gazette Notice {noticeData.noticeId}</h2>
         <p><span className="font-semibold">{noticeText}</span></p>
+     
+
         <p className="text-blue-600">
-          Status: <span >{noticeData.status} </span> | {formatDateLong(noticeData.publicationDate)} 
-        </p>
+  Status: <span>{noticeData.status}</span>
+  {noticeData.publicationDate && ` | ${formatDateLong(noticeData.publicationDate)}`}
+</p>
       </header>
 
       {noticeData.company && (

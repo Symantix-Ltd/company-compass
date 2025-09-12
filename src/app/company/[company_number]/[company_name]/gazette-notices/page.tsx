@@ -1,5 +1,4 @@
 // app/company/[company_number]/[company_name]/gazette-notices/page.tsx
-import { revalidate } from 'next/cache';
 import { getRecordFromDynamoDB } from '@/lib/dynamo';
 import CompanyEvents from '../../../../components/CompanyEvents';
 import SearchForm from '../../../../components/SearchForm';
@@ -70,8 +69,6 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
   const notices = await getGazetteNotices(company_number);
 
-
-
   const lastUpdated = new Date().toISOString();
   const formattedDate = new Date(lastUpdated).toLocaleString();
 
@@ -102,11 +99,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
               <div className="mt-4 space-y-4">
                 {notices.length > 0 ? (
                   notices.map((notice: { id: string; status: string; noticeCode: string }) => (
-                    <GazetteNotice
-                     key={notice.id}
-                      noticeNumber={notice.id}
-                     
-                    />
+                    <GazetteNotice key={notice.id} noticeNumber={notice.id} />
                   ))
                 ) : (
                   <p>No Gazette notices found for this company.</p>
