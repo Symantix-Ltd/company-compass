@@ -58,12 +58,9 @@ export default function RootLayout({
         {/* ✅ Ad Banner - scrolls away on scroll */}
         <div className="ad-banner">
           <div className="ad-wrapper">
-          <ins className="adsbygoogle"
-     style={{display:'block'}}
-     data-ad-client="ca-pub-7212919066729459"
-     data-ad-slot="6222216159"
-     
-     data-full-width-responsive="true"></ins>
+          
+
+<AdSlot client="ca-pub-7212919066729459" slot="6222216159" format="auto" style={{display:'block'}} />
           </div>
         </div>
 
