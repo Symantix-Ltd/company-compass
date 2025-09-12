@@ -179,11 +179,22 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             <p>Page last updated: {formattedDate}</p>
             
         </main>
-         <aside className="sm:w-1/3 md:w-1/3 lg:w-1/3 p-4">
+         <aside className="w-full lg:w-1/3 p-4">
          
-         <AdSlot  
-     styleDef={{display:'block'}}
-     format="autorelaxed"
+         <AdSlot
+          client="ca-pub-7212919066729459" 
+          slot="9729092224"            
+        />
+
+      <br/>    
+
+<AdSlot
+          client="ca-pub-7212919066729459" 
+          slot="4867705256"            
+        />
+
+<AdSlot  
+     
      client="ca-pub-7212919066729459"
      slot="7929253338"/>
         </aside>
