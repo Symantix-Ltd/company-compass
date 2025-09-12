@@ -53,6 +53,8 @@ export default function RootLayout({
         <Footer/>
         <Analytics/>
         <SpeedInsights/>
+        <script async data-id="101492637" src="//static.getclicky.com/js"></script>
+
       </body>
     </html>
   );
