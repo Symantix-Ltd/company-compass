@@ -34,7 +34,7 @@ async function fetchNotices(endpoint: string): Promise<Notice[]> {
       if (!companyNumber || !companyName) return [];
 
       const slug = `${companyNumber}/${slugify(companyName)}`;
-      const insightUrl = `/company/${slug}/gazette-notices`;
+      const insightUrl = `/company/${slug}/companies-house-data`;
 
       return {
         id,
