@@ -1,6 +1,3 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
 import noticeCodes from '../../data/notice-codes.json'; // adjust path if needed
 
 interface GazetteNoticeProps {
@@ -24,7 +21,7 @@ interface NoticeData {
     caseCode: string;
   };
   insolvencyPractitioner?: {
-    idCode?: string; // Added for URLs
+    idCode?: string;
     name: string;
     firm: string;
     firmAddress: string;
@@ -33,44 +30,36 @@ interface NoticeData {
   articleHtml?: string;
 }
 
-
 function formatDateLong(dateString: string) {
   if (!dateString) return '';
   const date = new Date(dateString);
   return new Intl.DateTimeFormat('en-GB', {
-    weekday: 'long',  // Friday
-    day: 'numeric',   // 12
-    month: 'long',    // September
-    year: 'numeric',  // 2025
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
   }).format(date);
 }
 
-export default function GazetteNotice({ noticeNumber }: GazetteNoticeProps) {
-  const [noticeData, setNoticeData] = useState<NoticeData | null>(null);
-  const [error, setError] = useState<string | null>(null);
+async function fetchNotice(noticeNumber: string): Promise<NoticeData | null> {
+  try {
+    const res = await fetch(`https://www.companycompass.co.uk/api/gazette/notice?q=${noticeNumber}`);
+    if (!res.ok) return null;
+    return (await res.json()) as NoticeData;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+}
 
-  useEffect(() => {
-    async function fetchNotice() {
-      try {
-        const res = await fetch(`/api/gazette/notice?q=${noticeNumber}`);
-        if (!res.ok) throw new Error('Failed to fetch notice JSON');
+export default async function GazetteNotice({ noticeNumber }: GazetteNoticeProps) {
+  const noticeData = await fetchNotice(noticeNumber);
 
-        const data: NoticeData = await res.json();
-        setNoticeData(data);
-      } catch (err: any) {
-        console.error(err);
-        setError(err.message);
-      }
-    }
-
-    fetchNotice();
-  }, [noticeNumber]);
-
-  if (error) return <div className="text-red-600 font-bold p-4">Error loading notice: {error}</div>;
-  if (!noticeData) return <div className="text-blue-600 font-semibold p-4">Loading notice {noticeNumber}…</div>;
+  if (!noticeData) {
+    return <div className="text-red-600 font-bold p-4">Notice {noticeNumber} not found or failed to load.</div>;
+  }
 
   const noticeText = noticeCodes[String(noticeData.noticeCode) as keyof typeof noticeCodes] || '';
-
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -100,10 +89,7 @@ export default function GazetteNotice({ noticeNumber }: GazetteNoticeProps) {
             "@type": "Event",
             "name": `Court Case ${noticeData.court.caseCode}`,
             "identifier": noticeData.court.caseCode,
-            "location": {
-              "@type": "Place",
-              "name": noticeData.court.name || 'Unknown Court'
-            },
+            "location": { "@type": "Place", "name": noticeData.court.name || 'Unknown Court' },
             "description": `Court proceedings related to the insolvency of ${noticeData.company?.name}`
           }
         : null,
@@ -127,15 +113,11 @@ export default function GazetteNotice({ noticeNumber }: GazetteNoticeProps) {
       <header className="mb-4 border-b border-blue-300 pb-2">
         <h2 className="text font-bold text-blue-800 mb-1">Gazette Notice {noticeData.noticeId}</h2>
         <p><span className="font-semibold">{noticeText}</span></p>
-     
-
         <p className="text-blue-600">
-  Status: <span>{noticeData.status}</span>
-  {noticeData.publicationDate && ` | ${formatDateLong(noticeData.publicationDate)}`}
-</p>
+          Status: <span>{noticeData.status}</span>
+          {noticeData.publicationDate && ` | ${formatDateLong(noticeData.publicationDate)}`}
+        </p>
       </header>
-
-     
 
       {noticeData.court && noticeData.court.caseCode && (
         <section className="mb-4 p-4 bg-blue-100 rounded-md border border-blue-200">
@@ -154,12 +136,12 @@ export default function GazetteNotice({ noticeNumber }: GazetteNoticeProps) {
 
           <p className="mt-2">
             <a
-              className="bg-blue-500 hover:bg-blue-400 text-white font-semibold p-1 btn  mr-1 rounded border border-gray-700"
+              className="bg-blue-500 hover:bg-blue-400 text-white font-semibold p-1 btn mr-1 rounded border border-gray-700"
               href={`/explorer/insolvency-practitioner/${noticeData.insolvencyPractitioner.idCode || ''}`}
             >
               Insolvency Practitioner profile
             </a>
-            <br/><br/>
+            <br /><br />
             <a
               className="bg-blue-500 hover:bg-blue-400 text-white font-semibold btn p-1 mr-1 rounded border border-gray-700"
               href={`/search/person?q=${encodeURIComponent(noticeData.insolvencyPractitioner.name)}`}
@@ -168,9 +150,9 @@ export default function GazetteNotice({ noticeNumber }: GazetteNoticeProps) {
             </a>
             {noticeData.insolvencyPractitioner.firm && (
               <>
-                <br/><br/>
+                <br /><br />
                 <a
-                  className="bg-blue-500 hover:bg-blue-400 text-white font-semibold btn p-1  mr-1 rounded border border-gray-700"
+                  className="bg-blue-500 hover:bg-blue-400 text-white font-semibold btn p-1 mr-1 rounded border border-gray-700"
                   href={`/search?q=${encodeURIComponent(noticeData.insolvencyPractitioner.firm)}`}
                 >
                   Company search
@@ -189,7 +171,7 @@ export default function GazetteNotice({ noticeNumber }: GazetteNoticeProps) {
       )}
 
       <p>
-        <a className="hover:bg-blue-100 p-1 btn  mr-1 rounded border border-gray-700" target="_new" href={`https://www.thegazette.co.uk/notice/${noticeData.noticeId}`}>
+        <a className="hover:bg-blue-100 p-1 btn mr-1 rounded border border-gray-700" target="_blank" href={`https://www.thegazette.co.uk/notice/${noticeData.noticeId}`}>
           View original Gazette notice
         </a>
       </p>

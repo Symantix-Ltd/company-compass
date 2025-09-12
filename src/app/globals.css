@@ -56,12 +56,14 @@ aside {
 /* Ad Banner - just scrolls away normally */
 .ad-banner {
   width: 100%;
-  background-color: #f7f7f7;
+  background-color: whitesmoke;
   padding: 1rem 0;
   text-align: center;
   z-index: 10;
-  height:250px;
+  height:150px;
 }
+
+
 
 /* Sticky Header */
 .sticky-header {

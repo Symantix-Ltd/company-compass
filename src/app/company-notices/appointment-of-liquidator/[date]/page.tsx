@@ -67,7 +67,7 @@ export default async function InsolvencyPage({ params }: { params: Promise<Param
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.BASE_URL;
 
   const res = await fetch(
-    `${baseUrl}/api/gazette/company-insolvency/appointment-of-liquidator?date=${date}`,
+    `https://www.companycompass.co.uk/api/gazette/company-insolvency/appointment-of-liquidator?date=${date}`,
     { next: { revalidate: isToday ? 3600 : false } }
   );
 

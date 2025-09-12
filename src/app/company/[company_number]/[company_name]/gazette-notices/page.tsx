@@ -5,7 +5,10 @@ import SearchForm from '../../../../components/SearchForm';
 import AdSlot from '../../../../components/AdSlot';
 import CompanyMenu from '../../../../components/CompanyMenu';
 import CompanyHeader from '../../../../components/CompanyHeader';
-import GazetteNotice from '../../../../components/GazetteNotice';
+import React from 'react';
+import GazetteNotice  from '../../../../components/GazetteNotice' ;
+
+export const dynamic = 'force-dynamic';
 
 interface Params {
   company_number: string;
@@ -24,7 +27,7 @@ async function getCompanyData(company_number: string) {
 
 // Fetch Gazette notices from API
 async function getGazetteNotices(company_number: string) {
-  const res = await fetch(`${process.env.BASE_URL}/api/company/gazette_notices?companyNumber=${company_number}`, {
+  const res = await fetch(`https://www.companycompass.co.uk/api/company/gazette_notices?companyNumber=${company_number}`, {
     cache: 'no-store', // always fetch fresh data
   });
   if (!res.ok) return [];
@@ -98,7 +101,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
               {/* Iterate over notices and display each using GazetteNotice */}
               <div className="mt-4 space-y-4">
                 {notices.length > 0 ? (
-                  notices.map((notice: { id: string; status: string; noticeCode: string }) => (
+                  notices.map((notice: { id: string; }) => (
                     <GazetteNotice key={notice.id} noticeNumber={notice.id} />
                   ))
                 ) : (

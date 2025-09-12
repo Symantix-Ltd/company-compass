@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
 
     const data = await response.json();
 
-    console.log(data);
+  
     return NextResponse.json(data.items || []);
   } catch (err) {
     return NextResponse.json({ error: err }, { status: 500 });

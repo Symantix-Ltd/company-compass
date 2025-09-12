@@ -120,9 +120,9 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     const officer_data = await officer_res.json();
 
 
-    //console.log(officer_data);
+    
 
-    console.log(data);
+   
     return (
         <div className="min-h-screen w-full bg-gray-50 text-gray-900">
            

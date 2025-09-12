@@ -34,7 +34,7 @@ export default async function SearchPage({ params, searchParams }: Props) {
       );
       if (res.ok) {
         results = await res.json();
-        console.log(results);
+        
       }
     } catch (err) {
       console.log(err);

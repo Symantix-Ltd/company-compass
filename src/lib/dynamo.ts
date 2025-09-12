@@ -22,6 +22,5 @@ export async function getRecordFromDynamoDB(company_number: string) {
 
   const companyData = await res.json();
 
-  console.log(companyData);
   return companyData;
 }

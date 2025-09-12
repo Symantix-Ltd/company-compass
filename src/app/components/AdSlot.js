@@ -3,13 +3,7 @@
 import { useEffect } from 'react'
 
 export default function AdSlot({ styleDef={display: 'block'}, client, slot, format = 'auto', responsive = 'true', layout="" }) {
-  useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({})
-    } catch (e) {
-      console.error('AdSense error:', e)
-    }
-  }, [])
+  
 
   return (
 
@@ -30,3 +24,15 @@ export default function AdSlot({ styleDef={display: 'block'}, client, slot, form
   )
 }
 
+/*
+
+
+useEffect(() => {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({})
+    } catch (e) {
+      console.error('AdSense error:', e)
+    }
+  }, [])
+
+  */

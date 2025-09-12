@@ -60,7 +60,7 @@ export default function RootLayout({
      style={{display:'block'}}
      data-ad-client="ca-pub-7212919066729459"
      data-ad-slot="6222216159"
-     data-ad-format="auto"
+     
      data-full-width-responsive="true"></ins>
           </div>
         </div>

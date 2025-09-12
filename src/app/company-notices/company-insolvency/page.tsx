@@ -54,7 +54,7 @@ function slugify(name: string) {
 
 
 export default async function InsolvencyPage() {
-  const res = await fetch(`${process.env.BASE_URL}/api/gazette/company-insolvency/publish_date_all`, {
+  const res = await fetch(`https://www.companycompass.co.uk/api/gazette/company-insolvency/publish_date_all`, {
     next: { revalidate },
   });
 
