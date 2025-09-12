@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import noticeCodes from '@/data/notice-codes.json'; // adjust path if needed
+import noticeCodes from '../../data/notice-codes.json'; // adjust path if needed
 
 interface GazetteNoticeProps {
   noticeNumber: string;
