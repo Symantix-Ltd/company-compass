@@ -27,6 +27,13 @@ export const metadata: Metadata = {
     "Company Portal App - UK Company Information and Insights from Companies House, The Gazette and elsewhere - Insolvency News and Analysis - Company Compass",
 };
 
+
+type StyleDef = {
+  display: string;
+  height?: string;
+};
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -61,7 +68,7 @@ export default function RootLayout({
           <div className="ad-wrapper" >
           
 
-<AdSlot client="ca-pub-7212919066729459" slot="6222216159"  styleDef={{display:'block',height:'100px'}} />
+<AdSlot client="ca-pub-7212919066729459" slot="6222216159"  styleDef={{ display: 'block', height: '100px' } as any} />
           </div>
         </div>
 
