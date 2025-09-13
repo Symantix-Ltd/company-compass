@@ -14,7 +14,7 @@ export default function Summary({ data }) {
   );
 
   return (
-    <div className="space-y-10 p-6 max-w-5xl mx-auto">
+    <div className="space-y-10 p-5 max-w-5xl mx-auto">
 
       {/* Intro */}
       <p className="text-lg text-gray-700 leading-relaxed">
@@ -25,30 +25,30 @@ export default function Summary({ data }) {
       </p>
 
       {/* Grid for key metadata */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 ">
 
         {/* Company Name */}
-        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Company Name</h3>
-          <p className="text-lg font-bold">{data.company_name}</p>
+        <div className="bg-gray-100  p-2 rounded-md border border-gray-200">
+          <h3 className=" font-semibold  text-gray-900 mb-2 border-b border-gray-200 pb-1">Company Name</h3>
+          <p className=" ">{data.company_name}</p>
         </div>
 
         {/* Company Type */}
-        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Company Type</h3>
-          <p className="text-gray-700 font-bold">{data.type.toUpperCase()}</p>
+        <div className="bg-gray-100  p-5 rounded-md border border-gray-200">
+          <h3 className=" font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Company Type</h3>
+          <p className="text-gray-700 ">{data.type.toUpperCase()}</p>
         </div>
 
         {/* Status */}
-        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Status</h3>
-          <p className="text-blue-500 font-bold">{data.company_status.toUpperCase()}</p>
+        <div className="bg-gray-100  p-5 rounded-md border border-gray-200">
+          <h3 className="font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Status</h3>
+          <p className="text-blue-500 ">{data.company_status.toUpperCase()}</p>
         </div>
 
         {/* Age */}
-        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Age</h3>
-          <p className="text-lg text-gray-700 font-bold">
+        <div className="bg-gray-100  p-5 rounded-md border border-gray-200">
+          <h3 className=" font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Age</h3>
+          <p className=" text-gray-700 ">
             <YearsSince date={data.date_of_creation} /> years
           </p>
           <p className="text-gray-500 italic">
@@ -59,12 +59,12 @@ export default function Summary({ data }) {
         {/* Confirmation */}
 
         
-        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Confirmation</h3>
+        <div className="bg-gray-100  p-5 rounded-md border border-gray-200">
+          <h3 className=" font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Confirmation</h3>
          
           { data.confirmation_statement ? (
             <div>
-          <p className="text-gray-700 font-bold mb-2">
+          <p className="text-gray-700  mb-2">
             Last made up on <LongDate date={data.confirmation_statement?.last_made_up_to} /> (<MonthsSince date={data.confirmation_statement?.last_made_up_to} /> months ago)
           </p>
           <ul className="list-disc list-inside text-gray-600">
@@ -78,8 +78,8 @@ export default function Summary({ data }) {
         
 
         {/* Accounts */}
-        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Accounts</h3>
+        <div className="bg-gray-100  p-5 rounded-md border border-gray-200">
+          <h3 className=" font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Accounts</h3>
          
           { data.confirmation_statement ? (
             <div>
@@ -96,9 +96,9 @@ export default function Summary({ data }) {
         </div>
 
         {/* SIC / Nature of Business */}
-        <div className="bg-white shadow-sm p-5 rounded-md border border-gray-200 col-span-1 md:col-span-2 lg:col-span-3">
-          <h3 className="text-xl font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Nature of Business (SIC)</h3>
-          <p className="text-lg text-gray-700 "><ul className=" list-inside ">
+        <div className="bg-gray-100 p-5 rounded-md border border-gray-200 col-span-1 md:col-span-2 lg:col-span-3">
+          <h3 className=" font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-1">Nature of Business (SIC)</h3>
+          <p className=" text-gray-700 "><ul className=" list-inside ">
           {sicLabels?.map((label, idx) => (
           <li key={idx}>
              <a className="underline" href={`/explorer/sic/${data.sic_codes[idx]}`}>{data.sic_codes[idx]} - {label}</a>

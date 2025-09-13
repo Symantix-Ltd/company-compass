@@ -149,9 +149,9 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 items-stretch ">
+            <div className="grid sm:grid-cols-1  items-stretch ">
                 {/* Summary company information */}
-                <div className='border border-silver-200 p-10 rounded-lg flex flex-col h-full'>         
+                <div className='border border-silver-200 p-1 rounded-lg flex flex-col h-full'>         
                  <Summary data={data}/>
                     </div>
 
@@ -179,7 +179,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
             <p>Page last updated: {formattedDate}</p>
             
         </main>
-         <aside className="w-full lg:w-1/3 p-4">
+         <aside className="w-full lg:w-1/3 p-2">
          
          <AdSlot
           client="ca-pub-7212919066729459" 
