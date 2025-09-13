@@ -56,11 +56,12 @@ export default function RootLayout({
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* ✅ Ad Banner - scrolls away on scroll */}
-        <div className="ad-banner">
-          <div className="ad-wrapper">
+        
+        <div className="ad-banner" >
+          <div className="ad-wrapper" >
           
 
-<AdSlot client="ca-pub-7212919066729459" slot="6222216159"   />
+<AdSlot client="ca-pub-7212919066729459" slot="6222216159"  styleDef={{display:'block',height:'100px'}} />
           </div>
         </div>
 
