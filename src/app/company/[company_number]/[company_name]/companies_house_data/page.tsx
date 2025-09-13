@@ -2,7 +2,8 @@ import { redirect } from 'next/navigation';
 
 
 type Params = {
-    company_slug: string;
+    company_number: string;
+    company_name: string;
   };
 
 export default async function Page({ params }: { params: Promise<Params> }) {
